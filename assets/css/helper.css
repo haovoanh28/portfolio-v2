@@ -1,0 +1,15 @@
+.bg-transparent {
+  background-color: transparent;
+}
+
+.border-radius {
+  border-radius: 2rem;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.text-muted {
+  color: #6c757d !important
+}

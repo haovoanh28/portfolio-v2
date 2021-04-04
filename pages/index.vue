@@ -1,63 +1,50 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">portfolio-v2</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+    <Banner />
+    <About />
   </div>
 </template>
 
 <script>
-export default {}
+import About from '@/components/home/About'
+export default {
+  components: {
+    About: About,
+  },
+}
 </script>
 
-<style>
+<style lang="scss">
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
+}
+
+.home-decor {
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+  margin: 1.5rem 0;
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
+  span {
+    position: relative;
+  }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
+  span::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background-color: #d0d0d0;
+    position: absolute;
+    top: 50%;
+    transform: translate(-150%, 40%);
+  }
 
-.links {
-  padding-top: 15px;
+  span::after {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background-color: #d0d0d0;
+    position: absolute;
+    top: 50%;
+    transform: translate(50%, 40%);
+  }
 }
 </style>
