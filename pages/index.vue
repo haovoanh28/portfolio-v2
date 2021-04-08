@@ -2,14 +2,29 @@
   <div class="container">
     <Banner />
     <About />
+    <Education />
+    <SmallBanner
+      imgSrc="/images/hired-bg.jpg"
+      content="I Am Available For Freelancer"
+      btnContent="Hire Me!"
+    />
+    <Contact />
   </div>
 </template>
 
 <script>
+import Banner from '@/components/home/Banner'
 import About from '@/components/home/About'
+import Education from '@/components/home/Education'
+import SmallBanner from '@/components/home/SmallBanner'
+import Contact from '@/components/home/Contact'
 export default {
   components: {
     About: About,
+    Education: Education,
+    Banner: Banner,
+    SmallBanner: SmallBanner,
+    Contact: Contact,
   },
 }
 </script>

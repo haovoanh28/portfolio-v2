@@ -27,7 +27,7 @@
       </p>
       <div class="banner-icons">
         <v-icon name="brands/facebook-f"></v-icon>
-        <v-icon name="brands/git"></v-icon>
+        <v-icon name="brands/github"></v-icon>
         <v-icon name="brands/google-plus-g"></v-icon>
         <v-icon name="brands/twitter"></v-icon>
       </div>
@@ -72,15 +72,6 @@ export default {
   }
 }
 
-.bg-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
 .banner {
   z-index: 2; /**higher than bg-overlay */
   color: #fff;
@@ -102,7 +93,7 @@ export default {
 
   span {
     font-size: inherit;
-    font-weight: 500;
+    font-weight: 700;
   }
 
   .blink {
@@ -123,11 +114,11 @@ export default {
 }
 
 .banner-button {
-  margin-top: 3rem;
+  margin-top: 4.5rem;
 }
 
 .banner-scoll_down {
-  margin-top: 6rem;
+  margin-top: 7rem;
 
   a {
     position: relative;

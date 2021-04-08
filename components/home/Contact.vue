@@ -1,0 +1,157 @@
+<template>
+  <div class="contact">
+    <p class="contact-title text-title">
+      Get In <span class="fw-700">Touch</span>
+    </p>
+    <div class="home-decor">
+      <span> <v-icon name="asterisk"></v-icon> </span>
+    </div>
+    <p class="contact-p text-muted text-center">
+      If you are interested in me, here is my contact :
+    </p>
+    <div class="contact-main">
+      <div class="contact-static">
+        <div
+          class="static-content"
+          v-for="(contact, index) in contacts"
+          :key="`contact-${index}`"
+        >
+          <v-icon :name="contact.iconName" scale="2.5"></v-icon>
+          <p class="text-title fw-700">{{ contact.action }}</p>
+          <p class="text-muted">{{ contact.info }}</p>
+        </div>
+      </div>
+      <div class="contact-form">
+        <form class="form">
+          <div class="form-info">
+            <BaseInput placeholder="Your name ... " label="Name" type="text" />
+            <BaseInput
+              placeholder="Your email ... "
+              label="Email address"
+              type="email"
+            />
+          </div>
+          <div class="form-subject">
+            <BaseInput
+              placeholder="Your Subject ... "
+              label="Subject"
+              type="text"
+            />
+          </div>
+          <div class="form-message">
+            <BaseInput
+              placeholder="Your Message ... "
+              label="Message"
+              textarea
+            />
+          </div>
+          <div class="form-button">
+            <BaseButton blackBtn type="submit">Send Message</BaseButton>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      contacts: [
+        {
+          iconName: 'mobile-alt',
+          action: 'Call Me On',
+          info: '+84 901 385 336',
+        },
+        {
+          iconName: 'regular/envelope',
+          action: 'Email Me At',
+          info: 'haovoanh28@gmail.com',
+        },
+        {
+          iconName: 'map-marker-alt',
+          action: 'Live In',
+          info: 'Ho Chi Minh City, Vietnam',
+        },
+      ],
+    }
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+.contact {
+  margin: var(--section-margin) 0;
+}
+
+.contact-title {
+  font-size: var(--title-font-size);
+  text-align: center;
+  & > * {
+    font-size: inherit;
+  }
+}
+
+.contact-p {
+  padding-top: 0.5rem;
+}
+
+.contact-main {
+  padding: 7rem 5% 0 5%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.contact-static {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  margin-top: 0.5rem;
+
+  p:nth-of-type(1) {
+    padding: 0.6rem 0 0.2rem 0;
+  }
+
+  & div:not(:first-child) {
+    margin-top: 3.2rem;
+  }
+}
+
+.contact-form {
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 3rem;
+
+  &-info {
+    grid-column: 1/3;
+    display: flex;
+    justify-content: space-between;
+
+    .input_group {
+      width: 47%;
+    }
+  }
+
+  &-subject {
+    grid-column: 1/3;
+  }
+
+  &-message {
+    grid-column: 1/3;
+  }
+
+  &-button {
+    transform: translateY(-2rem);
+    grid-column: 2/4;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    justify-self: flex-end;
+  }
+}
+</style>

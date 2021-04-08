@@ -2,20 +2,27 @@
   <div class="body">
     <Header />
     <Nuxt />
+    <Footer />
   </div>
 </template>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
 :root {
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
-  --text-muted-color: #6c757d;
+  --section-margin: 5.8rem;
+  --title-font-size: 3.5rem;
+  --title-color: #212529;
+
+  --color-muted: #6c757d;
+  --color-gray: #e7e7e7;
 }
 html {
-  font-family: var(--font-family-sans-serif);
+  font-family: Nunito, var(--font-family-sans-serif);
   font-size: 10px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -31,7 +38,11 @@ html {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+}
+
+*::selection {
+  background: rgba(166, 175, 189, 0.3);
 }
 
 .body {

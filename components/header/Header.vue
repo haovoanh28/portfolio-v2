@@ -17,16 +17,7 @@
 export default {
   data() {
     return {
-      nav: [
-        'home',
-        'about',
-        'services',
-        'education',
-        'work',
-        'client',
-        'blog',
-        'contact',
-      ],
+      nav: ['home', 'about', 'education', 'blog', 'contact'],
     }
   },
 }
@@ -71,7 +62,7 @@ export default {
     text-decoration: none;
     text-transform: capitalize;
     color: white;
-    font-weight: 500;
+    font-weight: 600;
   }
 }
 
