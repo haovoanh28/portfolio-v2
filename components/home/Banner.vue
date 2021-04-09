@@ -83,6 +83,10 @@ export default {
 .banner-welcome {
   font-size: 2.6rem;
   letter-spacing: 1px;
+
+  @include extra_small_device {
+    font-size: 1.8rem;
+  }
 }
 
 .banner-introduce {
@@ -102,6 +106,10 @@ export default {
     font-size: 6rem;
     display: inline-block;
     transform: translateY(-7px);
+  }
+
+  @include extra_small_device {
+    font-size: 5rem;
   }
 }
 

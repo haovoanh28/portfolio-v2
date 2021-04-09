@@ -90,6 +90,10 @@ export default {
     left: 0;
     right: 0;
   }
+
+  @include extra_small_device {
+    padding: 0 10%;
+  }
 }
 
 .board-box {

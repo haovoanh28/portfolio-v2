@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
 :root {
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -20,6 +20,12 @@
 
   --color-muted: #6c757d;
   --color-gray: #e7e7e7;
+
+  @include extra_small_device {
+    & {
+      --title-font-size: 2.5rem;
+    }
+  }
 }
 html {
   font-family: Nunito, var(--font-family-sans-serif);

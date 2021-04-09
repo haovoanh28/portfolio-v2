@@ -153,7 +153,7 @@ export default {
 
 .about-info {
   .info-name {
-    font-size: 3.2rem;
+    font-size: var(--title-font-size);
     text-align: center;
 
     span {
@@ -201,7 +201,7 @@ export default {
 .about-skills {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-auto-rows: 15rem;
   grid-gap: 40px;
   grid-row-gap: 8rem;
@@ -209,6 +209,10 @@ export default {
   width: 100%;
   padding: 0 5%;
   padding-top: 2rem;
+
+  @include extra_small_device {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
 }
 
 .skill-detail {

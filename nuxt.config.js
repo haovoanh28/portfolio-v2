@@ -23,6 +23,10 @@ export default {
     { src: '~/plugins/vue-awesome' },
   ],
 
+  styleResources: {
+    scss: ['~/assets/scss/_mixins.scss', '~/assets/scss/_variables.scss'],
+  },
+
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
@@ -30,6 +34,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     // '@nuxtjs/eslint-module',
+    '@nuxtjs/style-resources',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

@@ -30,7 +30,7 @@ export default {
 
 <style lang="scss" scoped>
 footer {
-  padding: 3rem 1.5rem;
+  padding: 3rem;
   display: flex;
   justify-content: space-between;
 }
@@ -42,7 +42,7 @@ footer {
 .footer-icons {
   display: flex;
   justify-content: space-between;
-  width: 22%;
+  min-width: 22%;
 
   .icon {
     border-radius: 50%;
@@ -65,6 +65,10 @@ footer {
         color: black;
       }
     }
+  }
+
+  @include extra_small_device {
+    min-width: 55%;
   }
 }
 </style>

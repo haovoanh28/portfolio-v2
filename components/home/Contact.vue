@@ -101,6 +101,11 @@ export default {
   padding: 7rem 5% 0 5%;
   display: grid;
   grid-template-columns: 1fr 2fr;
+
+  @include extra_small_device {
+    grid-template-columns: 1fr;
+    padding: 3rem 5% 0 5%;
+  }
 }
 
 .contact-static {
@@ -120,6 +125,9 @@ export default {
 }
 
 .contact-form {
+  @include extra_small_device {
+    margin-top: 5.5rem;
+  }
 }
 
 .form {
@@ -152,6 +160,39 @@ export default {
     display: flex;
     justify-content: flex-end;
     justify-self: flex-end;
+  }
+
+  @include extra_small_device {
+    grid-template-columns: 1fr;
+
+    &-info {
+      grid-column: 1/2;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-row-gap: 3rem;
+
+      .input_group {
+        width: 100%;
+        grid-column: 1/2;
+      }
+    }
+
+    &-subject {
+      grid-column: 1/2;
+    }
+
+    &-message {
+      grid-column: 1/2;
+    }
+
+    &-button {
+      transform: translateY(-2rem);
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      justify-self: flex-end;
+      grid-column: 1/2;
+    }
   }
 }
 </style>
