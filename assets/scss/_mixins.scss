@@ -17,23 +17,23 @@ $extra_large_device: 1200px;
   }
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
+/* Medium devices (landscape tablets, 768px and down) */
 @mixin medium_device {
-  @media only screen and (min-width: #{$medium_device}) {
+  @media only screen and (max-width: #{$medium_device}) {
     @content;
   }
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
+/* Large devices (laptops/desktops, 992px and down) */
 @mixin large_device {
-  @media only screen and (min-width: #{$large_device}) {
+  @media only screen and (max-width: #{$large_device}) {
     @content;
   }
 }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* Extra large devices (large laptops and desktops, 1200px and down) */
 @mixin extra_large_device {
-  @media only screen and (min-width: #{$extra_large_device}) {
+  @media only screen and (max-width: #{$extra_large_device}) {
     @content;
   }
 }

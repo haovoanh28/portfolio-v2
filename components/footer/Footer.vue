@@ -33,10 +33,18 @@ footer {
   padding: 3rem;
   display: flex;
   justify-content: space-between;
+
+  @include medium_device {
+    flex-direction: column;
+  }
 }
 
 .footer-copyright {
   align-self: center;
+
+  @include medium_device {
+    margin-bottom: 2rem;
+  }
 }
 
 .footer-icons {
@@ -67,8 +75,13 @@ footer {
     }
   }
 
+  @include medium_device {
+    width: 35%;
+    margin: 0 auto;
+  }
+
   @include extra_small_device {
-    min-width: 55%;
+    min-width: 65%;
   }
 }
 </style>

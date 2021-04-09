@@ -119,6 +119,14 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @include extra_small_device {
+    width: 30%;
+    svg {
+      width: 2.2rem;
+      height: 2.2rem;
+    }
+  }
 }
 
 .banner-button {

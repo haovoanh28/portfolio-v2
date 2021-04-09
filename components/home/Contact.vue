@@ -102,7 +102,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr 2fr;
 
-  @include extra_small_device {
+  @include medium_device {
     grid-template-columns: 1fr;
     padding: 3rem 5% 0 5%;
   }
@@ -125,7 +125,7 @@ export default {
 }
 
 .contact-form {
-  @include extra_small_device {
+  @include medium_device {
     margin-top: 5.5rem;
   }
 }
@@ -162,7 +162,7 @@ export default {
     justify-self: flex-end;
   }
 
-  @include extra_small_device {
+  @include medium_device {
     grid-template-columns: 1fr;
 
     &-info {
