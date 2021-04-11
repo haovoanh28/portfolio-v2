@@ -6,6 +6,23 @@
   </div>
 </template>
 
+<script>
+export default {
+  mounted() {
+    if (process.browser) {
+      const header = document.querySelector('.header')
+      window.addEventListener('scroll', (e) => {
+        if (window.scrollY > 50) {
+          header.classList.add('header--scroll')
+        } else {
+          header.classList.remove('header--scroll')
+        }
+      })
+    }
+  },
+}
+</script>
+
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
 :root {
@@ -20,6 +37,12 @@
 
   --color-muted: #6c757d;
   --color-gray: #e7e7e7;
+
+  @include medium_device {
+    & {
+      --title-font-size: 3rem;
+    }
+  }
 
   @include extra_small_device {
     & {
@@ -36,6 +59,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  @include extra_small_device {
+    font-size: 8.5px;
+  }
 }
 
 *,

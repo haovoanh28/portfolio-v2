@@ -1,13 +1,18 @@
 <template>
   <div class="header">
     <nav class="nav">
-      <a href="#" class="nav-brand">Brand</a>
-      <ul class="nav-list">
-        <div class="nav-list-overlay"></div>
+      <a href="#" class="nav-brand">HaoV</a>
+      <ul class="nav-list" @click="handleNavListClick">
+        <li class="nav-item nav-item--active">
+          <a href="/#home">Home</a>
+        </li>
         <li v-for="item in nav" :key="item" class="nav-item">
-          <a href="#">
+          <a :href="`/#${item}`">
             {{ item }}
           </a>
+        </li>
+        <li class="nav-item" @click.capture="handleToBlogClick">
+          <nuxt-link to="/blog">Blog</nuxt-link>
         </li>
       </ul>
       <div class="nav-responsive_logo" @click.capture="handleResponsiveClick">
@@ -23,12 +28,15 @@
 export default {
   data() {
     return {
-      nav: ['home', 'about', 'education', 'blog', 'contact'],
+      nav: ['about', 'education', 'contact'],
     }
   },
   methods: {
-    handleResponsiveClick() {
+    toggleLogo() {
       const logo = document.querySelector('.nav-responsive_logo')
+      logo.classList.toggle('nav-responsive_logo--active')
+    },
+    handleResponsiveClick() {
       const navList = document.querySelector('.nav-list')
       const header = document.querySelector('.header')
 
@@ -36,18 +44,34 @@ export default {
         header.classList.add('header--scroll')
       }
 
-      logo.classList.toggle('nav-responsive_logo--active')
+      this.toggleLogo()
       navList.classList.toggle('nav-list--active')
+    },
+    handleNavListClick() {
+      const navList = document.querySelector('.nav-list')
+      if (navList.classList.contains('nav-list--active')) {
+        navList.classList.remove('nav-list--active')
+      }
+      this.toggleLogo()
+    },
+    handleToBlogClick() {
+      // const navItems = document.querySelectorAll('.nav .nav-item')
+      // navItems.forEach((navItem) => {
+      //   navItem.classList.remove('nav-item--active')
+      //   if (navItem.firstChild['href'].includes('blog')) {
+      //     navItem.classList.add('nav-item--active')
+      //   }
+      // })
     },
   },
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .header {
-  background-color: transparent;
   position: fixed;
   top: 0;
+  background-color: transparent;
   transition: background-color 0.5s ease-in-out;
   transition-property: background-color;
   width: 100vw;
@@ -58,7 +82,13 @@ export default {
   background-color: #fff;
 
   .nav {
-    min-height: 8vh;
+    min-height: 10.5vh;
+
+    .nav-item--active {
+      &::after {
+        background-color: black;
+      }
+    }
   }
 
   .nav-responsive_logo {
@@ -81,9 +111,8 @@ export default {
   min-height: 10vh;
   display: grid;
   grid-template-columns: 40% 58%;
-  height: 100%;
   align-items: center;
-  transition: all 0.5s linear;
+  transition: all 0.35s linear;
 
   a {
     text-decoration: none;
@@ -94,7 +123,7 @@ export default {
 
   @include extra_small_device {
     grid-template-columns: 40% 55.5%;
-    min-height: 8vh;
+    min-height: 10.5vh;
     background-color: #fff;
 
     .nav-responsive_logo {
@@ -103,7 +132,7 @@ export default {
       }
 
       div:nth-of-type(1) {
-        height: 1.9px;
+        height: 1px;
       }
     }
 
@@ -125,7 +154,7 @@ export default {
 
   div:nth-of-type(2) {
     width: 50%;
-    height: 2px;
+    height: 1px;
     background-color: #fff;
     position: relative;
     border-radius: 1.8rem;
@@ -136,7 +165,7 @@ export default {
   div:nth-of-type(1) {
     border-radius: 1.8rem;
     width: 80%;
-    height: 2px;
+    height: 1px;
     background-color: #fff;
     display: block;
     transform: translateY(-6px);
@@ -146,7 +175,7 @@ export default {
   div:nth-of-type(3) {
     border-radius: 1.8rem;
     width: 40%;
-    height: 2px;
+    height: 1px;
     background-color: #fff;
     display: block;
     transform: translateY(6px);
@@ -184,12 +213,12 @@ export default {
   }
 
   div:nth-of-type(1) {
-    transform: translateY(1.8px) rotate(135deg);
+    transform: translateY(0.2px) rotate(135deg);
     width: 60%;
   }
 
   div:nth-of-type(3) {
-    transform: translateY(-1px) rotate(-135deg);
+    transform: translateY(-0.4px) rotate(-135deg);
     width: 60%;
   }
 }
@@ -202,13 +231,13 @@ export default {
 .nav-list {
   list-style-type: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-right: var(--nav-margin);
   font-size: 1.4rem;
 
   @include extra_small_device {
     position: absolute;
-    transform: translateX(-100%) translateY(7.9vh);
+    transform: translateX(-120%) translateY(7.9vh);
     z-index: 1000;
     background-color: #fff;
     width: 100%;
@@ -219,7 +248,7 @@ export default {
     box-shadow: 5px 2.5px 1px rgba(0, 0, 0, 0.2);
 
     li {
-      &:not(:first-child) {
+      & {
         margin: 2rem 0;
       }
       a {
@@ -229,7 +258,53 @@ export default {
   }
 }
 
+.nav-item {
+  position: relative;
+
+  &::after {
+    content: '';
+    padding: 4px 4px;
+    width: 1px;
+    height: 5px;
+    background-color: #fff;
+    -webkit-border-radius: 5rem;
+    -moz-border-radius: 5rem;
+    border-radius: 5rem;
+    position: absolute;
+    bottom: -20%;
+    left: 50%;
+    transform: translate(-50%, 50%) scale(0.5, 0.5);
+    opacity: 0;
+    transition: all 0.3s;
+  }
+
+  a {
+    font-size: 1.5rem;
+  }
+
+  @include extra_small_device {
+    &::after {
+      bottom: 0;
+      left: 12rem;
+      top: 0.7rem;
+      transform: scale(0.5, 0.5);
+    }
+  }
+}
+
 .nav-list--active {
   transform: translateX(0) translateY(7.9vh);
+}
+
+.nav-item--active {
+  &::after {
+    opacity: 1;
+  }
+
+  @include extra_small_device {
+    &::after {
+      background-color: black;
+    }
+  }
 }
 </style>

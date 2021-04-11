@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="about section" id="about">
     <div class="about-myself">
       <p>
         <span class="fw-600 text-title">About</span>
@@ -47,7 +47,7 @@
         v-for="(skill, index) in skills"
         :key="`skill-${index}`"
       >
-        <img :src="skill.imgSrc" alt="aaaaa" />
+        <v-icon :name="skill.iconName"></v-icon>
         <p class="text-muted">Level: {{ skill.level }}</p>
       </div>
     </div>
@@ -63,55 +63,37 @@ export default {
         {
           name: 'HTML',
           level: 'Fresher',
-          imgSrc:
-            'https://www.hostinger.vn/huong-dan/wp-content/uploads/sites/10/2018/12/html-la-gi.jpg',
+          iconName: 'brands/html5',
         },
         {
           name: 'CSS',
           level: 'Fresher',
-          imgSrc:
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png',
+          iconName: 'brands/css3',
         },
         {
-          name: 'Javasript',
+          name: 'Javascript',
           level: 'Fresher',
-          imgSrc:
-            'https://techvccloud.mediacdn.vn/zoom/650_406/2018/11/23/js-15429579443112042672363-crop-1542957949936317424252.png',
+          iconName: 'brands/node-js',
         },
         {
           name: 'VueJS',
           level: 'Fresher',
-          imgSrc: 'https://vi.vuejs.org/images/logo.png',
+          iconName: 'brands/vuejs',
         },
         {
-          name: 'NuxtJS',
+          name: 'ReactJS',
           level: 'Fresher',
-          imgSrc:
-            'https://images.viblo.asia/696c5301-3440-45a6-a9e9-0972725f3c5f.png',
+          iconName: 'brands/react',
         },
         {
           name: 'NodeJS',
           level: 'Fresher',
-          imgSrc:
-            'https://upload.wikimedia.org/wikipedia/vi/a/a7/Nodejs_logo_light.png',
+          iconName: 'brands/node',
         },
         {
-          name: 'MongoDB',
+          name: 'Database',
           level: 'Fresher',
-          imgSrc:
-            'https://miro.medium.com/max/8334/1*Ta4qktHtO--RMUpnR08mBg.jpeg',
-        },
-        {
-          name: 'MSSQL',
-          level: 'Fresher',
-          imgSrc:
-            'https://www.engisv.info/wp-content/uploads/2017/06/sqlserver-1.png',
-        },
-        {
-          name: 'C#',
-          level: 'Intern',
-          imgSrc:
-            'https://www.avenga.com/wp-content/uploads/2020/11/C-Sharp.png',
+          iconName: 'database',
         },
       ],
     }
@@ -216,10 +198,10 @@ export default {
 }
 
 .skill-detail {
-  img {
+  svg {
     width: 100%;
     height: 80%;
-    object-fit: contain;
+    margin: 0 auto;
   }
 
   p {

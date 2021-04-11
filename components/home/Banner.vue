@@ -1,5 +1,5 @@
 <template>
-  <section class="banner-wrapper">
+  <section class="banner-wrapper section" id="home">
     <div class="bg-overlay">
       <vue-particles
         color="#fff"
@@ -75,22 +75,18 @@ export default {
 .banner {
   z-index: 2; /**higher than bg-overlay */
   color: #fff;
-  height: 50%;
   width: 100%;
   text-align: center;
+  margin-top: 9.2rem;
 }
 
 .banner-welcome {
   font-size: 2.6rem;
   letter-spacing: 1px;
-
-  @include extra_small_device {
-    font-size: 1.8rem;
-  }
 }
 
 .banner-introduce {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   text-transform: capitalize;
   font-size: 7rem;
   font-weight: 300;
@@ -108,14 +104,19 @@ export default {
     transform: translateY(-7px);
   }
 
+  @include medium_device {
+    font-size: 5.5rem;
+  }
+
   @include extra_small_device {
     font-size: 5rem;
+    margin-top: 2rem;
   }
 }
 
 .banner-icons {
   width: 20%;
-  margin: 2.5rem auto 0 auto;
+  margin: 1.5rem auto 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -123,14 +124,19 @@ export default {
   @include extra_small_device {
     width: 30%;
     svg {
-      width: 2.2rem;
-      height: 2.2rem;
+      width: 1.8rem;
+      height: 1.8rem;
     }
+    margin: 3.3rem auto 0 auto;
   }
 }
 
 .banner-button {
-  margin-top: 4.5rem;
+  margin-top: 3.5rem;
+
+  @include extra_small_device {
+    margin-top: 4.5rem;
+  }
 }
 
 .banner-scoll_down {
@@ -140,7 +146,7 @@ export default {
     position: relative;
     display: inline-block;
     margin: 0 auto;
-    height: 50px;
+    height: 52px;
     width: 30px;
     line-height: 60px;
     border: 2px solid #fff;
@@ -170,6 +176,11 @@ export default {
       right: 5px;
       transform: rotate(-30deg);
     }
+  }
+
+  @include extra_small_device {
+    transform: translateY(5.4rem);
+    height: 52px;
   }
 }
 

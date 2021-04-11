@@ -1,5 +1,5 @@
 <template>
-  <div class="education bg-light">
+  <div class="education bg-light section" id="education">
     <p class="education-title fw-600 text-title">Education & Experience</p>
     <div class="home-decor">
       <span> <v-icon name="asterisk"></v-icon> </span>

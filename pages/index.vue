@@ -28,14 +28,36 @@ export default {
   },
   mounted() {
     if (process.browser) {
-      const header = document.querySelector('.header')
+      const sections = document.querySelectorAll('.section')
+      const navItems = document.querySelectorAll('.nav .nav-item')
 
-      window.addEventListener('scroll', (e) => {
-        if (window.scrollY > 50) {
-          header.classList.add('header--scroll')
-        } else {
-          header.classList.remove('header--scroll')
-        }
+      const intersectionOptions = {
+        threshold: 0.3,
+      }
+
+      function intersectionCallback(entries, observer) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.getAttribute('id')
+
+            navItems.forEach((navItem) => {
+              navItem.classList.remove('nav-item--active')
+
+              if (navItem.firstChild['href'].includes(sectionId)) {
+                navItem.classList.add('nav-item--active')
+              }
+            })
+          }
+        })
+      }
+
+      const intersectionObserver = new IntersectionObserver(
+        intersectionCallback,
+        intersectionOptions
+      )
+
+      sections.forEach((section) => {
+        intersectionObserver.observe(section)
       })
     }
   },

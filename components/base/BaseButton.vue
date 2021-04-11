@@ -43,6 +43,7 @@ export default {
   transition: all 0.5s ease-in-out;
   border-radius: 5px;
   font-family: inherit;
+  font-size: 1.5rem;
 
   &:hover {
     background-color: #fff !important;

@@ -64,5 +64,11 @@ export default {
   button {
     z-index: 2;
   }
+
+  @include medium_device {
+    button {
+      margin-top: 3rem;
+    }
+  }
 }
 </style>
