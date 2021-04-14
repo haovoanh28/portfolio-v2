@@ -2,33 +2,39 @@
   <div class="blog-main bg-light">
     <div class="blog-wrapper">
       <div class="blog-posts">
-        <PostCardItem />
+        <PostCardItem v-for="post in posts" :key="post.id" :post="post" />
       </div>
-      <div class="blog-sidebar">X</div>
+      <BlogSidebar />
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import PostCardItem from '@/components/post/PostCardItem'
+import BlogSidebar from '@/components/blog/BlogSidebar'
 
 export default {
   components: {
     PostCardItem,
+    BlogSidebar,
+  },
+  computed: {
+    ...mapState('post/get', ['posts']),
   },
 }
 </script>
 
 <style lang="scss" scoped>
 .blog-main {
-  min-height: 200vh;
   display: grid;
   place-items: center;
 }
 
 .blog-wrapper {
-  width: 90%;
-  min-height: 82%;
+  width: 100%;
+  padding: 8% 5%;
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-column-gap: 4rem;
@@ -46,10 +52,5 @@ export default {
 .blog-posts {
   border-radius: 8px;
   min-height: 50rem;
-}
-
-.blog-sidebar {
-  background-color: #fff;
-  align-self: flex-start;
 }
 </style>

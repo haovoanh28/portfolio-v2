@@ -37,6 +37,7 @@ export default {
 
   --color-muted: #6c757d;
   --color-gray: #e7e7e7;
+  --color-light: #f8f9fa;
 
   @include medium_device {
     & {

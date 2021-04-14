@@ -14,11 +14,12 @@ import 'vue-awesome/icons/brands/node'
 import 'vue-awesome/icons/brands/react'
 import 'vue-awesome/icons/database'
 
-
 import 'vue-awesome/icons/regular/envelope'
 
 import 'vue-awesome/icons/asterisk'
 import 'vue-awesome/icons/mobile-alt'
 import 'vue-awesome/icons/map-marker-alt'
+import 'vue-awesome/icons/search'
+import 'vue-awesome/icons/angle-double-right'
 
 Vue.component('v-icon', Icon)

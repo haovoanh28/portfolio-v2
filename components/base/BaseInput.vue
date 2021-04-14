@@ -1,8 +1,9 @@
 <template>
-  <div class="input_group">
+  <div class="input_group" :class="classObj">
     <label class="text-title fw-700">{{ label }}</label>
     <input v-bind="$attrs" v-if="!textarea" />
     <textarea v-bind="$attrs" v-else></textarea>
+    <v-icon :name="iconName" v-if="hasIcon && iconName"></v-icon>
   </div>
 </template>
 
@@ -19,6 +20,21 @@ export default {
     textarea: {
       type: Boolean,
       default: false,
+    },
+    hasIcon: {
+      type: Boolean,
+      default: false,
+    },
+    iconName: {
+      type: String,
+      default: '',
+    },
+  },
+  computed: {
+    classObj() {
+      return {
+        hasIcon: this.hasIcon,
+      }
     },
   },
 }
@@ -57,6 +73,23 @@ export default {
 
   textarea {
     min-height: 12rem;
+    transition: none;
+  }
+
+  svg {
+    cursor: pointer;
+  }
+}
+
+.hasIcon {
+  position: relative;
+  svg {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    width: 1.7rem;
+    height: 1.7rem;
+    transform: translate(-50%, -50%);
   }
 }
 </style>
