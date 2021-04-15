@@ -1,7 +1,15 @@
+$super_small_device: 380px;
 $small_device: 600px;
 $medium_device: 768px;
 $large_device: 992px;
 $extra_large_device: 1200px;
+
+/* Extra small devices (phones, 380px and down) */
+@mixin super_small_device {
+  @media only screen and (max-width: #{$super_small_device}) {
+    @content;
+  }
+}
 
 /* Extra small devices (phones, 600px and down) */
 @mixin extra_small_device {

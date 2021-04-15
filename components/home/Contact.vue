@@ -24,11 +24,17 @@
       <div class="contact-form">
         <form class="form">
           <div class="form-info">
-            <BaseInput placeholder="Your name ... " label="Name" type="text" />
+            <BaseInput
+              placeholder="Your name ... "
+              label="Name"
+              type="text"
+              v-model="name"
+            />
             <BaseInput
               placeholder="Your email ... "
               label="Email address"
               type="email"
+              v-model="email"
             />
           </div>
           <div class="form-subject">
@@ -36,6 +42,7 @@
               placeholder="Your Subject ... "
               label="Subject"
               type="text"
+              v-model="subject"
             />
           </div>
           <div class="form-message">
@@ -43,6 +50,7 @@
               placeholder="Your Message ... "
               label="Message"
               textarea
+              v-model="message"
             />
           </div>
           <div class="form-button">
@@ -58,6 +66,10 @@
 export default {
   data() {
     return {
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
       contacts: [
         {
           iconName: 'mobile-alt',

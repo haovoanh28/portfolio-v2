@@ -1,8 +1,8 @@
 <template>
   <div class="input_group" :class="classObj">
     <label class="text-title fw-700">{{ label }}</label>
-    <input v-bind="$attrs" v-if="!textarea" />
-    <textarea v-bind="$attrs" v-else></textarea>
+    <input v-bind="$attrs" v-if="!textarea" @input="handleInput" />
+    <textarea v-bind="$attrs" @input="handleInput" v-else></textarea>
     <v-icon :name="iconName" v-if="hasIcon && iconName"></v-icon>
   </div>
 </template>
@@ -35,6 +35,11 @@ export default {
       return {
         hasIcon: this.hasIcon,
       }
+    },
+  },
+  methods: {
+    handleInput(e) {
+      this.$emit('input', e.target.value)
     },
   },
 }
