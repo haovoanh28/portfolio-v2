@@ -41,7 +41,7 @@ export default {
           year: '4/2020 - 6/2020',
           job: 'Intern at Apps Cyclone',
           content:
-            'Apps Cyclone helps me to recognize my weakness about myself and my skills. They also taught me how to work with other members in a team, manage workflow, solve a hard problem.',
+            'Apps Cyclone helps me to recognize my weakness about myself and my skills. They also taught me how to work with other members in a team, manage workflow, solve problem effectively.',
         },
       ],
     }
