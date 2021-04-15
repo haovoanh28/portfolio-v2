@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <nav class="nav">
-      <a href="#" class="nav-brand">HaoV</a>
+      <a href="/#home" class="nav-brand">HaoV</a>
       <ul class="nav-list" @click="handleNavListClick">
         <li class="nav-item nav-item--active">
           <a href="/#home">Home</a>

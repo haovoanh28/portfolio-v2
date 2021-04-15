@@ -5,6 +5,7 @@ import 'vue-awesome/icons/brands/facebook-f'
 import 'vue-awesome/icons/brands/github'
 import 'vue-awesome/icons/brands/google-plus-g'
 import 'vue-awesome/icons/brands/twitter'
+import 'vue-awesome/icons/brands/linkedin-in'
 
 import 'vue-awesome/icons/brands/html5'
 import 'vue-awesome/icons/brands/css3'

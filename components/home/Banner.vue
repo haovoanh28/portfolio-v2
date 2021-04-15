@@ -26,13 +26,26 @@
         <span class="blink">|</span>
       </p>
       <div class="banner-icons">
-        <v-icon name="brands/facebook-f"></v-icon>
-        <v-icon name="brands/github"></v-icon>
-        <v-icon name="brands/google-plus-g"></v-icon>
-        <v-icon name="brands/twitter"></v-icon>
+        <a
+          href="https://www.facebook.com/profile.php?id=100020713613057"
+          target="_blank"
+        >
+          <v-icon name="brands/facebook-f"></v-icon
+        ></a>
+        <a href="https://github.com/haovoanh28" target="_blank"
+          ><v-icon name="brands/github"></v-icon
+        ></a>
+        <a><v-icon name="brands/google-plus-g"></v-icon></a>
+        <a href="https://www.linkedin.com/in/hao-vo-14267020b/"
+          ><v-icon name="brands/linkedin-in"></v-icon
+        ></a>
       </div>
       <div class="banner-button">
-        <BaseButton transparent border-radius>Download CV</BaseButton>
+        <BaseButton transparent border-radius>
+          <a href="https://i.topcv.vn/voanhhao?ref=3336088" target="_blank"
+            >Download CV</a
+          >
+        </BaseButton>
       </div>
       <div class="banner-scoll_down">
         <a href="#about"></a>
@@ -120,6 +133,15 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  svg {
+    cursor: pointer;
+  }
 
   @include extra_small_device {
     width: 30%;

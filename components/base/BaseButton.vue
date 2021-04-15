@@ -49,6 +49,11 @@ export default {
     background-color: #fff !important;
     color: black;
   }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
 .blackBtn {

@@ -7,7 +7,9 @@
         v-for="(icon, index) in footerIcons"
         :key="`footerIcon-${index}`"
       >
-        <v-icon :name="icon"></v-icon>
+        <a :href="icon.ref" target="_blank">
+          <v-icon :name="icon.iconName"></v-icon>
+        </a>
       </div>
     </div>
   </footer>
@@ -18,10 +20,22 @@ export default {
   data() {
     return {
       footerIcons: [
-        'brands/facebook-f',
-        'brands/google-plus-g',
-        'brands/twitter',
-        'brands/github',
+        {
+          ref: 'https://www.facebook.com/profile.php?id=100020713613057',
+          iconName: 'brands/facebook-f',
+        },
+        {
+          ref: 'https://www.facebook.com/profile.php?id=100020713613057',
+          iconName: 'brands/google-plus-g',
+        },
+        {
+          ref: 'https://github.com/haovoanh28',
+          iconName: 'brands/github',
+        },
+        {
+          ref: 'https://www.linkedin.com/in/hao-vo-14267020b/',
+          iconName: 'brands/linkedin-in',
+        },
       ],
     }
   },
