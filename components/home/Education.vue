@@ -35,13 +35,13 @@ export default {
           year: '2017 - 2021',
           job: 'Studied at Ho Chi Minh University Of Food Industry',
           content:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias rem vero nobis tempore deserunt. Tempora!',
+            'I learned a lot of basic knowledge about technology in HUFI. This  lay out a solid foundation on my developer career ',
         },
         {
           year: '4/2020 - 6/2020',
           job: 'Intern at Apps Cyclone',
           content:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias rem vero nobis tempore deserunt. Tempora!',
+            'Apps Cyclone helps me to recognize my weakness about myself and my skills. They also taught me how to work with other members in a team, manage workflow, solve a hard problem.',
         },
       ],
     }
