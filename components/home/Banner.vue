@@ -35,8 +35,12 @@
         <a href="https://github.com/haovoanh28" target="_blank"
           ><v-icon name="brands/github"></v-icon
         ></a>
-        <a><v-icon name="brands/google-plus-g"></v-icon></a>
-        <a href="https://www.linkedin.com/in/hao-vo-14267020b/"
+        <a
+          href="https://www.facebook.com/profile.php?id=100020713613057"
+          target="_blank"
+          ><v-icon name="brands/google-plus-g"></v-icon
+        ></a>
+        <a href="https://www.linkedin.com/in/hao-vo-14267020b/" target="_blank"
           ><v-icon name="brands/linkedin-in"></v-icon
         ></a>
       </div>
