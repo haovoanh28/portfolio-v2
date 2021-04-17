@@ -20,7 +20,7 @@
     <div class="about-info">
       <p class="info-name">
         <span>Hello! </span>
-        <span class="fw-600">I'm Anh Hao. </span>
+        <span class="fw-600">I'm Anh Hao.</span>
       </p>
       <div class="info-jobs">
         <ul>
@@ -28,9 +28,7 @@
             v-for="(job, index) in jobs"
             :key="`job-${index}`"
             class="text-muted"
-          >
-            {{ job }}
-          </li>
+          >{{ job }}</li>
         </ul>
       </div>
       <div class="info-content">
