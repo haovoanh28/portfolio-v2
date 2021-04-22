@@ -11,11 +11,11 @@
             {{ item }}
           </a>
         </li>
-        <li class="nav-item" @click.capture="handleToBlogClick">
+        <li class="nav-item" @click="handleToBlogClick">
           <nuxt-link to="/blog">Blog</nuxt-link>
         </li>
       </ul>
-      <div class="nav-responsive_logo" @click.capture="handleResponsiveClick">
+      <div class="nav-responsive_logo" @click="handleResponsiveClick">
         <div></div>
         <div></div>
         <div></div>
@@ -34,9 +34,14 @@ export default {
   methods: {
     toggleLogo() {
       const logo = document.querySelector('.nav-responsive_logo')
+
+      if (window.getComputedStyle(logo).display === 'none') {
+        return
+      }
+
       logo.classList.toggle('nav-responsive_logo--active')
     },
-    handleResponsiveClick() {
+    handleResponsiveClick(e) {
       const navList = document.querySelector('.nav-list')
       const header = document.querySelector('.header')
 
@@ -47,22 +52,14 @@ export default {
       this.toggleLogo()
       navList.classList.toggle('nav-list--active')
     },
-    handleNavListClick() {
+    handleNavListClick(e) {
       const navList = document.querySelector('.nav-list')
       if (navList.classList.contains('nav-list--active')) {
         navList.classList.remove('nav-list--active')
       }
       this.toggleLogo()
     },
-    handleToBlogClick() {
-      // const navItems = document.querySelectorAll('.nav .nav-item')
-      // navItems.forEach((navItem) => {
-      //   navItem.classList.remove('nav-item--active')
-      //   if (navItem.firstChild['href'].includes('blog')) {
-      //     navItem.classList.add('nav-item--active')
-      //   }
-      // })
-    },
+    handleToBlogClick() {},
   },
 }
 </script>
