@@ -79,8 +79,4 @@ html {
 *::selection {
   background: rgba(166, 175, 189, 0.3);
 }
-
-.body {
-  min-height: 200vh;
-}
 </style>

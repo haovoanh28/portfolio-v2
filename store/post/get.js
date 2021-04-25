@@ -58,3 +58,12 @@ export const state = () => {
     ],
   }
 }
+export const gettets = {}
+
+export const mutations = {}
+
+export const actions = {
+  async createPostAsync() {
+    
+  }
+}

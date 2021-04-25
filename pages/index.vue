@@ -65,6 +65,10 @@ export default {
 </script>
 
 <style lang="scss">
+.body {
+  min-height: 200vh;
+}
+
 .container {
 }
 
