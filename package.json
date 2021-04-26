@@ -13,7 +13,8 @@
     "@tinymce/tinymce-vue": "^3.2.8",
     "core-js": "^3.9.1",
     "nuxt": "^2.15.3",
-    "vue-awesome": "^4.1.0"
+    "vue-awesome": "^4.1.0",
+    "vue-select": "^3.11.2"
   },
   "devDependencies": {
     "@nuxtjs/style-resources": "^1.0.0",

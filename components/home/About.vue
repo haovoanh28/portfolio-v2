@@ -28,7 +28,9 @@
             v-for="(job, index) in jobs"
             :key="`job-${index}`"
             class="text-muted"
-          >{{ job }}</li>
+          >
+            {{ job }}
+          </li>
         </ul>
       </div>
       <div class="info-content">
@@ -171,10 +173,7 @@ export default {
   .info-content {
     max-width: 55%;
     margin: 1.5rem auto 0 auto;
-
-    p {
-      text-align: justify;
-    }
+    line-height: 1.5;
   }
 }
 

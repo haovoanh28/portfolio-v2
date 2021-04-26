@@ -62,7 +62,7 @@ export default {
   & .education-quote {
     max-width: 55%;
     margin: 0 auto;
-    text-align: justify;
+    line-height: 1.5;
   }
 }
 

@@ -79,7 +79,7 @@ export default {
   background-color: #fff;
 
   .nav {
-    min-height: 10.5vh;
+    min-height: 55px;
 
     .nav-item--active {
       &::after {
@@ -105,7 +105,7 @@ export default {
 
 .nav {
   --nav-margin: 2rem;
-  min-height: 10vh;
+  min-height: 60px;
   display: grid;
   grid-template-columns: 40% 58%;
   align-items: center;
@@ -120,7 +120,7 @@ export default {
 
   @include extra_small_device {
     grid-template-columns: 40% 55.5%;
-    min-height: 10.5vh;
+    min-height: 55px;
     background-color: #fff;
 
     .nav-responsive_logo {

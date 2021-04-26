@@ -1,24 +1,38 @@
 <template>
   <div class="post-create">
-     <div class="create-title">
-        <BaseInput label="Title" placeholder="Type in your post's title" />
-     </div>
-     <div class="create-editor">
-        <AdminEditor />
-     </div>
+    <div class="form-group create-title">
+      <BaseInput label="Title" placeholder="Type in post's title" />
+    </div>
+    <div class="form-group create-brief">
+      <BaseInput
+        label="Banner Image"
+        placeholder="Paste in banner image link"
+      />
+    </div>
+    <div class="form-group create-brief">
+      <BaseInput label="Brief" placeholder="Type in post's brief" />
+    </div>
+    <div class="form-group create-select">
+      <BaseSelect />
+    </div>
+    <div class="form-group create-editor">
+      <AdminEditor title="Create" />
+    </div>
   </div>
 </template>
 
 <script>
-import AdminEditor from "./AdminEditor";
+import AdminEditor from './AdminEditor'
 
 export default {
-   components: {
-      AdminEditor
-   }
+  components: {
+    AdminEditor,
+  },
 }
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+.form-group:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
 </style>
