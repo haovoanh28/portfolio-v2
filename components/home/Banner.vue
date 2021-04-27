@@ -94,7 +94,7 @@ export default {
   color: #fff;
   width: 100%;
   text-align: center;
-  margin-top: 9.2rem;
+  padding-bottom: 5rem;
 }
 
 .banner-welcome {
@@ -166,7 +166,10 @@ export default {
 }
 
 .banner-scoll_down {
-  margin-top: 7rem;
+  position: absolute;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translatex(-50%);
 
   a {
     position: relative;

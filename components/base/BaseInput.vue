@@ -61,6 +61,7 @@ export default {
     line-height: 2.3rem;
     width: 100%;
     transition: all 0.5s ease-in-out;
+    border-radius: 4px;
 
     font-family: inherit;
     font-size: inherit;
