@@ -208,7 +208,6 @@ export default {
   }
 
   @include extra_small_device {
-    transform: translateY(5.4rem);
     height: 52px;
   }
 }
