@@ -13,7 +13,10 @@
       <BaseInput label="Brief" placeholder="Type in post's brief" />
     </div>
     <div class="form-group create-select">
-      <BaseSelect />
+      <BaseSelect title="Select type for post" />
+    </div>
+    <div class="form-group create-tags">
+      <BaseTagInput title="Tags for post" />
     </div>
     <div class="form-group create-editor">
       <AdminEditor title="Create" />

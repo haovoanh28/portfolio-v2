@@ -1,7 +1,7 @@
 <template>
   <div class="input_group" :class="classObj">
-    <label class="text-title fw-700">{{ label }}</label>
-    <input v-bind="$attrs" v-if="!textarea" @input="handleInput" />
+    <label class="text-title fw-700" :for="label">{{ label }}</label>
+    <input v-bind="$attrs" v-if="!textarea" @input="handleInput" :id="label" />
     <textarea v-bind="$attrs" @input="handleInput" v-else></textarea>
     <v-icon :name="iconName" v-if="hasIcon && iconName"></v-icon>
   </div>
@@ -96,6 +96,7 @@ export default {
     width: 1.7rem;
     height: 1.7rem;
     transform: translate(-50%, -50%);
+    fill: var(--color-muted);
   }
 }
 </style>

@@ -44,7 +44,9 @@
     </div>
     <div class="sidebar-tags">
       <p class="sidebar-title fw-700">tags</p>
-      <PostTag v-for="tag in tags" :key="tag" :tag="tag" />
+      <PostTag v-for="tag in tags" :key="tag">
+        {{tag}}
+      </PostTag>
     </div>
   </div>
 </template>

@@ -1,15 +1,17 @@
 <template>
   <div class="tag">
-    <span>{{ tag }}</span>
+    <span>
+      <slot></slot>
+    </span>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    tag: {
-      type: String,
-      default: '',
+    editable: {
+      type: Boolean,
+      default: false,
     },
   },
 }
