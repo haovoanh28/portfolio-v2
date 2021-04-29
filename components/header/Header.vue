@@ -121,11 +121,11 @@ export default {
   @include extra_small_device {
     grid-template-columns: 40% 55.5%;
     min-height: 55px;
-    /* background-color: #fff; */
+    background-color: #fff;
 
     .nav-responsive_logo {
       div {
-        /* background-color: black !important; */
+        background-color: black !important;
       }
 
       div:nth-of-type(1) {
@@ -134,7 +134,7 @@ export default {
     }
 
     a {
-      /* color: black !important; */
+      color: black !important;
     }
   }
 }
