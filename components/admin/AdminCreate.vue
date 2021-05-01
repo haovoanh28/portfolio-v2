@@ -10,16 +10,22 @@
       />
     </div>
     <div class="form-group create-brief">
-      <BaseInput label="Brief" placeholder="Type in post's brief" />
+      <BaseInput label="Brief" placeholder="Type in post's brief" textarea />
     </div>
     <div class="form-group create-select">
       <BaseSelect title="Select type for post" />
     </div>
     <div class="form-group create-tags">
-      <BaseTagInput title="Tags for post" />
+      <BaseTagInput
+        title="Tags for post"
+        placeholder="Type in tag for post"
+        :tags="tags"
+        @add-tag="handleAddTag"
+        @delete-tag="handleDeleteTag"
+      />
     </div>
     <div class="form-group create-editor">
-      <AdminEditor title="Create" />
+      <AdminEditor title="Create" @ed-loaded="handleEdLoaded" />
     </div>
   </div>
 </template>
@@ -31,10 +37,34 @@ export default {
   components: {
     AdminEditor,
   },
+  data() {
+    return {
+      tags: ['html', 'css', 'tes', 'sdqw', 'e232', 'ef32'],
+    }
+  },
+  methods: {
+    handleAddTag(tag) {
+      if (this.tags.includes(tag)) {
+        console.log('duplicate tag')
+        return
+      }
+      this.tags.push(tag)
+    },
+    handleDeleteTag(tag) {
+      this.tags = this.tags.filter((t) => t !== tag)
+      console.log(this.tags)
+    },
+    handleEdLoaded() {
+      this.$emit('ed-loaded')
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
+.post-create {
+}
+
 .form-group:not(:last-of-type) {
   margin-bottom: 2rem;
 }

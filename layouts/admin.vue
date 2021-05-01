@@ -70,6 +70,7 @@ html {
   margin: 0;
   padding: 0;
   font-size: 1.6rem;
+  font-family: inherit;
 }
 
 *::selection {
@@ -79,11 +80,26 @@ html {
 .admin {
   display: grid;
   grid-template-columns: 1fr;
+
+  @include medium_device {
+  }
 }
 
 .admin-main {
   grid-column: 1 / -1;
   margin-left: var(--menu-width);
   padding: 2rem;
+
+  @include medium_device {
+    margin-left: 0;
+  }
+}
+
+
+
+.nuxt-link-exact-active {
+  /* color: red !important; */
+  background-color: #fff !important;
+  color: black !important;
 }
 </style>

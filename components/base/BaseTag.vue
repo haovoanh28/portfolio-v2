@@ -1,7 +1,8 @@
 <template>
   <div class="tag">
     <span>
-      <slot></slot>
+      <span class="tag-content">{{ tag }}</span>
+      <span class="tag-delete" @click.self="handleDelete">x</span>
     </span>
   </div>
 </template>
@@ -12,6 +13,15 @@ export default {
     editable: {
       type: Boolean,
       default: false,
+    },
+    tag: {
+      type: String,
+      default: '',
+    },
+  },
+  methods: {
+    handleDelete() {
+      this.$emit('tag-delete', this.tag)
     },
   },
 }
@@ -31,6 +41,7 @@ export default {
   padding: 7px 8px 5px 10px;
   text-transform: uppercase;
   cursor: pointer;
+  white-space: nowrap;
 
   & > * {
     font-size: inherit;
@@ -44,6 +55,26 @@ export default {
     outline: none !important;
     box-shadow: none !important;
     border: 1px solid black;
+  }
+}
+
+.tag-content {
+  font-size: inherit;
+}
+
+.tag-delete {
+  font-size: inherit;
+  border-radius: 50%;
+  height: 12px;
+  width: 12px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4px;
+  transition: all 0.3s linear;
+
+  &:hover {
+    transform: rotate(180deg);
   }
 }
 </style>

@@ -3,7 +3,11 @@
     <client-only>
       <div class="editor">
         <label class="text-title fw-700">{{ title }}</label>
-        <Editor :init="editorConfig" :api-key="tinymceApiKey" />
+        <Editor
+          :init="editorConfig"
+          :api-key="tinymceApiKey"
+          @onInit="handleEditorInit"
+        />
       </div>
     </client-only>
   </div>
@@ -43,6 +47,11 @@ export default {
       },
       tinymceApiKey: 'zkr4z6fnh3osmkkm1h95whkoy62b5rvfewo6u83ac96mmm3k',
     }
+  },
+  methods: {
+    handleEditorInit() {
+      this.$emit('ed-loaded')
+    },
   },
 }
 </script>

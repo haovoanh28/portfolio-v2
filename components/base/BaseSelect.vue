@@ -38,7 +38,7 @@ export default {
   }
 }
 
-.v-select #vs1__combobox {
+.v-select .vs__dropdown-toggle {
   padding: 0.6rem 1.2rem;
   height: 4.4rem;
   transition: all 0.5s ease-in-out;

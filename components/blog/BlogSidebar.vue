@@ -44,21 +44,15 @@
     </div>
     <div class="sidebar-tags">
       <p class="sidebar-title fw-700">tags</p>
-      <PostTag v-for="tag in tags" :key="tag">
-        {{tag}}
-      </PostTag>
+      <BaseTag v-for="tag in tags" :key="tag" :tag="tag" />
     </div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import PostTag from '@/components/post/PostTag'
 
 export default {
-  components: {
-    PostTag,
-  },
   data() {
     return {
       categories: ['technology', 'popular', 'programming', 'share'],

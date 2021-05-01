@@ -22,5 +22,6 @@ import 'vue-awesome/icons/mobile-alt'
 import 'vue-awesome/icons/map-marker-alt'
 import 'vue-awesome/icons/search'
 import 'vue-awesome/icons/angle-double-right'
+import 'vue-awesome/icons/bars'
 
 Vue.component('v-icon', Icon)

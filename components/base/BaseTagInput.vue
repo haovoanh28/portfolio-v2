@@ -2,26 +2,64 @@
   <div class="tag-input">
     <label class="text-title fw-700" for="tag-input">{{ title }}</label>
     <div class="tag-container">
-      <div class="tag" v-for="tag in tags" :key="`${tag}-tag`">
-        <PostTag>{{ tag }}</PostTag>
+      <div class="tag">
+        <BaseTag
+          v-for="tag in tags"
+          :key="`${tag}-tag`"
+          :tag="tag"
+          @tag-delete="handleTagDelete"
+        />
       </div>
-      <input type="text" id="tag-input" class="tag-input" />
+      <input
+        type="text"
+        id="tag-input"
+        class="tag-input"
+        v-bind="$attrs"
+        @keydown="handleInput"
+        :value="inputValue"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import PostTag from '@/components/post/PostTag'
-
 export default {
+  inheritAttrs: false,
+  data() {
+    return {
+      inputValue: '',
+    }
+  },
   props: {
     tags: {
       type: Array,
-      default: () => ['html', 'css'],
+      default: () => [],
     },
     title: {
       type: String,
       default: '',
+    },
+    value: {
+      type: [String, Number],
+      default: '',
+    },
+  },
+  methods: {
+    handleTagDelete(tag) {
+      this.$emit('delete-tag', tag)
+    },
+    handleInput(e) {
+      this.inputValue = e.target.value
+      if (e.keyCode == 32 || e.keyCode == 13) {
+        e.preventDefault()
+        if (!e.target.value || !this.inputValue) {
+          return false
+        }
+
+        this.$emit('add-tag', e.target.value)
+        this.inputValue = ''
+        return false
+      }
     },
   },
 }
@@ -36,13 +74,11 @@ export default {
 }
 
 .tag-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
 }
 
 .tag {
-  display: flex;
-  align-items: center;
-
   &:not(:first-of-type) {
   }
 
@@ -55,7 +91,7 @@ export default {
 
     &:last-child {
       margin-left: 0.4rem;
-      font-size: 1.6rem;
+      /* font-size: 1.6rem; */
     }
   }
 }
@@ -64,5 +100,7 @@ export default {
   border: none;
   outline: none;
   padding: 0.6rem 1.2rem;
+  width: 100%;
+  font-size: 1.4rem;
 }
 </style>
