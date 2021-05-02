@@ -1,7 +1,9 @@
 <template>
   <div class="body">
-    <Header />
-    <Nuxt />
+    <keep-alive>
+      <Header />
+    </keep-alive>
+    <Nuxt keep-alive />
     <Footer />
   </div>
 </template>

@@ -1,5 +1,8 @@
 <template>
   <div class="post-create">
+    <div class="fw-700 text-center text-title create-header">
+      <p>&#128293; Create New Post &#128293;</p>
+    </div>
     <div class="form-group create-title">
       <BaseInput label="Title" placeholder="Type in post's title" />
     </div>
@@ -62,6 +65,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.create-header {
+  text-transform: uppercase;
+  margin-bottom: 2.4rem;
+  font-size: 2rem;
+}
+
 .post-create {
 }
 

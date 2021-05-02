@@ -2,7 +2,9 @@
   <div class="tag">
     <span>
       <span class="tag-content">{{ tag }}</span>
-      <span class="tag-delete" @click.self="handleDelete">x</span>
+      <span class="tag-delete" @click.self="handleDelete" v-if="editable"
+        >x</span
+      >
     </span>
   </div>
 </template>

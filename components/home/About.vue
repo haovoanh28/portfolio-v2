@@ -14,7 +14,7 @@
     </div>
     <div class="about-name">
       <div>
-        <img src="~/assets/images/my-name.png" alt="" />
+        <img src="~/assets/images/my-name.png" alt="" loading="lazy"/>
       </div>
     </div>
     <div class="about-info">

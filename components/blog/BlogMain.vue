@@ -1,7 +1,10 @@
 <template>
   <div class="blog-main bg-light">
     <div class="blog-wrapper">
-      <div class="blog-posts">
+      <template v-if="isLoading || $fetchState.pending">
+        <BaseSpinner fullSreen />
+      </template>
+      <div class="bl og-posts" v-else>
         <PostCardItem v-for="post in posts" :key="post.id" :post="post" />
       </div>
       <BlogSidebar />
@@ -10,7 +13,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 import PostCardItem from '@/components/post/PostCardItem'
 import BlogSidebar from '@/components/blog/BlogSidebar'
@@ -21,7 +24,13 @@ export default {
     BlogSidebar,
   },
   computed: {
-    ...mapState('post/get', ['posts']),
+    ...mapState('post/get', ['posts', 'isLoading']),
+  },
+  methods: {
+    ...mapActions('post/get', ['getAllPostAsync']),
+  },
+  async fetch() {
+    await this.getAllPostAsync()
   },
 }
 </script>

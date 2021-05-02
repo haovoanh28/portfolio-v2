@@ -73,10 +73,12 @@ export default {
   transition-property: background-color;
   width: 100vw;
   z-index: 999;
+  border-bottom: 1px solid transparent;
 }
 
 .header--scroll {
   background-color: #fff;
+  border-bottom: 1px solid var(--color-gray);
 
   .nav {
     min-height: 55px;
@@ -122,7 +124,6 @@ export default {
     grid-template-columns: 40% 55.5%;
     min-height: 55px;
     background-color: #fff;
-
     .nav-responsive_logo {
       div {
         background-color: black !important;

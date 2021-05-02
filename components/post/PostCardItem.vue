@@ -1,15 +1,21 @@
 <template>
   <div class="post-card">
     <div class="card-banner">
-      <img :src="post.imgSrc" alt="card image" />
+      <img :src="post.bannerImg" alt="card image" loading="lazy" />
       <div
-        class="banner-tag fw-700"
-        :style="{ backgroundColor: post.tags[0].bgColor }"
+        class="banner-type fw-700"
+        :style="{
+          backgroundColor: getBackgroundColorByType(post.type),
+          boxShadow: `1px 1px 5px rgba(0,0,0, 0.4)`,
+        }"
       >
-        {{ post.tags[0].text }}
+        {{ post.type }}
       </div>
       <div class="banner-time">
-        {{ post.createdAt }}
+        <client-only>
+          <TimeAgo :datetime="post.createdAt" long></TimeAgo>
+        </client-only>
+        <!-- {{ post.createdAt }} -->
       </div>
     </div>
     <div class="card-hashtags">
@@ -30,17 +36,34 @@
 </template>
 
 <script>
+import TimeAgo from 'vue2-timeago'
+
 export default {
+  components: {
+    TimeAgo,
+  },
   props: {
     post: {
       type: Object,
       default: () => {},
     },
   },
+  methods: {
+    getBackgroundColorByType(type) {
+      const mapper = {
+        technology: '#00cc00',
+        share: '#ff9900',
+        regular: '#0066ff',
+        programming: '#cc0099',
+      }
+
+      return mapper[type] ?? '#b35900'
+    },
+  },
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .post-card {
   width: 100%;
   padding: 0.8rem;
@@ -73,27 +96,36 @@ export default {
     display: block;
   }
 
-  .banner-tag,
+  .banner-type,
   .banner-time {
     position: absolute;
-    text-transform: uppercase;
-    color: #fff;
+    color: #fff !important;
     padding: 0.5rem 1.2rem;
     font-size: 1.3rem;
     letter-spacing: 1.5px;
   }
 
-  .banner-tag {
+  .banner-type {
     top: 1.5rem;
     left: 0;
     border-top-right-radius: 1.5rem;
     border-bottom-right-radius: 1.5rem;
+    text-align: center;
+    min-width: 14rem;
+    text-transform: uppercase;
   }
 
   .banner-time {
     bottom: 0;
     right: 0;
     background-color: black;
+
+    span {
+      text-transform: lowercase;
+      color: #fff !important;
+      font-size: inherit;
+      font-family: inherit;
+    }
   }
 }
 

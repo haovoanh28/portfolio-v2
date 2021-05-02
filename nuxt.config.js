@@ -28,6 +28,7 @@ export default {
     { src: '~/plugins/onPageScroll', ssr: false },
     { src: '~/plugins/vue-particles' },
     { src: '~/plugins/vue-awesome' },
+    { src: '~/plugins/api' },
   ],
 
   styleResources: {
@@ -42,6 +43,7 @@ export default {
     // https://go.nuxtjs.dev/eslint
     // '@nuxtjs/eslint-module',
     '@nuxtjs/style-resources',
+    '@nuxtjs/dotenv',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -55,9 +57,18 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ['vue-particles', /^vue-awesome/],
+    transpile: [
+      'vue-particles',
+      /^vue-awesome/,
+      'epic-spinners',
+      'vue2-timeago',
+    ],
     splitChunks: {
       layouts: true,
     },
+  },
+  loading: {
+    color: '#cc9900',
+    height: '3px',
   },
 }

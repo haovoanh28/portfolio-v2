@@ -1,6 +1,6 @@
 <template>
   <div class="blog section" id="blog">
-    <BlogBanner />
+    <BlogBanner  />
     <BlogMain />
   </div>
 </template>
@@ -9,12 +9,17 @@
 import BlogBanner from '@/components/blog/BlogBanner'
 import BlogMain from '@/components/blog/BlogMain'
 
+import {  mapState} from 'vuex'
+
+
 export default {
   components: {
     BlogBanner,
     BlogMain,
   },
-
+  computed: {
+    ...mapState('post/get', ['isLoading'])
+  },
   mounted() {
     if (process.browser) {
       const navItems = document.querySelectorAll('.nav .nav-item')
@@ -29,7 +34,7 @@ export default {
         }
       })
     }
-  },
+  }
 }
 </script>
 

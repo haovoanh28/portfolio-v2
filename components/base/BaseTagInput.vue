@@ -4,6 +4,7 @@
     <div class="tag-container">
       <div class="tag">
         <BaseTag
+          editable
           v-for="tag in tags"
           :key="`${tag}-tag`"
           :tag="tag"

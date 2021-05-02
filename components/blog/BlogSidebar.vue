@@ -15,13 +15,9 @@
     </div>
     <div class="sidebar-recent_post">
       <p class="sidebar-title fw-700">Recent Post</p>
-      <div
-        class="post"
-        v-for="(post, index) in posts"
-        :key="`recent-post-${index}`"
-      >
+      <div class="post" v-for="post in posts" :key="`recent-post-${post._id}`">
         <div class="post-img">
-          <img :src="post.imgSrc" alt="" />
+          <img :src="post.bannerImg" alt="" loading="lazy" />
         </div>
         <div class="post-short">
           <p class="post-title fw-700">
@@ -36,7 +32,10 @@
     <div class="sidebar-archives">
       <div class="sidebar-title fw-700">archives</div>
       <ul class="cate-list">
-        <li v-for="archive in archives" :key="archive">
+        <li
+          v-for="(archive, index) in archives"
+          :key="`archive-${archive}-${index}`"
+        >
           <v-icon name="angle-double-right" />
           <span class="text-muted">{{ archive }}</span>
         </li>
@@ -142,7 +141,7 @@ export default {
 
     &-img {
       width: 100%;
-      height: 100%;
+      height: 15rem;
       overflow: hidden;
     }
 
@@ -160,6 +159,7 @@ export default {
     img {
       border-radius: 1rem;
       width: 100%;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
@@ -167,6 +167,14 @@ export default {
     &:not(:last-child) {
       border-bottom: 1px solid rgba(238, 238, 238, 0.7);
       margin-bottom: 3.3rem;
+    }
+  }
+
+  @include medium_device {
+    .post {
+      &-img {
+        height: 20rem;
+      }
     }
   }
 }
