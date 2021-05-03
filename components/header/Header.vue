@@ -4,12 +4,12 @@
       <a href="/#home" class="nav-brand">HaoV</a>
       <ul class="nav-list" @click="handleNavListClick">
         <li class="nav-item nav-item--active">
-          <a href="/#home">Home</a>
+          <nuxt-link to="/#home">Home</nuxt-link>
         </li>
         <li v-for="item in nav" :key="item" class="nav-item">
-          <a :href="`/#${item}`">
+          <nuxt-link :to="`/#${item}`">
             {{ item }}
-          </a>
+          </nuxt-link>
         </li>
         <li class="nav-item" @click="handleToBlogClick">
           <nuxt-link to="/blog">Blog</nuxt-link>
@@ -59,7 +59,31 @@ export default {
       }
       this.toggleLogo()
     },
-    handleToBlogClick() {},
+    handleToBlogClick() {
+      if (process.browser) {
+        const navLinks = document.querySelectorAll('.nav .nav-item a')
+
+        navLinks.forEach((navLink) => {
+          navLink.classList.remove('nav-item--active')
+
+          if (navLink['href'].includes('blog')) {
+            navLink.classList.add('nav-item--active')
+          }
+        })
+      }
+    },
+  },
+  mounted() {
+    if (process.browser) {
+      const header = document.querySelector('.header')
+      window.addEventListener('scroll', (e) => {
+        if (window.scrollY > 50) {
+          header.classList.add('header--scroll')
+        } else {
+          header.classList.remove('header--scroll')
+        }
+      })
+    }
   },
 }
 </script>
@@ -83,7 +107,7 @@ export default {
   .nav {
     min-height: 55px;
 
-    .nav-item--active {
+    .nav-item .nuxt-link-exact-active {
       &::after {
         background-color: black;
       }
@@ -259,25 +283,25 @@ export default {
 .nav-item {
   position: relative;
 
-  &::after {
-    content: '';
-    padding: 4px 4px;
-    width: 1px;
-    height: 5px;
-    background-color: #fff;
-    -webkit-border-radius: 5rem;
-    -moz-border-radius: 5rem;
-    border-radius: 5rem;
-    position: absolute;
-    bottom: -20%;
-    left: 50%;
-    transform: translate(-50%, 50%) scale(0.5, 0.5);
-    opacity: 0;
-    transition: all 0.3s;
-  }
-
   a {
     font-size: 1.5rem;
+
+    &::after {
+      content: '';
+      padding: 4px 4px;
+      width: 1px;
+      height: 5px;
+      background-color: #fff;
+      -webkit-border-radius: 5rem;
+      -moz-border-radius: 5rem;
+      border-radius: 5rem;
+      position: absolute;
+      bottom: -20%;
+      left: 50%;
+      transform: translate(-50%, 50%) scale(0.5, 0.5);
+      opacity: 0;
+      transition: all 0.3s;
+    }
   }
 
   @include extra_small_device {
@@ -294,7 +318,8 @@ export default {
   transform: translateX(0) translateY(7.9vh);
 }
 
-.nav-item--active {
+.nav-item--active,
+.nav-item .nuxt-link-exact-active {
   &::after {
     opacity: 1;
   }

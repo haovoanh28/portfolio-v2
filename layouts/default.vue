@@ -1,28 +1,19 @@
 <template>
   <div class="body">
-    <keep-alive>
+    <!-- <BaseSpinner v-if="isLoading" /> -->
+    <!-- <p v-if="isLoading">Loading ...</p> -->
+    <template>
       <Header />
-    </keep-alive>
-    <Nuxt keep-alive />
-    <Footer />
+      <Nuxt keep-alive />
+      <keep-alive>
+        <Footer />
+      </keep-alive>
+    </template>
   </div>
 </template>
 
 <script>
-export default {
-  mounted() {
-    if (process.browser) {
-      const header = document.querySelector('.header')
-      window.addEventListener('scroll', (e) => {
-        if (window.scrollY > 50) {
-          header.classList.add('header--scroll')
-        } else {
-          header.classList.remove('header--scroll')
-        }
-      })
-    }
-  },
-}
+export default {}
 </script>
 
 <style lang="scss">

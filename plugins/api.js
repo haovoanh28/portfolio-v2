@@ -4,7 +4,7 @@ export default function ({ $axios, store }, inject) {
   const api = $axios.create({ baseURL: baseURL })
   api.interceptors.request.use(
     (config) => {
-      // const token = store.state.auth.accessToken ?? ''
+        // const token = store.state.auth.accessToken ?? ''
       // if (token) config.headers.Authorization = `Bearer ${token}`
 
       return config

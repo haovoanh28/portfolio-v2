@@ -1,6 +1,6 @@
 <template>
   <div class="blog section" id="blog">
-    <BlogBanner  />
+    <BlogBanner />
     <BlogMain />
   </div>
 </template>
@@ -9,8 +9,7 @@
 import BlogBanner from '@/components/blog/BlogBanner'
 import BlogMain from '@/components/blog/BlogMain'
 
-import {  mapState} from 'vuex'
-
+import { mapState } from 'vuex'
 
 export default {
   components: {
@@ -18,23 +17,24 @@ export default {
     BlogMain,
   },
   computed: {
-    ...mapState('post/get', ['isLoading'])
+    ...mapState('post/get', ['isLoading']),
   },
-  mounted() {
+  watchQuery(newQuey, oldQuery) {
     if (process.browser) {
-      const navItems = document.querySelectorAll('.nav .nav-item')
+      const navLinks = document.querySelectorAll('.nav .nav-item a')
 
-      navItems.forEach((navItem) => {
-        navItem.classList.remove('nav-item--active')
+      navLinks.forEach((navLink) => {
+        navLink.classList.remove('nuxt-link-exact-active')
 
-        if (navItem.firstChild['href'].includes('blog')) {
-          setTimeout(() => {
-            navItem.classList.add('nav-item--active')
-          }, 0)
+        if (navLink['href'].includes('blog')) {
+          navLink.classList.add('nuxt-link-exact-active')
         }
       })
     }
-  }
+  },
+  updated() {
+    console.log('updated hehe')
+  },
 }
 </script>
 

@@ -3,7 +3,7 @@
     <template v-if="isLoading">
       <BaseSpinner fullScreen />
     </template>
-    <template>
+    <template v-show="!isLoading">
       <client-only>
         <AdminCreate @ed-loaded="handleEdLoaded" />
       </client-only>

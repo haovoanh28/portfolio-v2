@@ -52,7 +52,7 @@
         </BaseButton>
       </div>
       <div class="banner-scoll_down">
-        <a href="#about"></a>
+        <nuxt-link to="/#about"></nuxt-link>
       </div>
     </div>
   </section>

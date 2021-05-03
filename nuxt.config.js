@@ -70,5 +70,6 @@ export default {
   loading: {
     color: '#cc9900',
     height: '3px',
+    continuous: true,
   },
 }

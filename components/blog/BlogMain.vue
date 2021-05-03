@@ -4,7 +4,7 @@
       <template v-if="isLoading || $fetchState.pending">
         <BaseSpinner fullSreen />
       </template>
-      <div class="bl og-posts" v-else>
+      <div class="blog-posts">
         <PostCardItem v-for="post in posts" :key="post.id" :post="post" />
       </div>
       <BlogSidebar />

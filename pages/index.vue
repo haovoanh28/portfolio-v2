@@ -29,22 +29,24 @@ export default {
   mounted() {
     if (process.browser) {
       const sections = document.querySelectorAll('.section')
-      const navItems = document.querySelectorAll('.nav .nav-item')
+      const navLinks = document.querySelectorAll('.nav .nav-item a')
 
       const intersectionOptions = {
         threshold: 0.3,
       }
 
-      function intersectionCallback(entries, observer) {
+      const intersectionCallback = (entries, observer) => {
         entries.forEach((entry) => {
+          const sectionId = entry.target.getAttribute('id')
           if (entry.isIntersecting) {
-            const sectionId = entry.target.getAttribute('id')
+            if (window.location.hash !== `#${sectionId}`) {
+              window.history.pushState({}, window.title, `#${sectionId}`)
+            }
+            navLinks.forEach((navLink) => {
+              navLink.classList.remove('nuxt-link-exact-active')
 
-            navItems.forEach((navItem) => {
-              navItem.classList.remove('nav-item--active')
-
-              if (navItem.firstChild['href'].includes(sectionId)) {
-                navItem.classList.add('nav-item--active')
+              if (navLink['href'].includes(sectionId)) {
+                navLink.classList.add('nuxt-link-exact-active')
               }
             })
           }
