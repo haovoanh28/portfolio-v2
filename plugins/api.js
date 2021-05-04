@@ -1,5 +1,5 @@
 export default function ({ $axios, store }, inject) {
-  const baseURL = ''
+  let baseURL = ''
 
   if (process.env.NODE_ENV === 'development') {
     baseURL = process.env.BASE_URL_DEV
