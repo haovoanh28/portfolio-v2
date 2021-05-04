@@ -6,7 +6,7 @@ export default function ({ $axios, store }, inject) {
     process.env.VERCEL_ENV == 'development' ||
     process.env.NUXT_ENV_VERCEL_ENV == 'development'
   ) {
-    baseURL = process.env.BASE_URL_DEV
+    baseURL = process.env.BASE_URL_DEV || process.env.baseURL
   }
 
   if (
@@ -14,7 +14,7 @@ export default function ({ $axios, store }, inject) {
     process.env.VERCEL_ENV == 'production' ||
     process.env.NUXT_ENV_VERCEL_ENV == 'production'
   ) {
-    baseURL = process.env.BASE_URL_PRODUCTION
+    baseURL = process.env.BASE_URL_PRODUCTION || process.env.baseURL
   }
 
   console.log(baseURL)
