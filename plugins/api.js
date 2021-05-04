@@ -1,11 +1,19 @@
 export default function ({ $axios, store }, inject) {
   let baseURL = ''
 
-  if (process.env.NODE_ENV === 'development') {
+  if (
+    process.env.NODE_ENV === 'development' ||
+    process.env.VERCEL_ENV == 'development' ||
+    process.env.NUXT_ENV_VERCEL_ENV == 'development'
+  ) {
     baseURL = process.env.BASE_URL_DEV
   }
 
-  if (process.env.NODE_ENV === 'production') {
+  if (
+    process.env.NODE_ENV == 'production' ||
+    process.env.VERCEL_ENV == 'production' ||
+    process.env.NUXT_ENV_VERCEL_ENV == 'production'
+  ) {
     baseURL = process.env.BASE_URL_PRODUCTION
   }
 
