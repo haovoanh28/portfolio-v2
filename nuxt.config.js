@@ -8,6 +8,10 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'google-site-verification',
+        content: 'quO9-pjTQySW-mGKsQH6grDAqLAvbusQLIyAEmjsavk',
+      },
       { hid: 'description', name: 'description', content: '' },
     ],
     link: [
@@ -19,6 +23,8 @@ export default {
       },
     ],
   },
+
+  //<meta name="google-site-verification" content="quO9-pjTQySW-mGKsQH6grDAqLAvbusQLIyAEmjsavk" />
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['@/assets/css/helper.css'],

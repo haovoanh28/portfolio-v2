@@ -305,11 +305,13 @@ export default {
   }
 
   @include extra_small_device {
-    &::after {
-      bottom: 0;
-      left: 12rem;
-      top: 0.7rem;
-      transform: scale(0.5, 0.5);
+    a {
+      &::after {
+        bottom: 0;
+        left: 12rem;
+        top: 0.7rem;
+        transform: scale(0.5, 0.5);
+      }
     }
   }
 }
