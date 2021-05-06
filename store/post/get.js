@@ -25,7 +25,6 @@ export const actions = {
       const response = await this.$api.get('/posts')
 
       const { data: posts } = response.data
-      console.log(posts)
 
       commit('UPDATE_POST', posts)
     } catch (err) {

@@ -48,14 +48,12 @@ export default {
   methods: {
     handleAddTag(tag) {
       if (this.tags.includes(tag)) {
-        console.log('duplicate tag')
         return
       }
       this.tags.push(tag)
     },
     handleDeleteTag(tag) {
       this.tags = this.tags.filter((t) => t !== tag)
-      console.log(this.tags)
     },
     handleEdLoaded() {
       this.$emit('ed-loaded')

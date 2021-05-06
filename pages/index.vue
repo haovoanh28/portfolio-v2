@@ -39,7 +39,11 @@ export default {
         entries.forEach((entry) => {
           const sectionId = entry.target.getAttribute('id')
           if (entry.isIntersecting) {
-            if (window.location.hash !== `#${sectionId}`) {
+            const hashSectionId = `#${sectionId}`
+            if (
+              window.location.hash !== hashSectionId &&
+              hashSectionId !== '#home'
+            ) {
               window.history.pushState({}, window.title, `#${sectionId}`)
             }
             navLinks.forEach((navLink) => {

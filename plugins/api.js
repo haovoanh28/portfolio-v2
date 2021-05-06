@@ -17,8 +17,6 @@ export default function ({ $axios, store }, inject) {
     baseURL = process.env.BASE_URL_PRODUCTION || process.env.baseURL
   }
 
-  console.log(baseURL)
-
   const api = $axios.create({ baseURL: baseURL })
   api.interceptors.request.use(
     (config) => {
