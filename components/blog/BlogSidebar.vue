@@ -33,7 +33,9 @@
             {{ post.title }}
           </p>
           <p class="post-createdAt text-muted">
-            {{ post.createdAt }}
+            <client-only>
+              <TimeAgo :datetime="post.createdAt" long></TimeAgo>
+            </client-only>
           </p>
         </div>
       </div>
@@ -60,7 +62,12 @@
 <script>
 import { mapState } from 'vuex'
 
+import TimeAgo from 'vue2-timeago'
+
 export default {
+  components: {
+    TimeAgo,
+  },
   data() {
     return {
       categories: ['technology', 'popular', 'programming', 'share'],
@@ -75,7 +82,7 @@ export default {
     },
     pending: {
       type: Boolean,
-      default: false
+      default: false,
     },
     posts: {
       type: Array,
