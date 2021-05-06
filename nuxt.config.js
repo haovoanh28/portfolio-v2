@@ -28,6 +28,7 @@ export default {
     { src: '~/plugins/onPageScroll', ssr: false },
     { src: '~/plugins/vue-particles' },
     { src: '~/plugins/vue-awesome' },
+    { src: '~/plugins/vue-content-placeholders' },
     { src: '~/plugins/api' },
   ],
 
@@ -62,6 +63,7 @@ export default {
       /^vue-awesome/,
       'epic-spinners',
       'vue2-timeago',
+      'vue-content-placeholders',
     ],
     splitChunks: {
       layouts: true,

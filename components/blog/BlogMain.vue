@@ -1,20 +1,27 @@
 <template>
   <div class="blog-main bg-light">
     <div class="blog-wrapper">
-      <template v-if="isLoading || $fetchState.pending">
-        <BaseSpinner fullSreen />
-      </template>
-      <div class="blog-posts">
+      <div class="content-placeholder" v-if="isLoading || pending">
+        <content-placeholders
+          :rounded="true"
+          v-for="index in 6"
+          :key="`placeholder-${index}`"
+        >
+          <content-placeholders-img />
+          <content-placeholders-heading />
+          <content-placeholders-heading />
+          <content-placeholders-heading />
+        </content-placeholders>
+      </div>
+      <div class="blog-posts" v-else>
         <PostCardItem v-for="post in posts" :key="post.id" :post="post" />
       </div>
-      <BlogSidebar />
+      <BlogSidebar :isLoading="isLoading" :posts="posts" :pending="pending" />
     </div>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
-
 import PostCardItem from '@/components/post/PostCardItem'
 import BlogSidebar from '@/components/blog/BlogSidebar'
 
@@ -23,14 +30,19 @@ export default {
     PostCardItem,
     BlogSidebar,
   },
-  computed: {
-    ...mapState('post/get', ['posts', 'isLoading']),
-  },
-  methods: {
-    ...mapActions('post/get', ['getAllPostAsync']),
-  },
-  async fetch() {
-    await this.getAllPostAsync()
+  props: {
+    isLoading: {
+      type: Boolean,
+      default: false,
+    },
+    pending: {
+      type: Boolean,
+      default: false,
+    },
+    posts: {
+      type: Array,
+      default: () => [],
+    },
   },
 }
 </script>
@@ -61,5 +73,13 @@ export default {
 .blog-posts {
   border-radius: 8px;
   min-height: 50rem;
+}
+
+.vue-content-placeholders:not(:last-of-type) {
+  margin-bottom: 4.5rem;
+}
+
+.vue-content-placeholders-img {
+  height: 30rem;
 }
 </style>

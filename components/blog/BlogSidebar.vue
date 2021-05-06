@@ -13,7 +13,16 @@
         </li>
       </ul>
     </div>
-    <div class="sidebar-recent_post">
+    <div class="content-placeholder" v-if="isLoading || pending">
+      <content-placeholders
+        v-for="index in 6"
+        :key="`sidebar-placeholder-${index}`"
+      >
+        <content-placeholders-heading :img="true" />
+        <content-placeholders-text :lines="3" />
+      </content-placeholders>
+    </div>
+    <div class="sidebar-recent_post" v-else>
       <p class="sidebar-title fw-700">Recent Post</p>
       <div class="post" v-for="post in posts" :key="`recent-post-${post._id}`">
         <div class="post-img">
@@ -58,6 +67,20 @@ export default {
       archives: ['May 2021', 'August 2021', 'August 2021', 'August 2021'],
       tags: ['frontend', 'backend', 'javascript', 'html', 'css', 'vuejs'],
     }
+  },
+  props: {
+    isLoading: {
+      type: Boolean,
+      default: false,
+    },
+    pending: {
+      type: Boolean,
+      default: false
+    },
+    posts: {
+      type: Array,
+      default: () => [],
+    },
   },
   computed: {
     ...mapState('post/get', ['posts']),
@@ -177,5 +200,9 @@ export default {
       }
     }
   }
+}
+
+.vue-content-placeholders:not(:last-of-type) {
+  margin-bottom: 3rem;
 }
 </style>

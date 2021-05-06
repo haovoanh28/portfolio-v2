@@ -1,7 +1,11 @@
 <template>
   <div class="blog section" id="blog">
     <BlogBanner />
-    <BlogMain />
+    <BlogMain
+      :isLoading="isLoading"
+      :posts="posts"
+      :pending="$fetchState.pending"
+    />
   </div>
 </template>
 
@@ -9,7 +13,7 @@
 import BlogBanner from '@/components/blog/BlogBanner'
 import BlogMain from '@/components/blog/BlogMain'
 
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   components: {
@@ -17,7 +21,10 @@ export default {
     BlogMain,
   },
   computed: {
-    ...mapState('post/get', ['isLoading']),
+    ...mapState('post/get', ['isLoading', 'posts']),
+  },
+  methods: {
+    ...mapActions('post/get', ['getAllPostAsync']),
   },
   watchQuery(newQuey, oldQuery) {
     if (process.browser) {
@@ -32,8 +39,9 @@ export default {
       })
     }
   },
-  updated() {
-    console.log('updated hehe')
+  updated() {},
+  async fetch() {
+    await this.getAllPostAsync()
   },
 }
 </script>
