@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'portfolio-v2',
+    title: 'Hao Vo',
     htmlAttrs: {
       lang: 'en',
     },
@@ -12,7 +12,12 @@ export default {
         name: 'google-site-verification',
         content: 'quO9-pjTQySW-mGKsQH6grDAqLAvbusQLIyAEmjsavk',
       },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'My name is Vo Anh Hao - a Junior Developer. This is my personal website for writing blog and introduce my self',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -20,6 +25,10 @@ export default {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap',
+      },
+      {
+        rel: 'canonical',
+        href: 'https://www.haov.cf/',
       },
     ],
   },
