@@ -1,17 +1,14 @@
 export const state = () => {
-   return {
-
-   }
+  return {}
 }
 
-export const getters = {
+export const getters = {}
 
-}
-
-export const mutations = {
-
-}
+export const mutations = {}
 
 export const actions = {
-   
+  addPostAsync() {
+    try {
+    } catch {}
+  },
 }

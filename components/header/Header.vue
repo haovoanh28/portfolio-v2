@@ -1,13 +1,16 @@
 <template>
   <div class="header">
     <nav class="nav">
-      <a href="/#home" class="nav-brand">HaoV</a>
+      <nuxt-link to="/#home" class="nav-brand">HaoV</nuxt-link>
       <ul class="nav-list" @click="handleNavListClick">
-        <li class="nav-item nav-item--active">
+        <!-- <li class="nav-item nav-item--active">
           <nuxt-link to="/#home">Home</nuxt-link>
-        </li>
+        </li> -->
         <li v-for="item in nav" :key="item" class="nav-item">
-          <nuxt-link :to="`/#${item}`">
+          <nuxt-link
+            :to="{ path: '/', hash: `#${item}` }"
+            v-scroll-to="{ el: `#${item}`, duration: 100 }"
+          >
             {{ item }}
           </nuxt-link>
         </li>
@@ -28,7 +31,7 @@
 export default {
   data() {
     return {
-      nav: ['about', 'education', 'contact'],
+      nav: ['home', 'about', 'education', 'contact'],
     }
   },
   methods: {

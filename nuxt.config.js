@@ -66,6 +66,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    'vue-scrollto/nuxt',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -88,4 +89,5 @@ export default {
     baseURL:
       process.env.BASE_URL || 'https://portfolio-v2-api.herokuapp.com/api/v1/',
   },
+  router: {},
 }

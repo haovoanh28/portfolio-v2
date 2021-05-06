@@ -32,16 +32,16 @@ export default {
       const navLinks = document.querySelectorAll('.nav .nav-item a')
 
       const intersectionOptions = {
-        threshold: 0.3,
+        threshold: 0.2,
       }
-
       const intersectionCallback = (entries, observer) => {
         entries.forEach((entry) => {
           const sectionId = entry.target.getAttribute('id')
           if (entry.isIntersecting) {
             const hashSectionId = `#${sectionId}`
             if (window.location.hash !== hashSectionId) {
-              window.history.pushState({}, window.title, `#${sectionId}`)
+              window.history.pushState({}, {}, `/${hashSectionId}`)
+              // parent.location.hash = sectionId`#${sectionId}`
             }
             navLinks.forEach((navLink) => {
               navLink.classList.remove('nuxt-link-exact-active')
