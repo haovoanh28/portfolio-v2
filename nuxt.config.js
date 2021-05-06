@@ -75,11 +75,6 @@ export default {
       layouts: true,
     },
   },
-  loading: {
-    color: '#cc9900',
-    height: '3px',
-    continuous: true,
-  },
   env: {
     baseURL:
       process.env.BASE_URL || 'https://portfolio-v2-api.herokuapp.com/api/v1/',
