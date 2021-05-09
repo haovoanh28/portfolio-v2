@@ -1,7 +1,5 @@
 <template>
   <div class="body">
-    <!-- <BaseSpinner v-if="isLoading" /> -->
-    <!-- <p v-if="isLoading">Loading ...</p> -->
     <template>
       <Header />
       <Nuxt keep-alive />

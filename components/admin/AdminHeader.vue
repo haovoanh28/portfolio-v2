@@ -1,7 +1,9 @@
 <template>
   <div class="admin-header-wrapper">
     <div class="admin-header--reponsive" ref="admin-header--responsive">
-      <p class="header-head--responsive fw-700 text-center">{{ brand }}</p>
+      <p class="header-head--responsive fw-700 text-center">
+        <a href="/">{{ brand }}</a>
+      </p>
       <div class="header-bars--responsive">
         <v-icon name="bars" @click="toggleHeader"></v-icon>
       </div>
@@ -9,7 +11,9 @@
     <div class="responsive-bg" ref="responsive-bg" @click="toggleHeader"></div>
     <div class="admin-header" :style="styleObj" ref="admin-header">
       <div class="header-head">
-        <p class="fw-700 text-center">{{ brand }}</p>
+        <p class="fw-700 text-center">
+          <a href="/">{{ brand }}</a>
+        </p>
       </div>
       <div class="header-main">
         <div class="header-post">
@@ -121,8 +125,15 @@ export default {
   p {
     font-size: 3rem;
     color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 3.5px;
+
+    a {
+      font-size: inherit;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 3.5px;
+      cursor: pointer;
+      color: inherit;
+    }
   }
 }
 
@@ -165,6 +176,14 @@ export default {
     align-self: center;
   }
 
+  a {
+    font-size: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: inherit;
+  }
+
   @include medium_device {
     display: grid;
   }
@@ -181,7 +200,7 @@ export default {
 
 .admin-header--active-response {
   transform: translateX(0);
-  z-index: 10;
+  z-index: 999;
 }
 
 .responsive-bg {
@@ -192,6 +211,6 @@ export default {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.4);
-  z-index: 5;
+  z-index: 999;
 }
 </style>

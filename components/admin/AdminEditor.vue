@@ -7,6 +7,8 @@
           :init="editorConfig"
           :api-key="tinymceApiKey"
           @onInit="handleEditorInit"
+          :value="value"
+          @input="handleInput"
         />
       </div>
     </client-only>
@@ -24,6 +26,10 @@ export default {
     title: {
       type: String,
       default: 'Editor',
+    },
+    value: {
+      type: String,
+      default: '',
     },
   },
   data() {
@@ -51,6 +57,9 @@ export default {
   methods: {
     handleEditorInit() {
       this.$emit('ed-loaded')
+    },
+    handleInput(e) {
+      this.$emit('content-change', { value: e, name: 'content' })
     },
   },
 }

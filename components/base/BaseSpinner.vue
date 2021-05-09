@@ -32,7 +32,7 @@ export default {
   width: 100%;
   height: 100vh;
   background-color: #fff;
-  z-index: 999;
+  z-index: 100;
   display: grid;
   place-items: center;
   top: 0;

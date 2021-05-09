@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     handleInput(e) {
-      this.$emit('input', e.target.value)
+      this.$emit('input', { value: e.target.value, name: e.target.name })
     },
   },
 }
@@ -57,7 +57,7 @@ export default {
     outline: none;
     border: 1px solid #ced4da;
     padding: 0.6rem 1.2rem;
-    color: var(--color-muted);
+    /* color: var(--color-muted); */
     line-height: 2.3rem;
     width: 100%;
     transition: all 0.5s ease-in-out;

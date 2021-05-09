@@ -9,6 +9,7 @@ export const mutations = {}
 export const actions = {
   addPostAsync() {
     try {
+       
     } catch {}
   },
 }

@@ -2,7 +2,11 @@
   <div class="select-group">
     <client-only>
       <label class="text-title fw-700">{{ title }}</label>
-      <VSelect class="vselect" :options="postTypes" />
+      <VSelect
+        class="vselect"
+        :options="postTypes"
+        @option:selected="handleChange"
+      />
     </client-only>
   </div>
 </template>
@@ -25,6 +29,16 @@ export default {
       default: () => {
         return ['Technology', 'Regular', 'Programming', 'Share']
       },
+    },
+    name: {
+      type: String,
+      default: '',
+    },
+  },
+  methods: {
+    handleChange(e) {
+      console.log(e)
+      this.$emit('input', { value: e, name: this.name })
     },
   },
 }

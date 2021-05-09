@@ -19,6 +19,14 @@ export default {
       type: Boolean,
       default: () => false,
     },
+    successBtn: {
+      type: Boolean,
+      default: () => false,
+    },
+    errorBtn: {
+      type: Boolean,
+      default: () => false,
+    },
   },
   data() {
     return {
@@ -26,6 +34,8 @@ export default {
         'bg-transparent': this.transparent,
         'border-radius': this.borderRadius,
         blackBtn: this.blackBtn,
+        successBtn: this.successBtn,
+        errorBtn: this.errorBtn,
       },
     }
   },
@@ -63,6 +73,31 @@ export default {
   &:hover {
     background-color: #fff !important;
     border: 2px solid black;
+  }
+}
+
+.successBtn {
+  --bg-color: #33cc33;
+  background-color: var(--bg-color);
+  border: 2px solid transparent;
+
+  &:hover {
+    background-color: darken(#33cc33, 15) !important;
+    border: 2px solid darken(#33cc33, 15);
+    color: #fff;
+  }
+}
+
+.errorBtn {
+  --bg-color: #df2121;
+
+  background-color: var(--bg-color);
+  border: 2px solid transparent;
+
+  &:hover {
+    background-color: darken(#df2121, 15) !important;
+    border: 2px solid darken(#df2121, 15);
+    color: #fff;
   }
 }
 
