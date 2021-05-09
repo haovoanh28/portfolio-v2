@@ -5,9 +5,9 @@ export default {
       post: {
         title: '',
         brief: '',
-        bannerImage: '',
+        bannerImg: '',
         type: '',
-        tags: [],
+        hashtags: [],
         content: '',
       },
     }
@@ -22,10 +22,10 @@ export default {
       this.post = { ...this.post, [name]: value }
     },
     handleAddTag(tag) {
-      this.post.tags.push(tag)
+      this.post.hashtags.push(tag)
     },
     handleDeleteTag(tag) {
-      this.tags = this.tags.filter((t) => t !== tag)
+      this.hashtags = this.hashtags.filter((t) => t !== tag)
     },
   },
 }

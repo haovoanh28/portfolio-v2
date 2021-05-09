@@ -1,14 +1,18 @@
 export const state = () => {
   return {
     posts: [],
+    postsCount: 0,
     isLoading: false,
   }
 }
 export const gettets = {}
 
 export const mutations = {
-  UPDATE_POST(state, posts) {
+  UPDATE_POSTS(state, posts) {
     state.posts = posts
+  },
+  UPDATE_POSTS_COUNT(state, postsCount) {
+    state.postsCount = postsCount
   },
   SET_LOADING(state) {
     state.isLoading = true
@@ -24,9 +28,11 @@ export const actions = {
       commit('SET_LOADING')
       const response = await this.$api.get('/posts')
 
-      const { data: posts } = response.data
+      console.log(response)
+      const { data: posts, postsCount } = response.data
 
-      commit('UPDATE_POST', posts)
+      commit('UPDATE_POSTS', posts)
+      commit('UPDATE_POSTS_COUNT', postsCount)
     } catch (err) {
       console.log(err)
     } finally {

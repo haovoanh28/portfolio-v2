@@ -64,10 +64,10 @@ export default {
     grid-template-columns: 1fr;
     grid-row-gap: 4rem;
   }
-}
 
-.blog-posts,
-.blog-sidebar {
+  @include small_device {
+    padding: 8% 4%;
+  }
 }
 
 .blog-posts {

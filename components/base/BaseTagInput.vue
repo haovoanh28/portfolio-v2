@@ -5,7 +5,7 @@
       <div class="tag">
         <BaseTag
           editable
-          v-for="tag in tags"
+          v-for="tag in hashtags"
           :key="`${tag}-tag`"
           :tag="tag"
           @tag-delete="handleTagDelete"
@@ -32,7 +32,7 @@ export default {
     }
   },
   props: {
-    tags: {
+    hashtags: {
       type: Array,
       default: () => [],
     },

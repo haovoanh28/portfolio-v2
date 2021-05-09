@@ -1,13 +1,18 @@
 <template>
-  <button class="btn" :class="classObj">
+  <button class="btn" :class="classObj" v-bind="$attrs" v-on="$listeners">
     <slot>button</slot>
   </button>
 </template>
 
 <script>
 export default {
+  inheritAttrs: false,
   props: {
     transparent: {
+      type: Boolean,
+      default: () => false,
+    },
+    small: {
       type: Boolean,
       default: () => false,
     },
@@ -27,15 +32,21 @@ export default {
       type: Boolean,
       default: () => false,
     },
+    blueBtn: {
+      type: Boolean,
+      default: () => false,
+    },
   },
   data() {
     return {
       classObj: {
         'bg-transparent': this.transparent,
         'border-radius': this.borderRadius,
+        small: this.small,
         blackBtn: this.blackBtn,
         successBtn: this.successBtn,
         errorBtn: this.errorBtn,
+        blueBtn: this.blueBtn,
       },
     }
   },
@@ -66,6 +77,10 @@ export default {
   }
 }
 
+.small {
+  padding: 0.6rem 1.5rem;
+}
+
 .blackBtn {
   background-color: black;
   border: 2px solid transparent;
@@ -79,7 +94,7 @@ export default {
 .successBtn {
   --bg-color: #33cc33;
   background-color: var(--bg-color);
-  border: 2px solid transparent;
+  border: 2px solid var(--bg-color);
 
   &:hover {
     background-color: darken(#33cc33, 15) !important;
@@ -92,11 +107,24 @@ export default {
   --bg-color: #df2121;
 
   background-color: var(--bg-color);
-  border: 2px solid transparent;
+  border: 2px solid var(--bg-color);
 
   &:hover {
     background-color: darken(#df2121, 15) !important;
     border: 2px solid darken(#df2121, 15);
+    color: #fff;
+  }
+}
+
+.blueBtn {
+  --bg-color: #0000cc;
+
+  background-color: var(--bg-color);
+  border: 2px solid var(--bg-color);
+
+  &:hover {
+    background-color: darken(#0000cc, 15) !important;
+    border: 2px solid darken(#0000cc, 15);
     color: #fff;
   }
 }

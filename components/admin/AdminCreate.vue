@@ -19,8 +19,8 @@
       <BaseInput
         label="Banner Image"
         placeholder="Paste in banner image link"
-        name="bannerImage"
-        :value="bannerImage"
+        name="bannerImg"
+        :value="bannerImg"
         @input="handleInput"
       />
     </div>
@@ -45,7 +45,7 @@
       <BaseTagInput
         title="Tags for post"
         placeholder="Type in tag for post"
-        :tags="tags"
+        :hashtags="hashtags"
         @add-tag="handleAddTag"
         @delete-tag="handleDeleteTag"
       />
@@ -58,8 +58,12 @@
       />
     </div>
     <div class="form-group create-button">
-      <BaseButton successBtn> CREATE </BaseButton>
-      <BaseButton errorBtn> CLEAR </BaseButton>
+      <BaseButton blueBtn @click="handleAction">
+        <span class="admin-btn">CREATE</span>
+      </BaseButton>
+      <BaseButton errorBtn>
+        <span class="admin-btn">CLEAR</span>
+      </BaseButton>
     </div>
   </div>
 </template>
@@ -76,7 +80,7 @@ export default {
       type: String,
       default: '',
     },
-    bannerImage: {
+    bannerImg: {
       type: String,
       default: '',
     },
@@ -88,14 +92,18 @@ export default {
       type: String,
       default: '',
     },
-    tags: {
+    hashtags: {
       type: Array,
       default: () => [],
+    },
+    action: {
+      type: String,
+      default: '',
     },
   },
   methods: {
     handleAddTag(tag) {
-      if (this.tags.includes(tag)) {
+      if (this.hashtags.includes(tag)) {
         return
       }
       this.$emit('add-tag', tag)
@@ -113,6 +121,16 @@ export default {
     handleContentChange(e) {
       this.$emit('content-change', e)
     },
+    handleAction() {
+      console.log('handleAction')
+      if (this.action === 'create') {
+        this.$emit('create')
+      }
+
+      if (this.action === 'edit') {
+        this.$emit('edit')
+      }
+    },
   },
 }
 </script>
@@ -129,5 +147,10 @@ export default {
 
 .form-group:not(:last-of-type) {
   margin-bottom: 2rem;
+}
+
+.admin-btn {
+  letter-spacing: 2px;
+  font-size: 1.4rem;
 }
 </style>

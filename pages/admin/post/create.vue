@@ -11,6 +11,8 @@
           @post-data-change="handlePostDataChange"
           @add-tag="handleAddTag"
           @delete-tag="handleDeleteTag"
+          @create="handleCreate"
+          action="create"
         />
       </client-only>
     </template>
@@ -21,6 +23,8 @@
 import AdminCreate from '@/components/admin/AdminCreate'
 
 import handlePostDataMixin from '../../../mixins/handlePostData'
+
+import { mapActions } from 'vuex'
 
 export default {
   layout: 'admin',
@@ -34,29 +38,20 @@ export default {
       post: {
         title: '',
         brief: '',
-        bannerImage: '',
+        bannerImg: '',
         type: '',
-        tags: [],
+        hashtags: [],
         content: '',
       },
     }
   },
-  // methods: {
-  //   handleEdLoaded() {
-  //     this.isLoading = false
-  //   },
-  //   handlePostDataChange(e) {
-  //     console.log('post data change', e)
-  //     const { name, value } = e
-  //     this.post = { ...this.post, [name]: value }
-  //   },
-  //   handleAddTag(tag) {
-  //     this.post.tags.push(tag)
-  //   },
-  //   handleDeleteTag(tag) {
-  //     this.tags = this.tags.filter((t) => t !== tag)
-  //   },
-  // },
+  methods: {
+    ...mapActions('post/add', ['addPostAsync']),
+    handleCreate() {
+      console.log(this.post)
+      this.addPostAsync({...this.post})
+    },
+  },
 }
 </script>
 
