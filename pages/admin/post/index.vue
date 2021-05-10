@@ -13,7 +13,7 @@
         v-for="post in posts"
         :key="`admin-overview-post-${post._id}`"
       >
-        <BaseOverviewPost :post="post" />
+        <BaseOverviewPost :post="post" isAdmin />
       </div>
     </div>
   </div>
@@ -39,14 +39,18 @@ export default {
 <style lang="scss" scoped>
 .post-overview {
   [class^='overview-']:not(:first-of-type) {
-    margin: 1.6rem 0;
+    margin: 2rem 0 2.5rem 0;
   }
 }
 
 .overview-posts {
   .overview-post {
     &:not(:first-of-type) {
+    }
+
+    &:not(:last-of-type) {
       margin-bottom: 2rem;
+      border-bottom: 1px solid var(--color-gray);
     }
   }
 }

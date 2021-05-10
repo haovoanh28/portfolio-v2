@@ -45,6 +45,7 @@ export default {
     { src: '~/plugins/vue-awesome' },
     { src: '~/plugins/vue-content-placeholders' },
     { src: '~/plugins/api' },
+    { src: '~/plugins/vue-ripple-directive' },
   ],
 
   styleResources: {
@@ -80,6 +81,7 @@ export default {
       'epic-spinners',
       'vue2-timeago',
       'vue-content-placeholders',
+      'vue-ripple-directive',
     ],
     splitChunks: {
       layouts: true,

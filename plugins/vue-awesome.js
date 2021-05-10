@@ -16,6 +16,10 @@ import 'vue-awesome/icons/brands/react'
 import 'vue-awesome/icons/database'
 
 import 'vue-awesome/icons/regular/envelope'
+import 'vue-awesome/icons/regular/edit'
+import 'vue-awesome/icons/regular/trash-alt'
+import 'vue-awesome/icons/regular/save'
+import 'vue-awesome/icons/regular/times-circle'
 
 import 'vue-awesome/icons/asterisk'
 import 'vue-awesome/icons/mobile-alt'

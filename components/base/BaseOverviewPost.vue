@@ -14,12 +14,16 @@
       </p>
     </div>
     <div class="type"></div>
-    <div class="button-group">
-      <BaseButton blueBtn small>
-        <span>Edit</span>
+    <div class="button-group" v-if="isAdmin">
+      <BaseButton blueBtn small noBorder>
+        <span>
+          <v-icon name="regular/edit" />
+        </span>
       </BaseButton>
-      <BaseButton errorBtn small>
-        <span>Delete</span>
+      <BaseButton errorBtn small noBorder>
+        <span>
+          <v-icon name="regular/trash-alt" />
+        </span>
       </BaseButton>
     </div>
   </div>
@@ -37,6 +41,10 @@ export default {
       type: Object,
       default: () => {},
     },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
   },
 }
 </script>
@@ -53,6 +61,9 @@ export default {
     width: 100%;
     height: 15rem;
     overflow: hidden;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    background: transparent;
+    border-radius: 1rem;
   }
 
   &-short {
@@ -67,7 +78,6 @@ export default {
   }
 
   img {
-    border-radius: 1rem;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -86,5 +96,9 @@ export default {
       height: 20rem;
     }
   }
+}
+
+.button-group {
+  justify-self: flex-end;
 }
 </style>

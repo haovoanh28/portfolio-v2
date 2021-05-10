@@ -58,11 +58,11 @@
       />
     </div>
     <div class="form-group create-button">
-      <BaseButton blueBtn @click="handleAction">
-        <span class="admin-btn">CREATE</span>
+      <BaseButton blueBtn noBorder @click="handleAction">
+        <v-icon name="regular/save" />
       </BaseButton>
-      <BaseButton errorBtn>
-        <span class="admin-btn">CLEAR</span>
+      <BaseButton errorBtn noBorder>
+        <v-icon name="regular/times-circle" />
       </BaseButton>
     </div>
   </div>
@@ -147,10 +147,5 @@ export default {
 
 .form-group:not(:last-of-type) {
   margin-bottom: 2rem;
-}
-
-.admin-btn {
-  letter-spacing: 2px;
-  font-size: 1.4rem;
 }
 </style>
