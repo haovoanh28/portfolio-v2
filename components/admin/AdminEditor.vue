@@ -40,16 +40,17 @@ export default {
         plugins: [
           'advlist autolink lists link image charmap print preview anchor',
           'searchreplace visualblocks code fullscreen',
-          'insertdatetime media table paste code help wordcount',
+          'insertdatetime media table paste code help wordcount emoticons',
         ],
         toolbar:
-          'undo redo | formatselect | bold italic backcolor | \
+          'undo redo | formatselect | bold italic backcolor emoticons | \
            alignleft aligncenter alignright alignjustify | \
            bullist numlist outdent indent | removeformat | preview code help',
         content_css:
           'https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap',
         content_style:
           "@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap'; html { font-size: 10px; word-spacing: 1px; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; box-sizing: border-box; scroll-behavior: smooth; }); body { font-family: Roboto, Nunito, san-serif !important; font-size: inherit; margin: 1rem } *, *::before, *::after { box-sizing: inherit; margin: 0; padding: 0; font-family: inherit; font-weight: inherit } *::selection { background: rgba(166, 175, 189, 0.3);}",
+        emoticons_database: 'emojis',
       },
       tinymceApiKey: 'zkr4z6fnh3osmkkm1h95whkoy62b5rvfewo6u83ac96mmm3k',
     }
