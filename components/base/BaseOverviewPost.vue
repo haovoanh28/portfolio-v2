@@ -15,12 +15,12 @@
     </div>
     <div class="type"></div>
     <div class="button-group" v-if="isAdmin">
-      <BaseButton blueBtn small noBorder>
+      <BaseButton blueBtn small noBorder @click="handleEditPost">
         <span>
           <v-icon name="regular/edit" />
         </span>
       </BaseButton>
-      <BaseButton errorBtn small noBorder>
+      <BaseButton errorBtn small noBorder @click="handleDeletePost">
         <span>
           <v-icon name="regular/trash-alt" />
         </span>
@@ -44,6 +44,14 @@ export default {
     isAdmin: {
       type: Boolean,
       default: false,
+    },
+  },
+  methods: {
+    handleEditPost() {
+      this.$emit('edit-post', { id: this.post._id })
+    },
+    handleDeletePost() {
+      this.$emit('delete-post', { id: this.post._id })
     },
   },
 }

@@ -13,7 +13,11 @@
         v-for="post in posts"
         :key="`admin-overview-post-${post._id}`"
       >
-        <BaseOverviewPost :post="post" isAdmin />
+        <BaseOverviewPost
+          :post="post"
+          isAdmin
+          @delete-post="handleDeletePost"
+        />
       </div>
     </div>
   </div>
@@ -29,6 +33,9 @@ export default {
   },
   methods: {
     ...mapActions('post/get', ['getAllPostAsync']),
+    handleDeletePost({ id }) {
+      console.log('delete', id)
+    },
   },
   async fetch() {
     await this.getAllPostAsync()

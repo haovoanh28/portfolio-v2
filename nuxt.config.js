@@ -36,7 +36,7 @@ export default {
   //<meta name="google-site-verification" content="quO9-pjTQySW-mGKsQH6grDAqLAvbusQLIyAEmjsavk" />
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/css/helper.css'],
+  css: ['@/assets/css/helper.css', '@/assets/css/main.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -91,5 +91,11 @@ export default {
     baseURL:
       process.env.BASE_URL || 'https://portfolio-v2-api.herokuapp.com/api/v1/',
   },
-  router: {},
+  router: {
+    // middleware: 'delayBeforeRoute',
+  },
+  pageTransition: {
+    name: 'fade',
+    mode: 'out-in',
+  },
 }

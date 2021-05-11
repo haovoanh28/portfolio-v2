@@ -25,7 +25,7 @@
               :key="item.text"
               @click.capture="handleMenuItemClick"
             >
-              <NuxtLink :to="item.link">
+              <NuxtLink :to="item.link" v-ripple>
                 {{ item.text }}
               </NuxtLink>
             </p>
@@ -91,6 +91,12 @@ export default {
       this.toggleHeader()
     },
   },
+  mounted() {
+    console.log('admin header mounted')
+  },
+  updated() {
+    console.log('admin header update')
+  },
 }
 </script>
 
@@ -152,7 +158,7 @@ export default {
 .menu-item {
   text-transform: capitalize;
   font-size: 1.4rem;
-  transition: all 0.3s;
+  /* transition: all 0.3s; */
 
   a {
     font-size: inherit;

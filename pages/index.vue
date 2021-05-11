@@ -32,7 +32,7 @@ export default {
       const navLinks = document.querySelectorAll('.nav .nav-item a')
 
       const intersectionOptions = {
-        threshold: 0.2,
+        threshold: 0.25,
       }
       const intersectionCallback = (entries, observer) => {
         entries.forEach((entry) => {

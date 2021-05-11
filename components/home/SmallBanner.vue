@@ -70,5 +70,15 @@ export default {
       margin-top: 3rem;
     }
   }
+
+  @include extra_small_device {
+    div:nth-of-type(2) {
+      height: 70%;
+    }
+
+    button {
+      margin-top: 0;
+    }
+  }
 }
 </style>

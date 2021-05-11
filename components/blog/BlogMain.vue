@@ -60,12 +60,16 @@ export default {
   grid-template-columns: 2fr 1fr;
   grid-column-gap: 4rem;
 
+  @include extra_large_device {
+    padding: 8% 20%;
+  }
+
   @include medium_device {
     grid-template-columns: 1fr;
     grid-row-gap: 4rem;
   }
 
-  @include small_device {
+  @include extra_small_device {
     padding: 8% 4%;
   }
 }
