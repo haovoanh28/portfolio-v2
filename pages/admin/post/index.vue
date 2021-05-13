@@ -8,7 +8,7 @@
       <h2>Total Posts: {{ postsCount }}</h2>
     </div>
     <div class="overview-posts">
-      <transition-group name="list" tag="p">
+      <transition-group name="list" tag="div">
         <div
           class="overview-post"
           v-for="post in posts"
@@ -60,11 +60,8 @@ export default {
         await this.deletePostAsync(id)
 
         await this.$swal.fire({
-          title: '',
           text: 'Your post has been deleted',
           icon: 'success',
-          confirmButtonColor: '#0000cc',
-          confirmButtonText: 'OK',
         })
       }
     },

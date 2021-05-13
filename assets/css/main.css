@@ -14,5 +14,5 @@
 .list-enter-from,
 .list-leave-to {
   opacity: 0;
-  transform: translateX(200px)
+  transform: translateX(-300px)
 }

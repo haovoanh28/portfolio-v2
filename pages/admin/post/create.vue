@@ -4,18 +4,16 @@
       <BaseSpinner fullScreen />
     </template>
     <template v-show="!localLoading">
-      <client-only>
-        <AdminForm
-          v-bind="post"
-          @ed-loaded="handleEdLoaded"
-          @post-data-change="handlePostDataChange"
-          @add-tag="handleAddTag"
-          @delete-tag="handleDeleteTag"
-          @create="handleCreate"
-          formTitle="Create New Post"
-          :isLoading="isAdding"
-        />
-      </client-only>
+      <AdminForm
+        v-bind="post"
+        @ed-loaded="handleEdLoaded"
+        @post-data-change="handlePostDataChange"
+        @add-tag="handleAddTag"
+        @delete-tag="handleDeleteTag"
+        @create="handleCreate"
+        formTitle="Create New Post"
+        :isLoading="isAdding"
+      />
     </template>
   </div>
 </template>
