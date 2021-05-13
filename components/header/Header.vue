@@ -262,7 +262,7 @@ export default {
 
   @include extra_small_device {
     position: absolute;
-    transform: translateX(-120%) translateY(7.9vh);
+    transform: translateX(-120%) translateY(5.5rem);
     z-index: 1000;
     background-color: #fff;
     width: 100%;
@@ -320,7 +320,7 @@ export default {
 }
 
 .nav-list--active {
-  transform: translateX(0) translateY(7.9vh);
+  transform: translateX(0) translateY(5.5rem);
 }
 
 .nav-item--active,

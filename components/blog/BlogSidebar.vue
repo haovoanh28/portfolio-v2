@@ -48,8 +48,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
   data() {
     return {
@@ -71,9 +69,6 @@ export default {
       type: Array,
       default: () => [],
     },
-  },
-  computed: {
-    ...mapState('post/get', ['posts']),
   },
 }
 </script>

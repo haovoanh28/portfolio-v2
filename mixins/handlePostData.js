@@ -1,7 +1,7 @@
 export default {
   data() {
     return {
-      isLoading: true,
+      localLoading: true,
       post: {
         title: '',
         brief: '',
@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     handleEdLoaded() {
-      this.isLoading = false
+      this.localLoading = false
     },
     handlePostDataChange(e) {
       console.log('post data change', e)
@@ -25,7 +25,7 @@ export default {
       this.post.hashtags.push(tag)
     },
     handleDeleteTag(tag) {
-      this.hashtags = this.hashtags.filter((t) => t !== tag)
+      this.post.hashtags = this.post.hashtags.filter((t) => t !== tag)
     },
   },
 }

@@ -11,7 +11,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  mounted() {
+    console.log(this)
+    this.$toast.fire({
+      title: 'Welcome to my website !',
+    })
+  },
+}
 </script>
 
 <style lang="scss">

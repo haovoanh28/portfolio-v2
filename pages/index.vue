@@ -103,5 +103,14 @@ export default {
     top: 50%;
     transform: translate(50%, 40%);
   }
+
+  @include extra_small_device {
+    span::before {
+      transform: translate(-150%, -100%);
+    }
+    span::after {
+      transform: translate(50%, -100%);
+    }
+  }
 }
 </style>

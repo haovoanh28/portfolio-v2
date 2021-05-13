@@ -93,9 +93,11 @@ html {
   @include medium_device {
     margin-left: 0;
   }
+
+  @include extra_large_device {
+    padding: 2rem 10%;
+  }
 }
-
-
 
 .nuxt-link-exact-active {
   /* color: red !important; */

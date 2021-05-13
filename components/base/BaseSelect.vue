@@ -6,6 +6,7 @@
         class="vselect"
         :options="postTypes"
         @option:selected="handleChange"
+        :value="value.charAt(0).toUpperCase() + value.slice(1)"
       />
     </client-only>
   </div>
@@ -31,6 +32,10 @@ export default {
       },
     },
     name: {
+      type: String,
+      default: '',
+    },
+    value: {
       type: String,
       default: '',
     },

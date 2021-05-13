@@ -1,17 +1,30 @@
 export const state = () => {
-  return {}
+  return {
+    isDeleting: false,
+  }
 }
 
 export const getters = {}
 
-export const mutations = {}
+export const mutations = {
+  SET_LOADING(state) {
+    state.isDeleting = true
+  },
+  SET_LOADED(state) {
+    state.isDeleting = false
+  },
+}
 
 export const actions = {
-  async deletePostAsync(context, postId) {
+  async deletePostAsync({ commit }, postId) {
     try {
-      const response = await this.$api.delete('/posts', { id: postId })
+      commit('SET_LOADING')
+      const response = await this.$api.delete(`/posts/${postId}`)
+      commit('post/get/DELETE_POST', postId, { root: true })
     } catch (err) {
       console.log(err)
+    } finally {
+      commit('SET_LOADED')
     }
   },
 }

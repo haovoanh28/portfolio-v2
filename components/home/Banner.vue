@@ -52,7 +52,10 @@
         </BaseButton>
       </div>
       <div class="banner-scoll_down">
-        <nuxt-link to="/#about"></nuxt-link>
+        <nuxt-link
+          to="/#about"
+          v-scroll-to="{ el: '#about', duration: 100 }"
+        ></nuxt-link>
       </div>
     </div>
   </section>

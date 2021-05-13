@@ -1,8 +1,19 @@
 <template>
   <div class="input_group" :class="classObj">
     <label class="text-title fw-700" :for="label">{{ label }}</label>
-    <input v-bind="$attrs" v-if="!textarea" @input="handleInput" :id="label" />
-    <textarea v-bind="$attrs" @input="handleInput" v-else></textarea>
+    <input
+      v-bind="$attrs"
+      :value="value"
+      v-if="!textarea"
+      @input="handleInput"
+      :id="label"
+    />
+    <textarea
+      v-bind="$attrs"
+      @input="handleInput"
+      :value="value"
+      v-else
+    ></textarea>
     <v-icon :name="iconName" v-if="hasIcon && iconName"></v-icon>
   </div>
 </template>

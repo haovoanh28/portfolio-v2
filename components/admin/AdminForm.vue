@@ -1,9 +1,12 @@
 <template>
   <div class="post-create">
     <div class="fw-700 text-center text-title create-header">
-      <p>
-        &#128293; &#128293; &#128293; Create New Post &#128293; &#128293;
+      <p v-if="action === 'create'">
+        &#128293; &#128293; &#128293; {{ formTitle }} &#128293; &#128293;
         &#128293;
+      </p>
+      <p v-else>
+        &#10024; &#10024; &#10024; {{ formTitle }} &#10024; &#10024; &#10024;
       </p>
     </div>
     <div class="form-group create-title">
@@ -39,6 +42,7 @@
         title="Select type for post"
         name="type"
         @input="handleInput"
+        :value="type"
       />
     </div>
     <div class="form-group create-tags">
@@ -53,15 +57,22 @@
     <div class="form-group create-editor">
       <AdminEditor
         title="Create"
+        :value="content"
         @ed-loaded="handleEdLoaded"
         @content-change="handleInput"
       />
     </div>
     <div class="form-group create-button">
-      <BaseButton blueBtn noBorder @click="handleAction">
+      <BaseButton
+        blueBtn
+        noBorder
+        isIcon
+        :isLoading="isLoading"
+        @click="handleAction"
+      >
         <v-icon name="regular/save" />
       </BaseButton>
-      <BaseButton errorBtn noBorder>
+      <BaseButton errorBtn noBorder isIcon @click="handleClearPost">
         <v-icon name="regular/times-circle" />
       </BaseButton>
     </div>
@@ -96,9 +107,21 @@ export default {
       type: Array,
       default: () => [],
     },
-    action: {
+    content: {
       type: String,
       default: '',
+    },
+    formTitle: {
+      type: String,
+      default: '',
+    },
+    action: {
+      type: String,
+      default: 'create',
+    },
+    isLoading: {
+      type: Boolean,
+      default: false,
     },
   },
   methods: {
@@ -131,6 +154,7 @@ export default {
         this.$emit('edit')
       }
     },
+    handleClearPost() {},
   },
 }
 </script>
@@ -147,5 +171,10 @@ export default {
 
 .form-group:not(:last-of-type) {
   margin-bottom: 2rem;
+}
+
+.create-button {
+  display: flex;
+  gap: 0.8rem;
 }
 </style>

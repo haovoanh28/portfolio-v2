@@ -15,15 +15,26 @@
     </div>
     <div class="type"></div>
     <div class="button-group" v-if="isAdmin">
-      <BaseButton blueBtn small noBorder @click="handleEditPost">
-        <span>
-          <v-icon name="regular/edit" />
-        </span>
+      <BaseButton
+        blueBtn
+        small
+        noBorder
+        isIcon
+        :disabled="isDeleting"
+        @click="handleEditPost"
+      >
+        <v-icon name="regular/edit" />
       </BaseButton>
-      <BaseButton errorBtn small noBorder @click="handleDeletePost">
-        <span>
-          <v-icon name="regular/trash-alt" />
-        </span>
+      <BaseButton
+        errorBtn
+        small
+        noBorder
+        isIcon
+        :isLoading="isDeleting"
+        :disabled="isDeleting"
+        @click="handleDeletePost"
+      >
+        <v-icon name="regular/trash-alt" />
       </BaseButton>
     </div>
   </div>
@@ -42,6 +53,10 @@ export default {
       default: () => {},
     },
     isAdmin: {
+      type: Boolean,
+      default: false,
+    },
+    isDeleting: {
       type: Boolean,
       default: false,
     },
@@ -108,5 +123,9 @@ export default {
 
 .button-group {
   justify-self: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 </style>

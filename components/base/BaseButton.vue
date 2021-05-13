@@ -6,45 +6,68 @@
     v-on="$listeners"
     v-ripple
   >
-    <slot>button</slot>
+    <template v-if="isLoading">
+      <HalfCircleSpinner :animation-duration="1000" :size="20" color="#fff" />
+    </template>
+    <template v-else-if="isIcon">
+      <span>
+        <slot></slot>
+      </span>
+    </template>
+    <template v-else>
+      <slot>button</slot>
+    </template>
   </button>
 </template>
 
 <script>
+import { HalfCircleSpinner } from 'epic-spinners'
+
 export default {
   inheritAttrs: false,
+  components: {
+    HalfCircleSpinner,
+  },
   props: {
     transparent: {
       type: Boolean,
-      default: () => false,
+      default: false,
     },
     small: {
       type: Boolean,
-      default: () => false,
+      default: false,
     },
     noBorder: {
       type: Boolean,
-      default: () => false,
+      default: false,
     },
     'border-radius': {
       type: Boolean,
-      default: () => false,
+      default: false,
     },
     blackBtn: {
       type: Boolean,
-      default: () => false,
+      default: false,
     },
     successBtn: {
       type: Boolean,
-      default: () => false,
+      default: false,
     },
     errorBtn: {
       type: Boolean,
-      default: () => false,
+      default: false,
     },
     blueBtn: {
       type: Boolean,
-      default: () => false,
+      default: false,
+    },
+    isLoading: {
+      type: Boolean,
+      default: false,
+    },
+    isIcon: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -58,6 +81,7 @@ export default {
         successBtn: this.successBtn,
         errorBtn: this.errorBtn,
         blueBtn: this.blueBtn,
+        isIcon: this.isIcon,
       },
     }
   },
@@ -81,32 +105,6 @@ export default {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-
-  /*
-  appearance: auto;
-    -webkit-writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    color: -internal-light-dark(black, white);
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: center;
-    align-items: flex-start;
-    cursor: default;
-    background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
-    box-sizing: border-box;
-    margin: 0em;
-    font: 400 13.3333px Arial;
-    padding: 1px 6px;
-    border-width: 2px;
-    border-style: outset;
-    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
-    border-image: initial;
-    border-radius: 2px;
-  */
 
   &:hover {
     background-color: #fff !important;
@@ -179,7 +177,25 @@ export default {
   }
 }
 
+.isIcon {
+  span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    width: 20px;
+  }
+}
+
 .border-radius {
   border-radius: 3rem !important;
+}
+
+button:disabled,
+button[disabled],
+button:disabled:hover,
+button[disabled]:hover {
+  background-color: rgb(96, 96, 96) !important;
+  cursor: not-allowed;
 }
 </style>

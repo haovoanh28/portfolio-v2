@@ -8,33 +8,69 @@
       <h2>Total Posts: {{ postsCount }}</h2>
     </div>
     <div class="overview-posts">
-      <div
-        class="overview-post"
-        v-for="post in posts"
-        :key="`admin-overview-post-${post._id}`"
-      >
-        <BaseOverviewPost
-          :post="post"
-          isAdmin
-          @delete-post="handleDeletePost"
-        />
-      </div>
+      <transition-group name="list" tag="p">
+        <div
+          class="overview-post"
+          v-for="post in posts"
+          :key="`admin-overview-post-${post._id}`"
+        >
+          <BaseOverviewPost
+            :post="post"
+            isAdmin
+            :isDeleting="isDeleting && post._id === id"
+            @delete-post="handleDeletePost"
+            @edit-post="handleEditPost"
+          />
+        </div>
+      </transition-group>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState, mapGetters } from 'vuex'
 
 export default {
   layout: 'admin',
+  data() {
+    return {
+      id: '',
+    }
+  },
   computed: {
-    ...mapState('post/get', ['posts', 'postsCount']),
+    ...mapState('post/get', ['posts']),
+    ...mapState('post/delete', ['isDeleting']),
+    ...mapGetters('post/get', ['postsCount']),
   },
   methods: {
     ...mapActions('post/get', ['getAllPostAsync']),
-    handleDeletePost({ id }) {
+    ...mapActions('post/delete', ['deletePostAsync']),
+    async handleDeletePost({ id }) {
       console.log('delete', id)
+      const choice = await this.$swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+      })
+
+      if (choice.isConfirmed) {
+        this.id = id
+        await this.deletePostAsync(id)
+
+        await this.$swal.fire({
+          title: '',
+          text: 'Your post has been deleted',
+          icon: 'success',
+          confirmButtonColor: '#0000cc',
+          confirmButtonText: 'OK',
+        })
+      }
+    },
+    handleEditPost({ id }) {
+      console.log('edit', id)
+      this.$router.push({ path: `/admin/post/edit/${id}` })
     },
   },
   async fetch() {

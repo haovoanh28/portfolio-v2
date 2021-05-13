@@ -5,7 +5,11 @@ export const state = () => {
     isLoading: false,
   }
 }
-export const gettets = {}
+export const getters = {
+  postsCount: (state) => {
+    return state.posts.length
+  },
+}
 
 export const mutations = {
   UPDATE_POSTS(state, posts) {
@@ -13,6 +17,9 @@ export const mutations = {
   },
   UPDATE_POSTS_COUNT(state, postsCount) {
     state.postsCount = postsCount
+  },
+  DELETE_POST(state, postId) {
+    state.posts = state.posts.filter((post) => post._id !== postId)
   },
   SET_LOADING(state) {
     state.isLoading = true
@@ -33,6 +40,18 @@ export const actions = {
 
       commit('UPDATE_POSTS', posts)
       commit('UPDATE_POSTS_COUNT', postsCount)
+    } catch (err) {
+      console.log(err)
+    } finally {
+      commit('SET_LOADED')
+    }
+  },
+
+  async getPostByIdAsync({ commit }, postId) {
+    try {
+      commit('SET_LOADING')
+      const response = await this.$api.get(`/posts/${postId}`)
+      return response.data.data
     } catch (err) {
       console.log(err)
     } finally {

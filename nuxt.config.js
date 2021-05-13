@@ -40,12 +40,12 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/onPageScroll', ssr: false },
     { src: '~/plugins/vue-particles' },
     { src: '~/plugins/vue-awesome' },
     { src: '~/plugins/vue-content-placeholders' },
     { src: '~/plugins/api' },
     { src: '~/plugins/vue-ripple-directive' },
+    { src: '~/plugins/sweetalert2', ssr: false },
   ],
 
   styleResources: {
@@ -82,6 +82,7 @@ export default {
       'vue2-timeago',
       'vue-content-placeholders',
       'vue-ripple-directive',
+      'sweetalert2',
     ],
     splitChunks: {
       layouts: true,
