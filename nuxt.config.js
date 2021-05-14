@@ -61,6 +61,7 @@ export default {
     // '@nuxtjs/eslint-module',
     '@nuxtjs/style-resources',
     '@nuxtjs/dotenv',
+    '@nuxtjs/composition-api/module',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

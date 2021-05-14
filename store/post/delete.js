@@ -21,8 +21,16 @@ export const actions = {
       commit('SET_LOADING')
       const response = await this.$api.delete(`/posts/${postId}`)
       commit('post/get/DELETE_POST', postId, { root: true })
+      await this.$swal.fire({
+        text: 'Your post has been deleted',
+        icon: 'success',
+      })
     } catch (err) {
       console.log(err)
+      // this.$errorSwal.fire({
+      //   title: `<span style="color: #fff !important">Something went wrong</span>`,
+      // })
+      this.$errorSwal('Failed to delete post, please try again !')
     } finally {
       commit('SET_LOADED')
     }

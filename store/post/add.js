@@ -23,6 +23,7 @@ export const actions = {
       console.log(response)
     } catch (err) {
       console.log(err)
+      this.$errorSwal('Failed to create new post, please try again !')
     } finally {
       commit('SET_LOADED')
     }

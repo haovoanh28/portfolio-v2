@@ -11,7 +11,7 @@
           @post-data-change="handlePostDataChange"
           @add-tag="handleAddTag"
           @delete-tag="handleDeleteTag"
-          @create="handleCreate"
+          @edit="handleEditPost"
           formTitle="Edit Post"
           action="edit"
         />
@@ -23,28 +23,21 @@
 <script>
 import AdminCreate from '@/components/admin/AdminForm'
 
-import handlePostDataMixin from '../../../../mixins/handlePostData'
-
 import { mapActions, mapState } from 'vuex'
+
+import { reactive } from '@nuxtjs/composition-api'
+import useHandlePostData from '@/utils/use/useHandlePostData'
 
 export default {
   layout: 'admin',
-  mixins: [handlePostDataMixin],
   components: {
     AdminCreate,
   },
-  data() {
-    return {
-      localLoading: true,
-      post: {
-        title: '',
-        brief: '',
-        bannerImg: '',
-        type: '',
-        hashtags: [],
-        content: '',
-      },
-    }
+  setup() {
+    let post = reactive({})
+    const handlePostData = useHandlePostData(post)
+
+    return { ...handlePostData }
   },
   computed: {
     ...mapState('post/get', ['isLoading']),
@@ -52,9 +45,8 @@ export default {
   methods: {
     ...mapActions('post/add', ['addPostAsync']),
     ...mapActions('post/get', ['getPostByIdAsync']),
-    handleCreate() {
-      console.log(this.post)
-      this.addPostAsync({ ...this.post })
+    handleEditPost({ id }) {
+      console.log('edit', id)
     },
   },
   async mounted() {

@@ -91,19 +91,11 @@ export default {
       this.toggleHeader()
     },
   },
-  mounted() {
-    console.log('admin header mounted')
-  },
-  updated() {
-    console.log('admin header update')
-  },
 }
 </script>
 
 <style lang="scss" scoped>
 // --- RESET CLASSES ---
-.reset-admin-header {
-}
 
 // ---------------------
 
@@ -113,7 +105,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 999;
+  z-index: 1600;
   transition: transform 0.3s ease-in;
 
   & > * {
@@ -206,7 +198,7 @@ export default {
 
 .admin-header--active-response {
   transform: translateX(0);
-  z-index: 999;
+  z-index: 1600;
 }
 
 .responsive-bg {
@@ -217,6 +209,6 @@ export default {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.4);
-  z-index: 999;
+  z-index: 1500;
 }
 </style>

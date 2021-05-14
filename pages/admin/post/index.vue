@@ -58,11 +58,6 @@ export default {
       if (choice.isConfirmed) {
         this.id = id
         await this.deletePostAsync(id)
-
-        await this.$swal.fire({
-          text: 'Your post has been deleted',
-          icon: 'success',
-        })
       }
     },
     handleEditPost({ id }) {

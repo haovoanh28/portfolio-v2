@@ -13,6 +13,7 @@
         @create="handleCreate"
         formTitle="Create New Post"
         :isLoading="isAdding"
+        @clear="handleClearPost"
       />
     </template>
   </div>
@@ -21,28 +22,37 @@
 <script>
 import AdminForm from '@/components/admin/AdminForm'
 
-import handlePostDataMixin from '../../../mixins/handlePostData'
-
 import { mapActions, mapState } from 'vuex'
+
+import { onMounted, useContext } from '@nuxtjs/composition-api'
+import useHandlePostData from '@/utils/use/useHandlePostData'
 
 export default {
   layout: 'admin',
-  mixins: [handlePostDataMixin],
   components: {
     AdminForm,
   },
-  data() {
-    return {
-      localLoading: true,
-      post: {
-        title: '',
-        brief: '',
-        bannerImg: '',
-        type: '',
-        hashtags: [],
-        content: '',
-      },
-    }
+  setup() {
+    const handlePostData = useHandlePostData({
+      title: '',
+      brief: '',
+      bannerImg: '',
+      type: '',
+      hashtags: [],
+      content: '',
+    })
+
+    const context = useContext()
+
+    onMounted(() => {
+      context.$toast.fire({
+        html:
+          '<p>Keep it up!</p><br /><p>Happy writing &#128178; &#128178; &#128178; </p>',
+        timerProgressBar: false,
+      })
+    })
+
+    return { ...handlePostData }
   },
   computed: {
     ...mapState('post/add', ['isAdding']),

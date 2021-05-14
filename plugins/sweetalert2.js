@@ -11,6 +11,33 @@ export default ({ app }, inject) => {
     timerProgressBar: true,
   })
 
+  // const errorSwal = Swal.mixin({
+  //   icon: 'error',
+  //   toast: true,
+  //   position: 'top-end',
+  //   showConfirmButton: false,
+  //   timerProgressBar: false,
+  //   timer: 1800,
+  //   background: 'red',
+  //   iconColor: 'white',
+  // })
+
+  function errorSwal(title) {
+    Swal.fire({
+      icon: 'error',
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timerProgressBar: false,
+      timer: 1800,
+      background: 'red',
+      iconColor: 'white',
+      title: `<span style="color: #fff !important; font-size: 1.6rem">${title}</span>`,
+    })
+  }
+
+  inject('errorSwal', errorSwal)
+
   inject('toast', Toast)
 
   inject(

@@ -87,6 +87,10 @@ export default {
     AdminEditor,
   },
   props: {
+    _id: {
+      type: String,
+      default: '',
+    },
     title: {
       type: String,
       default: '',
@@ -151,10 +155,12 @@ export default {
       }
 
       if (this.action === 'edit') {
-        this.$emit('edit')
+        this.$emit('edit', { id: this._id })
       }
     },
-    handleClearPost() {},
+    handleClearPost() {
+      this.$emit('clear')
+    },
   },
 }
 </script>

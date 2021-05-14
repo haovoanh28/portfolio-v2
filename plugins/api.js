@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2'
+
 export default function ({ $axios, store }, inject) {
   let baseURL = ''
 
@@ -24,6 +26,15 @@ export default function ({ $axios, store }, inject) {
       // if (token) config.headers.Authorization = `Bearer ${token}`
 
       return config
+    },
+    (error) => {
+      return Promise.reject(error)
+    }
+  )
+
+  api.interceptors.response.use(
+    (response) => {
+      return response
     },
     (error) => {
       return Promise.reject(error)
