@@ -1,30 +1,38 @@
 <template>
   <div class="container">
-    <Banner />
-    <About />
-    <Education />
-    <SmallBanner
-      imgSrc="/images/hired-bg.jpg"
-      content="I Am Available For Freelancer"
-      btnContent="Hire Me!"
-    />
-    <Contact />
+    <LazyHydrate when-idle>
+      <Banner />
+    </LazyHydrate>
+    <LazyHydrate when-visible>
+      <About />
+    </LazyHydrate>
+    <LazyHydrate when-visible>
+      <Education />
+    </LazyHydrate>
+    <LazyHydrate when-visible>
+      <SmallBanner
+        imgSrc="/images/hired-bg.jpg"
+        content="I Am Available For Freelancer"
+        btnContent="Hire Me!"
+      />
+    </LazyHydrate>
+    <LazyHydrate when-visible>
+      <Contact />
+    </LazyHydrate>
   </div>
 </template>
 
 <script>
-import Banner from '@/components/home/Banner'
-import About from '@/components/home/About'
-import Education from '@/components/home/Education'
-import SmallBanner from '@/components/home/SmallBanner'
-import Contact from '@/components/home/Contact'
+import LazyHydrate from 'vue-lazy-hydration'
+
 export default {
   components: {
-    About: About,
-    Education: Education,
-    Banner: Banner,
-    SmallBanner: SmallBanner,
-    Contact: Contact,
+    About: () => import('@/components/home/About'),
+    Education: () => import('@/components/home/Education'),
+    Banner: () => import('@/components/home/Banner'),
+    SmallBanner: () => import('@/components/home/SmallBanner'),
+    Contact: () => import('@/components/home/Contact'),
+    LazyHydrate,
   },
   mounted() {
     if (process.browser) {

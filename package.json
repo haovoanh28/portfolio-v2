@@ -19,6 +19,7 @@
     "vue-awesome": "^4.1.0",
     "vue-content-loader": "^0.2.3",
     "vue-content-placeholders": "^0.2.1",
+    "vue-lazy-hydration": "^2.0.0-beta.4",
     "vue-ripple-directive": "^2.0.1",
     "vue-scrollto": "^2.20.0",
     "vue-select": "^3.11.2",

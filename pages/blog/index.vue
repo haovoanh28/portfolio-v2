@@ -1,6 +1,8 @@
 <template>
   <div class="blog section" id="blog">
-    <BlogBanner />
+    <LazyHydration when-visible>
+      <BlogBanner />
+    </LazyHydration>
     <BlogMain
       :isLoading="isLoading"
       :posts="posts"
@@ -10,15 +12,16 @@
 </template>
 
 <script>
-import BlogBanner from '@/components/blog/BlogBanner'
 import BlogMain from '@/components/blog/BlogMain'
+import LazyHydration from 'vue-lazy-hydration'
 
 import { mapState, mapActions } from 'vuex'
 
 export default {
   components: {
-    BlogBanner,
+    BlogBanner: () => import('@/components/blog/BlogBanner'),
     BlogMain,
+    LazyHydration,
   },
   computed: {
     ...mapState('post/get', ['isLoading', 'posts']),
