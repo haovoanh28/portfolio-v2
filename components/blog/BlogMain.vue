@@ -16,21 +16,20 @@
       <div class="blog-posts" v-else>
         <PostCardItem v-for="post in posts" :key="post.id" :post="post" />
       </div>
-      <LazyHydration when-visible>
-        <BlogSidebar :isLoading="isLoading" :posts="posts" :pending="pending" />
-      </LazyHydration>
+      <BlogSidebar :isLoading="isLoading" :posts="posts" :pending="pending" />
     </div>
   </div>
 </template>
 
 <script>
 import PostCardItem from '@/components/post/PostCardItem'
+import BlogSidebar from '@/components/blog/BlogSidebar'
 import LazyHydration from 'vue-lazy-hydration'
 
 export default {
   components: {
     PostCardItem,
-    BlogSidebar: () => import('@/components/blog/BlogSidebar'),
+    BlogSidebar,
     LazyHydration,
   },
   props: {
