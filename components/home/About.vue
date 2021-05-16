@@ -42,7 +42,7 @@
       </div>
     </div>
     <div class="about-skills">
-      <p class="text-title fw-700 text-center skills-title">What i know</p>
+      <p class="text-title fw-700 text-center skills-title">What I know</p>
       <div class="skills-container">
         <SkillCard
           v-for="(skill, index) in skills"
