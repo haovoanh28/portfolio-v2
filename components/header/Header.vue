@@ -1,7 +1,12 @@
 <template>
   <div class="header">
     <nav class="nav">
-      <nuxt-link to="/#home" class="nav-brand">HaoV</nuxt-link>
+      <nuxt-link
+        to="/#home"
+        v-scroll-to="{ el: `#home}`, duration: 100 }"
+        class="nav-brand"
+        >HaoV</nuxt-link
+      >
       <ul class="nav-list" @click="handleNavListClick">
         <!-- <li class="nav-item nav-item--active">
           <nuxt-link to="/#home">Home</nuxt-link>

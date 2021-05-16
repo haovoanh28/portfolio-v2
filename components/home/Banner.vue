@@ -1,5 +1,5 @@
 <template>
-  <section class="banner-wrapper section" id="home">
+  <section class="banner-wrapper">
     <div class="bg-overlay">
       <vue-particles
         color="#fff"

@@ -1,61 +1,60 @@
 <template>
-  <div class="about section" id="about">
-    <div class="about-myself">
-      <p>
-        <span class="fw-600 text-title">About</span>
-        Me
-      </p>
-      <div class="home-decor">
-        <span> <v-icon name="asterisk"></v-icon> </span>
-      </div>
-      <div class="myself-introduce text-muted">
-        Fix the cause, not the symptom
-      </div>
-    </div>
-    <div class="about-name">
-      <div>
-        <img src="~/assets/images/my-name.png" alt="" loading="lazy" />
-      </div>
-    </div>
-    <div class="about-info">
-      <p class="info-name">
-        <span>Hello! </span>
-        <span class="fw-600">I'm Anh Hao.</span>
-      </p>
-      <div class="info-jobs">
-        <ul>
-          <li
-            v-for="(job, index) in jobs"
-            :key="`job-${index}`"
-            class="text-muted"
-          >
-            {{ job }}
-          </li>
-        </ul>
-      </div>
-      <div class="info-content">
-        <p class="text-muted">
-          I'm a senior student at HUFI. I have a passionate on developing
-          softwares to meet user's needs. My next goal is to become a full-stack
-          senior developer.
+  <div class="about">
+      <div class="about-myself">
+        <p>
+          <span class="fw-600 text-title">About</span>
+          Me
         </p>
+        <div class="home-decor">
+          <span> <v-icon name="asterisk"></v-icon> </span>
+        </div>
+        <div class="myself-introduce text-muted">
+          Fix the cause, not the symptom
+        </div>
       </div>
-    </div>
-    <div class="about-skills">
-      <p class="text-title fw-700 text-center skills-title">What I know</p>
-      <div class="skills-container">
-        <SkillCard
-          v-for="(skill, index) in skills"
-          :key="`skill-${index}`"
-          :skillName="skill.name"
-          :skillSrc="skill.svg"
-          :skillLevel="skill.level"
-          :color="skill.color"
-        />
-        <!-- <v-icon :name="skill.iconName"></v-icon>
+      <div class="about-name">
+        <div>
+          <img src="~/assets/images/my-name.png" alt="" loading="lazy" />
+        </div>
+      </div>
+      <div class="about-info">
+        <p class="info-name">
+          <span>Hello! </span>
+          <span class="fw-600">I'm Anh Hao.</span>
+        </p>
+        <div class="info-jobs">
+          <ul>
+            <li v-for="(job, index) in jobs" :key="`job-${index}`">
+              <span class="text-muted">
+                {{ job }}
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div class="info-content">
+          <p class="text-muted">
+            I'm a senior student at HUFI. I have a passionate on developing
+            softwares to meet user's needs. My next goal is to become a
+            full-stack senior developer.
+          </p>
+        </div>
+      </div>
+      <div class="about-skills">
+        <p class="text-title fw-700 text-center skills-title">What I know</p>
+        <div class="skills-container">
+          <SkillCard
+            v-for="(skill, index) in skills"
+            :key="`skill-${index}`"
+            :skillName="skill.name"
+            :skillSrc="skill.svg"
+            :skillLevel="skill.level"
+            :color="skill.color"
+          />
+          <!-- <v-icon :name="skill.iconName"></v-icon>
           <p class="text-muted">Level: {{ skill.level }}</p> -->
+        </div>
       </div>
-    </div>
+    </LazyHydrate>
   </div>
 </template>
 
@@ -183,6 +182,11 @@ export default {
 
       li {
         font-size: 1.85rem;
+
+        span {
+          display: inline-block;
+          font-size: inherit;
+        }
       }
 
       li:not(:last-child) {

@@ -1,5 +1,5 @@
 <template>
-  <div class="contact section" id="contact">
+  <div class="contact">
     <p class="contact-title text-title">
       Get In <span class="fw-700">Touch</span>
     </p>
