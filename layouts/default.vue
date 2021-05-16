@@ -15,7 +15,7 @@ export default {
   mounted() {
     console.log(this)
     this.$toast.fire({
-      title: '<h3>&#9996; Welcome to my website &#9996;</h3>',
+      title: '<h3>&#9996; Welcome to my website &#9996; </h3>',
     })
   },
 }
