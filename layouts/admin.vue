@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
 :root {
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
@@ -57,6 +57,7 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  font-weight: 400;
 
   @include extra_small_device {
     font-size: 8.5px;
@@ -71,6 +72,7 @@ html {
   padding: 0;
   font-size: 1.6rem;
   font-family: inherit;
+  font-weight: 400;
 }
 
 *::selection {

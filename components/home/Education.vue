@@ -17,14 +17,14 @@
         >
           <p class="box-year fw-700">{{ board.year }}</p>
           <p class="box-job fw-700">{{ board.job }}</p>
-          <p class="box-content text-muted">
+          <p class="box-content">
             {{ board.content }}
           </p>
         </div>
       </div>
     </div>
     <SmallBanner
-      imgSrc="/images/hired-bg.jpg"
+      :imgSrc="formattedSrc"
       content="I Am Available For Freelancer"
       btnContent="Hire Me!"
     />
@@ -56,6 +56,17 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    formattedSrc() {
+      if (process.browser && window) {
+        if (window.outerWidth < 600) {
+          return '/images/hired-bg-500w.jpg'
+        } else {
+          return '/images/hired-bg-1000w.jpg'
+        }
+      }
+    },
   },
 }
 </script>
