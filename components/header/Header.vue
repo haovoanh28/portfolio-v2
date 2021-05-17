@@ -149,7 +149,7 @@ export default {
     text-decoration: none;
     text-transform: capitalize;
     color: white;
-    font-weight: 600;
+    font-weight: 700;
   }
 
   @include extra_small_device {

@@ -82,13 +82,17 @@ export default {
   place-items: center;
   position: relative;
 
-  background-image: url('~/assets/images/banner-background.jpg');
+  background-image: url('~/assets/images/banner-background-1350w.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 
   #particles-js {
     height: 100%;
+  }
+
+  @include extra_small_device {
+    background-image: url('~/assets/images/banner-background-650w.jpg');
   }
 }
 
@@ -109,7 +113,6 @@ export default {
   margin-top: 1rem;
   text-transform: capitalize;
   font-size: 7rem;
-  font-weight: 300;
 
   span {
     font-size: inherit;
@@ -118,7 +121,6 @@ export default {
 
   .blink {
     animation: blink 0.5s infinite;
-    font-weight: 300;
     font-size: 6rem;
     display: inline-block;
     transform: translateY(-7px);
