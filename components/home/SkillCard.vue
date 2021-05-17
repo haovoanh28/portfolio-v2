@@ -57,7 +57,7 @@ export default {
 
 <style lang="scss" scoped>
 .skill-card {
-  align-self: center;
+  align-self: stretch;
   position: relative;
   overflow: hidden;
   border-radius: 5px;
