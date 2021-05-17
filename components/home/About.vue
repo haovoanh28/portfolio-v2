@@ -226,7 +226,7 @@ export default {
   grid-gap: 40px;
 
   width: 100%;
-  padding: 0 5%;
+  padding: 0 4.5%;
   padding-top: 2.5rem;
 
   @include extra_small_device {
