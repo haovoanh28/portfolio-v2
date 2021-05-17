@@ -23,11 +23,22 @@
         </div>
       </div>
     </div>
+    <SmallBanner
+      imgSrc="/images/hired-bg.jpg"
+      content="I Am Available For Freelancer"
+      btnContent="Hire Me!"
+    />
   </div>
 </template>
 
+
 <script>
+import SmallBanner from './SmallBanner'
+
 export default {
+  components: {
+    SmallBanner,
+  },
   data() {
     return {
       boards: [
@@ -52,7 +63,7 @@ export default {
 <style lang="scss" scoped>
 .education {
   margin-top: var(--section-margin);
-  padding: var(--section-margin) 0;
+  padding-top: var(--section-margin);
 
   & .education-title {
     font-size: var(--title-font-size);
@@ -74,6 +85,7 @@ export default {
   justify-content: center;
   position: relative;
   padding: 0 20%;
+  margin-bottom: 3.5rem;
 
   & .board-box--wrapper {
     position: relative;

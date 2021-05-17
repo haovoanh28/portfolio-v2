@@ -6,45 +6,24 @@
       </LazyHydrate>
     </div>
     <div class="section" id="about">
-      <LazyHydrate :when-visible="{ rootMargin: '100px' }">
+      <LazyHydrate when-visible>
         <About />
       </LazyHydrate>
     </div>
     <div class="section" id="education">
-      <LazyHydrate :when-visible="{ rootMargin: '100px' }">
+      <LazyHydrate when-visible>
         <Education />
       </LazyHydrate>
     </div>
-    <LazyHydrate :when-visible="{ rootMargin: '100px' }">
-      <SmallBanner
-        imgSrc="/images/hired-bg.jpg"
-        content="I Am Available For Freelancer"
-        btnContent="Hire Me!"
-      />
-    </LazyHydrate>
     <div class="section" id="contact">
-      <LazyHydrate :when-visible="{ rootMargin: '100px' }">
+      <LazyHydrate when-visible>
         <Contact />
       </LazyHydrate>
     </div>
-    <!-- <Banner />
-    <About />
-    <Education />
-    <SmallBanner
-      imgSrc="/images/hired-bg.jpg"
-      content="I Am Available For Freelancer"
-      btnContent="Hire Me!"
-    />
-    <Contact /> -->
   </div>
 </template>
 
 <script>
-// import About from '@/components/home/About'
-// import Education from '@/components/home/Education'
-// import Banner from '@/components/home/Banner'
-// import SmallBanner from '@/components/home/SmallBanner'
-// import Contact from '@/components/home/Contact'
 import LazyHydrate from 'vue-lazy-hydration'
 
 export default {
@@ -54,28 +33,19 @@ export default {
     Banner: () => import('@/components/home/Banner'),
     SmallBanner: () => import('@/components/home/SmallBanner'),
     Contact: () => import('@/components/home/Contact'),
-    // About,
-    // Education,
-    // Banner,
-    // SmallBanner,
-    // Contact,
     LazyHydrate,
   },
   mounted() {
     if (process.browser) {
-      const hash = this.$route.hash
-      console.log('hash', hash)
-
       const sections = document.querySelectorAll('.section')
       const navLinks = document.querySelectorAll('.nav .nav-item a')
-      console.log('navLinks', navLinks)
       const intersectionOptions = {
-        threshold: 0.25,
+        threshold: 0.15,
+        // rootMargin: '100px',
       }
       const intersectionCallback = (entries, observer) => {
         entries.forEach((entry) => {
           const sectionId = entry.target.getAttribute('id')
-          console.log(sectionId)
           if (entry.isIntersecting) {
             const hashSectionId = `#${sectionId}`
             console.log('intersecting', hashSectionId)
@@ -107,11 +77,32 @@ export default {
 </script>
 
 <style lang="scss">
-.body {
-  min-height: 200vh;
+#home {
+  min-height: 100vh;
 }
 
-.container {
+#about {
+  min-height: 90rem;
+
+  @include medium_device {
+    min-height: 120rem;
+  }
+
+  @include extra_small_device {
+    min-height: 135rem;
+  }
+}
+
+#education {
+  min-height: 96.5rem;
+
+  @include large_device {
+    min-height: 105rem;
+  }
+
+  @include medium_device {
+    min-height: 115rem;
+  }
 }
 
 .home-decor {
