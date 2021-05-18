@@ -113,7 +113,7 @@ export default {
   margin-top: 1rem;
   text-transform: capitalize;
   font-size: 7rem;
-  font-weight: 300;
+  font-weight: 500;
 
   span {
     font-size: inherit;

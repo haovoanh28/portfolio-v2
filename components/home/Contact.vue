@@ -28,13 +28,19 @@
               placeholder="Your name ... "
               label="Name"
               type="text"
-              v-model="name"
+              name="name"
+              :value="name"
+              @input="handleInput"
+              :isError="name === '' && isTouch"
             />
             <BaseInput
               placeholder="Your email ... "
               label="Email address"
               type="email"
-              v-model="email"
+              name="email"
+              :value="email"
+              @input="handleInput"
+              :isError="email === '' && isTouch"
             />
           </div>
           <div class="form-subject">
@@ -42,7 +48,10 @@
               placeholder="Your Subject ... "
               label="Subject"
               type="text"
-              v-model="subject"
+              name="subject"
+              :value="subject"
+              @input="handleInput"
+              :isError="subject === '' && isTouch"
             />
           </div>
           <div class="form-message">
@@ -50,11 +59,16 @@
               placeholder="Your Message ... "
               label="Message"
               textarea
-              v-model="message"
+              name="message"
+              :value="message"
+              @input="handleInput"
+              :isError="message === '' && isTouch"
             />
           </div>
           <div class="form-button">
-            <BaseButton blackBtn type="submit">Send Message</BaseButton>
+            <BaseButton blackBtn type="submit" @click.prevent="handleClick"
+              >Send Message</BaseButton
+            >
           </div>
         </form>
       </div>
@@ -70,6 +84,7 @@ export default {
       email: '',
       subject: '',
       message: '',
+      isTouch: false,
       contacts: [
         {
           iconName: 'mobile-alt',
@@ -88,6 +103,18 @@ export default {
         },
       ],
     }
+  },
+  methods: {
+    handleClick(e) {
+      this.isTouch = true
+      if (!this.name || !this.email || !this.subject || !this.message) {
+        this.$errorSwal('Please fill out the form ')
+      }
+    },
+    handleInput(e) {
+      const { name, value } = e
+      this[name] = value
+    },
   },
 }
 </script>

@@ -32,7 +32,7 @@ export default ({ app }, inject) => {
       timer: 1800,
       background: 'red',
       iconColor: 'white',
-      title: `<span style="color: #fff !important; font-size: 1.6rem">${title}</span>`,
+      title: `<span style="color: #fff !important; font-size: 1.5rem">${title}</span>`,
     })
   }
 

@@ -57,7 +57,7 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  font-weight: 400;
+  font-weight: 500;
 
   @include extra_small_device {
     font-size: 8.5px;
@@ -72,7 +72,7 @@ html {
   padding: 0;
   font-size: 1.6rem;
   font-family: inherit;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 *::selection {

@@ -1,6 +1,6 @@
 <template>
   <div class="education bg-light">
-    <p class="education-title fw-600 text-title">Education & Experience</p>
+    <p class="education-title fw-700 text-title">Education & Experience</p>
     <div class="home-decor">
       <span> <v-icon name="asterisk"></v-icon> </span>
     </div>

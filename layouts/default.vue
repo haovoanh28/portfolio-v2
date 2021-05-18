@@ -14,6 +14,7 @@
 export default {
   mounted() {
     this.$toast.fire({
+      position: 'top-left',
       title: '<h3>&#9996; Welcome to my website &#9996; </h3>',
     })
   },

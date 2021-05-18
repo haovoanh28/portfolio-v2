@@ -1,6 +1,6 @@
 <template>
   <footer class="footer bg-light">
-    <p class="footer-copyright text-muted fw-500">2021 &#169; Hao</p>
+    <p class="footer-copyright text-muted fw-700">2021 &#169; Hao</p>
     <div class="footer-icons">
       <div
         class="icon"

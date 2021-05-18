@@ -48,7 +48,6 @@ export default {
           const sectionId = entry.target.getAttribute('id')
           if (entry.isIntersecting) {
             const hashSectionId = `#${sectionId}`
-            console.log('intersecting', hashSectionId)
             if (window.location.hash !== hashSectionId) {
               window.history.pushState({}, {}, `/${hashSectionId}`)
               // parent.location.hash = sectionId`#${sectionId}`
@@ -102,6 +101,14 @@ export default {
 
   @include medium_device {
     min-height: 115rem;
+  }
+}
+
+#contact {
+  min-height: 30rem;
+
+  @include medium_device {
+    min-height: 50rem;
   }
 }
 

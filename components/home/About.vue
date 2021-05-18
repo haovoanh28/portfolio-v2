@@ -2,7 +2,7 @@
   <div class="about">
     <div class="about-myself">
       <p>
-        <span class="fw-600 text-title">About</span>
+        <span class="fw-700 text-title">About</span>
         Me
       </p>
       <div class="home-decor">

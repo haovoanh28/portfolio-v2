@@ -7,11 +7,13 @@
       v-if="!textarea"
       @input="handleInput"
       :id="label"
+      :style="isError ? { borderColor: 'rgb(232, 21, 21) !important' } : {}"
     />
     <textarea
       v-bind="$attrs"
       @input="handleInput"
       :value="value"
+      :style="isError ? { borderColor: 'rgb(232, 21, 21) !important' } : {}"
       v-else
     ></textarea>
     <v-icon :name="iconName" v-if="hasIcon && iconName"></v-icon>
@@ -40,6 +42,10 @@ export default {
       type: String,
       default: '',
     },
+    isError: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     classObj() {
@@ -61,6 +67,7 @@ export default {
   label {
     display: block;
     margin-bottom: 0.8rem;
+    transition: color 0.3s ease-out;
   }
 
   input,
@@ -109,5 +116,9 @@ export default {
     transform: translate(-50%, -50%);
     fill: var(--color-muted);
   }
+}
+
+.isError {
+  border-color: rgb(232, 21, 21);
 }
 </style>
