@@ -1,11 +1,11 @@
 <template>
   <div class="post-create">
     <div class="fw-700 text-center text-title create-header">
-      <p v-if="action === 'create'">
+      <p class="fw-700" v-if="action === 'create'">
         &#128293; &#128293; &#128293; {{ formTitle }} &#128293; &#128293;
         &#128293;
       </p>
-      <p v-else>
+      <p class="fw-700" v-else>
         &#10024; &#10024; &#10024; {{ formTitle }} &#10024; &#10024; &#10024;
       </p>
     </div>
@@ -86,6 +86,11 @@ export default {
   components: {
     AdminEditor,
   },
+  data() {
+    return {
+      isTouch: false,
+    }
+  },
   props: {
     _id: {
       type: String,
@@ -149,7 +154,17 @@ export default {
       this.$emit('content-change', e)
     },
     handleAction() {
-      console.log('handleAction')
+      if (
+        !this.title ||
+        !this.bannerImg ||
+        !this.brief ||
+        !this.hashtags ||
+        !this.type ||
+        !this.content
+      ) {
+        this.$errorSwal('Please fill out the form')
+        return
+      }
       if (this.action === 'create') {
         this.$emit('create')
       }

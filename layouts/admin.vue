@@ -101,6 +101,7 @@ html {
   }
 }
 
+.nuxt-link-active,
 .nuxt-link-exact-active {
   /* color: red !important; */
   background-color: #fff !important;

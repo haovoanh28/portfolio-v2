@@ -29,6 +29,16 @@
                 {{ item.text }}
               </NuxtLink>
             </p>
+            <p class="menu-item">
+              <NuxtLink
+                :to="{
+                  path: '/admin/post/edit',
+                }"
+                v-ripple
+              >
+                Edit
+              </NuxtLink>
+            </p>
           </div>
         </div>
       </div>
@@ -49,7 +59,7 @@ export default {
       postMenu: [
         {
           text: 'overview',
-          link: '/admin/post',
+          link: '/admin/post/overview',
         },
         {
           text: 'create',
@@ -176,6 +186,7 @@ export default {
 
   a {
     font-size: inherit;
+    font-weight: inherit;
     text-decoration: none;
     text-transform: uppercase;
     cursor: pointer;

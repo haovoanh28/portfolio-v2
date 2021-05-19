@@ -26,6 +26,8 @@ import PostCardItem from '@/components/post/PostCardItem'
 import BlogSidebar from '@/components/blog/BlogSidebar'
 import LazyHydration from 'vue-lazy-hydration'
 
+//: () => import('@/components/post/PostCardItem')
+
 export default {
   components: {
     PostCardItem,

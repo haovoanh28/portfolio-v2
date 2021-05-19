@@ -4,6 +4,7 @@
     :class="classObj"
     v-bind="$attrs"
     v-on="$listeners"
+    :disabled="isLoading"
     v-ripple
   >
     <template v-if="isLoading">
@@ -96,7 +97,7 @@ export default {
   cursor: pointer;
   color: #fff;
   background-color: black;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
   border-radius: 5px;
   font-family: inherit;
   font-size: 1.5rem;

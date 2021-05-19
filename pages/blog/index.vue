@@ -3,11 +3,13 @@
     <LazyHydration when-visible>
       <BlogBanner />
     </LazyHydration>
-    <BlogMain
-      :isLoading="isLoading"
-      :posts="posts"
-      :pending="$fetchState.pending"
-    />
+    <LazyHydration when-visible>
+      <BlogMain
+        :isLoading="isLoading"
+        :posts="posts"
+        :pending="$fetchState.pending"
+      />
+    </LazyHydration>
   </div>
 </template>
 
@@ -17,10 +19,12 @@ import LazyHydration from 'vue-lazy-hydration'
 
 import { mapState, mapActions } from 'vuex'
 
+//: () => import('@/components/blog/BlogMain')
+
 export default {
   components: {
     BlogBanner: () => import('@/components/blog/BlogBanner'),
-    BlogMain,
+    BlogMain: () => import('@/components/blog/BlogMain'),
     LazyHydration,
   },
   computed: {
