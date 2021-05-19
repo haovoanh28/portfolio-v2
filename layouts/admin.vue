@@ -101,6 +101,14 @@ html {
   }
 }
 
+.tox .tox-dialog-wrap {
+  left: 25rem !important;
+
+  @include medium_device {
+    left: 0 !important;
+  }
+}
+
 .nuxt-link-active,
 .nuxt-link-exact-active {
   /* color: red !important; */

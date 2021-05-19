@@ -12,6 +12,7 @@
           @add-tag="handleAddTag"
           @delete-tag="handleDeleteTag"
           @edit="handleEditPost"
+          @clear="handleClearPost"
           formTitle="Edit Post"
           action="edit"
         />
