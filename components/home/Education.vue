@@ -1,6 +1,8 @@
 <template>
   <div class="education bg-light">
-    <p class="education-title fw-700 text-title">Education & Experience</p>
+    <p class="education-title fw-700 text-title text-center">
+      Education & Experience
+    </p>
     <div class="home-decor">
       <span> <v-icon name="asterisk"></v-icon> </span>
     </div>
@@ -78,7 +80,6 @@ export default {
 
   & .education-title {
     font-size: var(--title-font-size);
-    text-align: center;
   }
 
   & .education-quote {
@@ -89,7 +90,7 @@ export default {
 }
 
 .education-board {
-  margin-top: 6rem;
+  margin-top: 1rem;
   display: grid;
   grid-template-columns: 1fr;
   grid-column-gap: 15rem;

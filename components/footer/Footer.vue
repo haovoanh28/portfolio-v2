@@ -7,7 +7,7 @@
         v-for="(icon, index) in footerIcons"
         :key="`footerIcon-${index}`"
       >
-        <a :href="icon.ref" target="_blank">
+        <a :href="icon.ref" target="_blank" rel="noopener">
           <v-icon :name="icon.iconName"></v-icon>
         </a>
       </div>

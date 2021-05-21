@@ -1,6 +1,6 @@
 <template>
   <button
-    class="btn"
+    class="btn link"
     :class="classObj"
     v-bind="$attrs"
     v-on="$listeners"
@@ -110,11 +110,6 @@ export default {
   &:hover {
     background-color: #fff !important;
     color: black;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
   }
 }
 

@@ -3,7 +3,7 @@
     <div class="card-banner">
       <img :src="post.bannerImg" alt="card image" loading="lazy" />
       <div
-        class="banner-type fw-700"
+        class="banner-type fw-700 text-center"
         :style="{
           backgroundColor: getBackgroundColorByType(post.type),
           boxShadow: `1px 1px 5px rgba(0,0,0, 0.4)`,
@@ -110,7 +110,6 @@ export default {
     left: 0;
     border-top-right-radius: 1.5rem;
     border-bottom-right-radius: 1.5rem;
-    text-align: center;
     min-width: 14rem;
     text-transform: uppercase;
   }

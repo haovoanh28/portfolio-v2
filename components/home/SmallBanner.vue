@@ -1,5 +1,5 @@
 <template>
-  <div class="small-banner" :style="backgroundImage">
+  <div class="small-banner text-center" :style="backgroundImage">
     <div class="bg-overlay"></div>
     <div>
       <p>{{ content }}</p>
@@ -58,7 +58,6 @@ export default {
     font-size: 3.2rem;
     letter-spacing: 2.5px;
     z-index: 2;
-    text-align: center;
   }
 
   button {

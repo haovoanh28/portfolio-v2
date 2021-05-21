@@ -19,34 +19,50 @@
       >
       </vue-particles>
     </div>
-    <div class="banner">
-      <p class="banner-welcome">Hello & Welcome</p>
-      <p class="banner-introduce">
-        i am <span class="introduce-key"></span>
+    <div class="banner text-center">
+      <p class="banner-welcome text-center">Hello & Welcome</p>
+      <p class="banner-introduce fw-300">
+        i am <span class="introduce-key fw-700"></span>
         <span class="blink">|</span>
       </p>
       <div class="banner-icons">
         <a
+          class="link"
           href="https://www.facebook.com/profile.php?id=100020713613057"
           target="_blank"
+          rel="noopener"
         >
           <v-icon name="brands/facebook-f"></v-icon
         ></a>
-        <a href="https://github.com/haovoanh28" target="_blank"
+        <a
+          class="link"
+          href="https://github.com/haovoanh28"
+          target="_blank"
+          rel="noopener"
           ><v-icon name="brands/github"></v-icon
         ></a>
         <a
+          class="link"
           href="https://www.facebook.com/profile.php?id=100020713613057"
           target="_blank"
+          rel="noopener"
           ><v-icon name="brands/google-plus-g"></v-icon
         ></a>
-        <a href="https://www.linkedin.com/in/hao-vo-14267020b/" target="_blank"
+        <a
+          class="link"
+          href="https://www.linkedin.com/in/hao-vo-14267020b/"
+          target="_blank"
+          rel="noopener"
           ><v-icon name="brands/linkedin-in"></v-icon
         ></a>
       </div>
       <div class="banner-button">
         <BaseButton transparent border-radius>
-          <a href="https://i.topcv.vn/voanhhao?ref=3336088" target="_blank"
+          <a
+            class="link"
+            href="https://i.topcv.vn/voanhhao?ref=3336088"
+            target="_blank"
+            rel="noopener"
             >Download CV</a
           >
         </BaseButton>
@@ -100,7 +116,6 @@ export default {
   z-index: 2; /**higher than bg-overlay */
   color: #fff;
   width: 100%;
-  text-align: center;
   padding-bottom: 5rem;
 }
 
@@ -113,11 +128,9 @@ export default {
   margin-top: 1rem;
   text-transform: capitalize;
   font-size: 7rem;
-  font-weight: 500;
 
   span {
     font-size: inherit;
-    font-weight: 700;
   }
 
   .blink {
@@ -143,11 +156,6 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
 
   svg {
     cursor: pointer;

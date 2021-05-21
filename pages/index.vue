@@ -93,14 +93,16 @@ export default {
 }
 
 #education {
-  min-height: 96.5rem;
-
+  min-height: 94rem;
   @include large_device {
     min-height: 105rem;
   }
-
   @include medium_device {
-    min-height: 115rem;
+    min-height: 107rem;
+  }
+
+  @include extra_small_device {
+    min-height: 104rem;
   }
 }
 

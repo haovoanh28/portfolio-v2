@@ -2,7 +2,7 @@
   <div class="admin-header-wrapper">
     <div class="admin-header--reponsive" ref="admin-header--responsive">
       <p class="header-head--responsive fw-700 text-center">
-        <a href="/">{{ brand }}</a>
+        <a class="link" href="/">{{ brand }}</a>
       </p>
       <div class="header-bars--responsive">
         <v-icon name="bars" @click="toggleHeader"></v-icon>
@@ -12,7 +12,7 @@
     <div class="admin-header" :style="styleObj" ref="admin-header">
       <div class="header-head">
         <p class="fw-700 text-center">
-          <a href="/">{{ brand }}</a>
+          <a class="link" href="/">{{ brand }}</a>
         </p>
       </div>
       <div class="header-main">
@@ -25,12 +25,13 @@
               :key="item.text"
               @click.capture="handleMenuItemClick"
             >
-              <NuxtLink :to="item.link" v-ripple>
+              <NuxtLink class="link" :to="item.link" v-ripple>
                 {{ item.text }}
               </NuxtLink>
             </p>
             <p class="menu-item">
               <NuxtLink
+                class="link"
                 :to="{
                   path: '/admin/post/edit',
                 }"
@@ -135,12 +136,8 @@ export default {
     color: #fff;
 
     a {
-      font-size: inherit;
-      text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 3.5px;
-      cursor: pointer;
-      color: inherit;
     }
   }
 }
@@ -163,9 +160,6 @@ export default {
   /* transition: all 0.3s; */
 
   a {
-    font-size: inherit;
-    text-decoration: none;
-    color: inherit;
     padding: 0.8rem 0.6rem;
     display: block;
     transition: all 0.3s;
@@ -185,12 +179,8 @@ export default {
   }
 
   a {
-    font-size: inherit;
-    font-weight: inherit;
-    text-decoration: none;
     text-transform: uppercase;
     cursor: pointer;
-    color: inherit;
   }
 
   @include medium_device {

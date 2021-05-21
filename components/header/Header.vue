@@ -4,7 +4,7 @@
       <nuxt-link
         to="/#home"
         v-scroll-to="{ el: `#home}`, duration: 100 }"
-        class="nav-brand"
+        class="nav-brand fw-700 link"
         >HaoV</nuxt-link
       >
       <ul class="nav-list" @click="handleNavListClick">
@@ -15,18 +15,19 @@
           <nuxt-link
             :to="{ path: '/', hash: `#${item}` }"
             v-scroll-to="{ el: `#${item}`, duration: 100 }"
+            class="fw-700 link"
           >
             {{ item }}
           </nuxt-link>
         </li>
         <li class="nav-item" @click="handleToBlogClick">
-          <nuxt-link to="/blog">Blog</nuxt-link>
+          <nuxt-link class="fw-700 link" to="/blog">Blog</nuxt-link>
         </li>
       </ul>
       <div class="nav-responsive_logo" @click="handleResponsiveClick">
-        <div></div>
-        <div></div>
-        <div></div>
+        <div class="bg-white"></div>
+        <div class="bg-white"></div>
+        <div class="bg-white"></div>
       </div>
     </nav>
   </div>
@@ -146,10 +147,8 @@ export default {
   transition: all 0.35s linear;
 
   a {
-    text-decoration: none;
     text-transform: capitalize;
     color: white;
-    font-weight: 700;
   }
 
   @include extra_small_device {
@@ -185,7 +184,6 @@ export default {
   div:nth-of-type(2) {
     width: 50%;
     height: 1px;
-    background-color: #fff;
     position: relative;
     border-radius: 1.8rem;
     transition: all 0.1s linear;
@@ -196,7 +194,6 @@ export default {
     border-radius: 1.8rem;
     width: 80%;
     height: 1px;
-    background-color: #fff;
     display: block;
     transform: translateY(-6px);
     transition: all 0.1s linear;
@@ -206,7 +203,6 @@ export default {
     border-radius: 1.8rem;
     width: 40%;
     height: 1px;
-    background-color: #fff;
     display: block;
     transform: translateY(6px);
     transition: all 0.1s linear;

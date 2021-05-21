@@ -6,7 +6,7 @@
       boxShadow: `0 0 .5px ${color}`,
     }"
   >
-    <p class="text-center fw-700 level" :style="{ backgroundColor: color }">
+    <p class="text-center fw-700 level text-center" :style="{ backgroundColor: color }">
       {{ skillLevel }}
     </p>
     <div class="src">
@@ -69,7 +69,6 @@ export default {
 
   p {
     margin-top: 0.6rem;
-    text-align: center;
     font-size: 1.3rem;
   }
 }

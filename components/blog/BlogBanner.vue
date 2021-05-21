@@ -1,7 +1,7 @@
 <template>
   <div class="blog-banner">
     <div class="bg-overlay"></div>
-    <div class="blog-banner__title">
+    <div class="blog-banner__title text-center">
       <p class="fw-700">Knowledge Is Power</p>
       <p>
         <nuxt-link to="/" class="text-muted">HOME</nuxt-link>
@@ -34,7 +34,6 @@ export default {}
 
   p {
     color: #fff;
-    text-align: center;
 
     a {
       text-decoration: none;

@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <div class="about-myself">
+    <div class="about-myself text-center">
       <p>
         <span class="fw-700 text-title">About</span>
         Me
@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="about-info">
-      <p class="info-name">
+      <p class="info-name text-center">
         <span>Hello! </span>
         <span class="fw-700">I'm Anh Hao.</span>
       </p>
@@ -50,8 +50,6 @@
           :skillLevel="skill.level"
           :color="skill.color"
         />
-        <!-- <v-icon :name="skill.iconName"></v-icon>
-          <p class="text-muted">Level: {{ skill.level }}</p> -->
       </div>
     </div>
   </div>
@@ -144,7 +142,6 @@ export default {
 
 .about-myself {
   font-size: var(--title-font-size);
-  text-align: center;
   p {
     font-size: inherit;
   }
@@ -164,7 +161,6 @@ export default {
 .about-info {
   .info-name {
     font-size: var(--title-font-size);
-    text-align: center;
 
     span {
       font-size: inherit;
@@ -231,20 +227,6 @@ export default {
 
   @include extra_small_device {
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  }
-}
-
-.skill-detail {
-  svg {
-    width: 100%;
-    height: 80%;
-    margin: 0 auto;
-  }
-
-  p {
-    margin-top: 0.6rem;
-    text-align: center;
-    font-size: 1.3rem;
   }
 }
 </style>

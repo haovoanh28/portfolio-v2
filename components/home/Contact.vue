@@ -1,6 +1,6 @@
 <template>
   <div class="contact">
-    <p class="contact-title text-title">
+    <p class="contact-title text-title text-center">
       Get In <span class="fw-700">Touch</span>
     </p>
     <div class="home-decor">
@@ -10,7 +10,7 @@
       If you are interested in me, here is my contact :
     </p>
     <div class="contact-main">
-      <div class="contact-static">
+      <div class="contact-static text-center">
         <div
           class="static-content"
           v-for="(contact, index) in contacts"
@@ -126,7 +126,6 @@ export default {
 
 .contact-title {
   font-size: var(--title-font-size);
-  text-align: center;
   & > * {
     font-size: inherit;
   }
@@ -151,7 +150,6 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  text-align: center;
   margin-top: 0.5rem;
 
   p:nth-of-type(1) {
