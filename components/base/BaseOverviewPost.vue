@@ -82,11 +82,13 @@ export default {
 
   &-img {
     width: 100%;
+    max-width: 25rem;
     height: 15rem;
     overflow: hidden;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     background: transparent;
     border-radius: 1rem;
+    justify-self: center;
   }
 
   &-short {

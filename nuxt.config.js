@@ -32,15 +32,13 @@ export default {
       },
       {
         rel: 'canonical',
-        href: 'https://www.haov.cf/',
+        href: 'https://haov.cf/',
       },
     ],
   },
 
-  //<meta name="google-site-verification" content="quO9-pjTQySW-mGKsQH6grDAqLAvbusQLIyAEmjsavk" />
-
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/css/base.css', '@/assets/css/main.css'],
+  css: ['@/assets/css/base.css', '@/assets/css/transition.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -53,7 +51,11 @@ export default {
   ],
 
   styleResources: {
-    scss: ['~/assets/scss/_mixins.scss', '~/assets/scss/_variables.scss'],
+    scss: [
+      '~/assets/scss/_mixins.scss',
+      '~/assets/scss/_variables.scss',
+      '~/assets/scss/main.scss',
+    ],
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
