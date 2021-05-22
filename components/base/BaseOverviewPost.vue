@@ -14,7 +14,7 @@
       </p>
     </div>
     <div class="type"></div>
-    <div class="button-group" v-if="isAdmin">
+    <div class="button-group flex-center" v-if="isAdmin">
       <BaseButton
         blueBtn
         small
@@ -91,12 +91,6 @@ export default {
     justify-self: center;
   }
 
-  &-short {
-    /* display: flex;
-      flex-direction: column;
-      justify-content: space-between; */
-  }
-
   &-createdAt {
     font-size: 1.3rem;
     margin-top: 2rem;
@@ -125,9 +119,6 @@ export default {
 
 .button-group {
   justify-self: flex-end;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 1rem;
 }
 </style>

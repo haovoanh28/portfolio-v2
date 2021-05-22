@@ -224,10 +224,6 @@ export default {
 
     &-button {
       transform: translateY(-2rem);
-      width: 100%;
-      display: flex;
-      justify-content: flex-end;
-      justify-self: flex-end;
       grid-column: 1/2;
     }
   }

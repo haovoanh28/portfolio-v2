@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="about flex-center">
     <div class="about-myself text-center">
       <p>
         <span class="fw-700 text-title">About</span>
@@ -130,10 +130,7 @@ export default {
 <style lang="scss" scoped>
 .about {
   --element-margin-top: 5.8rem;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
   [class^='about-'] {
     margin-top: var(--element-margin-top);

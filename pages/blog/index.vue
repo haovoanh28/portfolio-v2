@@ -1,7 +1,13 @@
 <template>
   <div class="blog section" id="blog">
     <LazyHydration when-visible>
-      <BlogBanner />
+      <BlogBanner
+        to="home"
+        toRoute="/"
+        current="blog"
+        title="Knowledge is power"
+        bgSrc="/images/blog-banner-background.jpg"
+      />
     </LazyHydration>
     <LazyHydration when-visible>
       <BlogMain
@@ -14,12 +20,9 @@
 </template>
 
 <script>
-import BlogMain from '@/components/blog/BlogMain'
 import LazyHydration from 'vue-lazy-hydration'
 
 import { mapState, mapActions } from 'vuex'
-
-//: () => import('@/components/blog/BlogMain')
 
 export default {
   components: {

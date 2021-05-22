@@ -23,7 +23,7 @@
         v-for="(hashtag, index) in post.hashtags"
         :key="`hashtag-${hashtag}-${index}`"
       >
-        #{{ hashtag }}
+        <BaseTag :tag="hashtag" /> 
       </span>
     </div>
     <div class="card-title fw-700">
@@ -31,6 +31,11 @@
     </div>
     <div class="card-brief">
       {{ post.brief }}
+    </div>
+    <div class="card-more">
+      <nuxt-link class="link" :to="`/blog/${post._id}`">
+        Read more &rarr;
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -139,14 +144,23 @@ export default {
   }
 }
 
-.card-title,
-.card-brief {
-}
-
 .card-title {
   font-size: 2rem;
 }
 
-.card-brief {
+.card-more {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2rem;
+  a {
+    color: blue;
+    transition: all 0.2s ease-out;
+  }
+
+  &:hover {
+    a {
+      letter-spacing: 1.6px;
+    }
+  }
 }
 </style>

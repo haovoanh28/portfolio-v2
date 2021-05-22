@@ -9,7 +9,7 @@
     <p class="text-center fw-700 level text-center" :style="{ backgroundColor: color }">
       {{ skillLevel }}
     </p>
-    <div class="src">
+    <div class="src flex-center">
       <img
         :src="require(`@/assets/svg/${this.skillSrc}`)"
         :alt="`${skillName} icon`"
@@ -85,9 +85,6 @@ export default {
 }
 
 .skill-card .src {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding-top: 2rem;
   img {
     width: 8rem;

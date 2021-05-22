@@ -1,5 +1,3 @@
-import Swal from 'sweetalert2'
-
 export default function ({ $axios, store }, inject) {
   let baseURL = ''
 

@@ -15,6 +15,7 @@
           <nuxt-link
             :to="{ path: '/', hash: `#${item}` }"
             v-scroll-to="{ el: `#${item}`, duration: 100 }"
+            exact=""
             class="fw-700 link"
           >
             {{ item }}
@@ -116,6 +117,7 @@ export default {
   .nav {
     min-height: 55px;
 
+    /* .nav-item .nuxt-link-active, */
     .nav-item .nuxt-link-exact-active {
       &::after {
         background-color: black;
@@ -325,6 +327,8 @@ export default {
 }
 
 .nav-item--active,
+
+/* .nav-item .nuxt-link-active,  */
 .nav-item .nuxt-link-exact-active {
   &::after {
     opacity: 1;

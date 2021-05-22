@@ -32,6 +32,14 @@
   text-align: center !important;
 }
 
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+.text-upper {
+  text-transform: uppercase !important;
+}
+
 /* ==================================== */
 
 .bg-transparent {
@@ -55,9 +63,18 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 
+/* ==================================== */
+
 .link {
   font-size: inherit;
   text-decoration: none;
   cursor: pointer;
   color: inherit;
+}
+
+/* ==================================== */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
