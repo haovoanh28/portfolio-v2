@@ -32,43 +32,43 @@ export default {
   props: {
     transparent: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
     small: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
     noBorder: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
     'border-radius': {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
     blackBtn: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
     successBtn: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
     errorBtn: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
     blueBtn: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
     isLoading: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
     isIcon: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
   },
   data() {

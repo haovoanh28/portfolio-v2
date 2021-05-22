@@ -25,6 +25,9 @@ import LazyHydration from 'vue-lazy-hydration'
 import { mapState, mapActions } from 'vuex'
 
 export default {
+  key(route) {
+    return route.fullPath
+  },
   components: {
     BlogBanner: () => import('@/components/blog/BlogBanner'),
     BlogMain: () => import('@/components/blog/BlogMain'),
@@ -49,7 +52,12 @@ export default {
       })
     }
   },
-  updated() {},
+  mounted() {
+    this.$toast.fire({
+      position: 'top-left',
+      title: '<h3>&#128570; Welcome to my blog &#128570; </h3>',
+    })
+  },
   async fetch() {
     await this.getAllPostAsync()
   },

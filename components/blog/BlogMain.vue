@@ -37,11 +37,11 @@ export default {
   props: {
     isLoading: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
     pending: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
     posts: {
       type: Array,

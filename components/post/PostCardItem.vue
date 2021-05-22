@@ -23,7 +23,7 @@
         v-for="(hashtag, index) in post.hashtags"
         :key="`hashtag-${hashtag}-${index}`"
       >
-        <BaseTag :tag="hashtag" /> 
+        <BaseTag :tag="hashtag" />
       </span>
     </div>
     <div class="card-title fw-700">

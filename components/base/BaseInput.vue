@@ -32,11 +32,11 @@ export default {
     },
     textarea: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
     hasIcon: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
     iconName: {
       type: String,
@@ -44,7 +44,7 @@ export default {
     },
     isError: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
   },
   computed: {

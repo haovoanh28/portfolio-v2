@@ -130,7 +130,7 @@ export default {
     },
     isLoading: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
   },
   methods: {

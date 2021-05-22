@@ -14,7 +14,7 @@ export default {
   props: {
     editable: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
     tag: {
       type: String,
@@ -34,7 +34,6 @@ export default {
   background-color: var(--color-light);
   border-radius: 0.2rem;
   border: 1px solid #e7e7e7;
-  color: #9c9c9c;
   display: inline-block;
   transition: all 0.5s;
   font-size: 9px !important;

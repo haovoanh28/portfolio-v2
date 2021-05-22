@@ -13,7 +13,7 @@ export default {
   props: {
     fullScreen: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
   },
   computed: {

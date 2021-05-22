@@ -1,11 +1,6 @@
 <template>
-  <div class="blog-banner" :style="{ backgroundImage: `url(${bgSrc})` }">
-    <div
-      class="bg-overlay"
-      :style="
-        lighter ? { 'background-color': 'rgba(0, 0, 0, 0.6) !important;' } : {}
-      "
-    ></div>
+  <div class="blog-banner" :style="bannerStyleObj">
+    <div class="bg-overlay" :style="overlayStyleObj"></div>
     <div class="blog-banner__wrapper text-center">
       <p class="fw-700 text-capitalize banner-title">{{ title }}</p>
       <p>
@@ -43,10 +38,29 @@ export default {
     },
     lighter: {
       type: Boolean,
-      default: false,
+      default: () => false,
+    },
+    height: {
+      type: String,
+      default: '65',
     },
   },
-  computed: {},
+  computed: {
+    bannerStyleObj() {
+      return {
+        'background-image': `url(${this.bgSrc})`,
+        'min-height': `${this.height}vh`,
+      }
+    },
+    overlayStyleObj() {
+      return {
+        'background-color': this.lighter ? 'rgba(0, 0, 0, 0.6) !important' : '',
+      }
+    },
+  },
+  mounted() {
+    console.log('blog banner mounted')
+  },
 }
 </script>
 

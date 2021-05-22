@@ -7,12 +7,34 @@
         current="post"
         :title="post.title"
         :bgSrc="post.bannerImg"
-        lighter
+        :lighter="true"
+        height="80"
       />
     </div>
     <div class="post-main">
       <div class="post-brief">
         {{ post.brief }}
+      </div>
+      <div class="post-content">
+        {{ post.content }}
+      </div>
+      <div class="post-author">
+        <p>
+          <span>By</span>
+          <span class="fw-700">{{ post.author || 'Vo Anh Hao' }}</span>
+        </p>
+        <client-only>
+          <p>
+            <TimeAgo :datetime="post.createdAt" long />
+          </p>
+        </client-only>
+      </div>
+      <div class="post-hashtags">
+        <BaseTag
+          v-for="tag in post.hashtags"
+          :key="`hashtag-${post._id}-${tag}`"
+          :tag="tag"
+        />
       </div>
     </div>
   </div>
@@ -20,10 +42,15 @@
 
 <script>
 import BlogBanner from '@/components/blog/BlogBanner'
+import TimeAgo from 'vue2-timeago'
 
 export default {
+  key(route) {
+    return route.fullPath
+  },
   components: {
     BlogBanner,
+    TimeAgo,
   },
   data() {
     return {
@@ -51,5 +78,14 @@ export default {
   * {
     font-size: inherit;
   }
+
+  [class^='post']:not(:first-of-type) {
+    margin-top: 3rem;
+  }
+}
+
+.post-author {
+  display: flex;
+  justify-content: space-between;
 }
 </style>

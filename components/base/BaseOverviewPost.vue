@@ -54,11 +54,11 @@ export default {
     },
     isAdmin: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
     isDeleting: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
   },
   methods: {

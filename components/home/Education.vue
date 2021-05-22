@@ -153,6 +153,6 @@ export default {
 
 .box-content {
   line-height: 2.6rem;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 </style>

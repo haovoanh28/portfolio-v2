@@ -37,6 +37,11 @@ export default {
   },
   mounted() {
     if (process.browser) {
+      this.$toast.fire({
+        position: 'top-left',
+        title: '<h3>&#9996; Welcome to my website &#9996; </h3>',
+      })
+
       const sections = document.querySelectorAll('.section')
       const navLinks = document.querySelectorAll('.nav .nav-item a')
       const intersectionOptions = {
