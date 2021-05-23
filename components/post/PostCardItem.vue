@@ -5,7 +5,7 @@
       <div
         class="banner-type fw-700 text-center"
         :style="{
-          backgroundColor: getBackgroundColorByType(post.type),
+          backgroundColor: getBackgroundColorByType(post.type.toLowerCase()),
           boxShadow: `1px 1px 5px rgba(0,0,0, 0.4)`,
         }"
       >

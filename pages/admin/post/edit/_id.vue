@@ -25,8 +25,8 @@
 import AdminCreate from '@/components/admin/AdminForm'
 
 import { mapActions, mapState } from 'vuex'
+import { useStore } from '@nuxtjs/composition-api'
 
-import { reactive } from '@nuxtjs/composition-api'
 import useHandlePostData from '@/utils/use/useHandlePostData'
 
 export default {
@@ -35,8 +35,7 @@ export default {
     AdminCreate,
   },
   setup() {
-    let post = reactive({})
-    const handlePostData = useHandlePostData(post)
+    const handlePostData = useHandlePostData('edit')
 
     return { ...handlePostData }
   },
@@ -44,17 +43,11 @@ export default {
     ...mapState('post/get', ['isLoading']),
   },
   methods: {
-    ...mapActions('post/add', ['addPostAsync']),
+    ...mapActions('post/edit', ['editPostAsync']),
     ...mapActions('post/get', ['getPostByIdAsync']),
     handleEditPost({ id }) {
-      console.log('edit', id)
+      this.editPostAsync(this.post)
     },
-  },
-  async mounted() {
-    const { id: postId } = this.$route.params
-    const post = await this.getPostByIdAsync(postId)
-    this.post = { ...post }
-    console.log(post)
   },
 }
 </script>

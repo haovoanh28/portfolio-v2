@@ -42,7 +42,6 @@ export default {
   },
   methods: {
     handleChange(e) {
-      console.log(e)
       this.$emit('input', { value: e, name: this.name })
     },
   },

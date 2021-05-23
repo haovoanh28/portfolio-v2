@@ -46,7 +46,6 @@ export default {
     ...mapActions('post/get', ['getAllPostAsync']),
     ...mapActions('post/delete', ['deletePostAsync']),
     async handleDeletePost({ id }) {
-      console.log('delete', id)
       const choice = await this.$swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",

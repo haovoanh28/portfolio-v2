@@ -16,15 +16,16 @@ export const mutations = {
 }
 
 export const actions = {
-  async addPostAsync({ commit }, post) {
+  async editPostAsync({ commit }, post) {
     try {
       commit('SET_LOADING')
-      const response = await this.$api.post('/posts', { ...post })
+      const response = await this.$api.put(`/posts/${post._id}`, { ...post })
+      console.log(response)
     } catch (err) {
       console.log(err)
-      this.$errorSwal('Failed to create new post, please try again !')
+      this.$errorSwal('Failed to edit post, please try again !')
     } finally {
-      this.$successSwal('Post has been created')
+      this.$successSwal('Post has been edited')
       commit('SET_LOADED')
     }
   },

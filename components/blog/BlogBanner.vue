@@ -57,10 +57,7 @@ export default {
         'background-color': this.lighter ? 'rgba(0, 0, 0, 0.6) !important' : '',
       }
     },
-  },
-  mounted() {
-    console.log('blog banner mounted')
-  },
+  }
 }
 </script>
 
@@ -71,6 +68,7 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
   display: grid;
   place-items: center;
 

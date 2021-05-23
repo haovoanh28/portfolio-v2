@@ -15,16 +15,14 @@
       <div class="post-brief">
         {{ post.brief }}
       </div>
-      <div class="post-content">
-        {{ post.content }}
-      </div>
+      <div class="post-content" v-html="post.content" />
       <div class="post-author">
         <p>
           <span>By</span>
           <span class="fw-700">{{ post.author || 'Vo Anh Hao' }}</span>
         </p>
         <client-only>
-          <p>
+          <p class="time-ago">
             <TimeAgo :datetime="post.createdAt" long />
           </p>
         </client-only>
@@ -69,7 +67,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .post-main {
   font-size: 1.8rem;
   width: 80%;
@@ -82,10 +80,30 @@ export default {
   [class^='post']:not(:first-of-type) {
     margin-top: 3rem;
   }
+
+  @include medium_device {
+    width: 90%;
+  }
+
+  @include extra_small_device {
+    width: 95%;
+  }
+}
+
+.post-content {
+  ul,
+  ol {
+    margin: 0 50px !important;
+  }
 }
 
 .post-author {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.time-ago {
+  font-size: 1.6rem;
 }
 </style>

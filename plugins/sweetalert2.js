@@ -23,20 +23,30 @@ export default ({ app }, inject) => {
   // })
 
   function errorSwal(title) {
-    Swal.fire({
+    Toast.fire({
       icon: 'error',
-      toast: true,
       position: 'top-end',
-      showConfirmButton: false,
       timerProgressBar: false,
-      timer: 1800,
-      background: 'red',
+      background: '#ff5050',
+      iconColor: 'white',
+      title: `<span style="color: #fff !important; font-size: 1.5rem">${title}</span>`,
+    })
+  }
+
+  function successSwal(title) {
+    Toast.fire({
+      icon: 'error',
+      position: 'top-end',
+      timerProgressBar: false,
+      background: '#33cc33',
       iconColor: 'white',
       title: `<span style="color: #fff !important; font-size: 1.5rem">${title}</span>`,
     })
   }
 
   inject('errorSwal', errorSwal)
+
+  inject('successSwal', successSwal)
 
   inject('toast', Toast)
 

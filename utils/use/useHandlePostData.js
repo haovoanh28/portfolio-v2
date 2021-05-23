@@ -1,21 +1,48 @@
-import { ref, reactive, toRefs, useContext } from '@nuxtjs/composition-api'
+import {
+  ref,
+  reactive,
+  useContext,
+  useStore,
+  useRoute,
+  onMounted,
+} from '@nuxtjs/composition-api'
 
-// props is post
-export default function (props) {
+export default function (action) {
   const localLoading = ref(true)
   const context = useContext()
 
-  console.log('context boy', context)
-  const post = reactive({
-    ...props,
+  let post = reactive({
+    title: '',
+    brief: '',
+    bannerImg: '',
+    type: '',
+    hashtags: [],
+    content: '',
   })
+
+  if (action === 'edit') {
+    const store = useStore()
+    const route = useRoute()
+
+    const { id } = route.value.params
+
+    onMounted(async () => {
+      try {
+        const response = await store.dispatch('post/get/getPostByIdAsync', id, {
+          root: true,
+        })
+        Object.assign(post, response)
+      } catch (err) {
+        console.log(err)
+      }
+    })
+  }
 
   const handleEdLoaded = () => {
     localLoading.value = false
   }
 
   const handlePostDataChange = (e) => {
-    console.log('post data change', e)
     const { name, value } = e
     post[name] = value
   }
@@ -47,44 +74,3 @@ export default function (props) {
     handleClearPost,
   }
 }
-
-// export default {
-//   data() {
-//     return {
-//       localLoading: true,
-//       post: {
-//         title: '',
-//         brief: '',
-//         bannerImg: '',
-//         type: '',
-//         hashtags: [],
-//         content: '',
-//       },
-//     }
-//   },
-//   methods: {
-//     handleEdLoaded() {
-//       this.localLoading = false
-//     },
-//     handlePostDataChange(e) {
-//       console.log('post data change', e)
-//       const { name, value } = e
-//       this.post = { ...this.post, [name]: value }
-//     },
-//     handleAddTag(tag) {
-//       this.post.hashtags.push(tag)
-//     },
-//     handleDeleteTag(tag) {
-//       this.post.hashtags = this.post.hashtags.filter((t) => t !== tag)
-//     },
-//     async handleClearPost() {
-//       const choice = await this.$swal.fire({
-//         title: 'Are you sure to clear all ?',
-//         text: "You won't be able to revert this!",
-//         icon: 'warning',
-//         showCancelButton: true,
-//         confirmButtonText: 'Yes, clear it!',
-//       })
-//     },
-//   },
-// }

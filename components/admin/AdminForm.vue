@@ -41,8 +41,8 @@
       <BaseSelect
         title="Select type for post"
         name="type"
-        @input="handleInput"
         :value="type"
+        @input="handleInput"
       />
     </div>
     <div class="form-group create-tags">
@@ -147,7 +147,6 @@ export default {
       this.$emit('ed-loaded')
     },
     handleInput(e) {
-      // console.log(e)
       this.$emit(`post-data-change`, e)
     },
     handleContentChange(e) {

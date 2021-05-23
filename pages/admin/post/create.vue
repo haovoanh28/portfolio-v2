@@ -33,14 +33,7 @@ export default {
     AdminForm,
   },
   setup() {
-    const handlePostData = useHandlePostData({
-      title: '',
-      brief: '',
-      bannerImg: '',
-      type: '',
-      hashtags: [],
-      content: '',
-    })
+    const handlePostData = useHandlePostData()
 
     const context = useContext()
 
@@ -60,7 +53,6 @@ export default {
   methods: {
     ...mapActions('post/add', ['addPostAsync']),
     handleCreate() {
-      console.log(this.post)
       this.addPostAsync({ ...this.post })
     },
   },
