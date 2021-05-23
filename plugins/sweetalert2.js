@@ -35,7 +35,7 @@ export default ({ app }, inject) => {
 
   function successSwal(title) {
     Toast.fire({
-      icon: 'error',
+      icon: 'success',
       position: 'top-end',
       timerProgressBar: false,
       background: '#33cc33',

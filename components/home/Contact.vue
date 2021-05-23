@@ -66,7 +66,11 @@
             />
           </div>
           <div class="form-button">
-            <BaseButton blackBtn type="submit" @click.prevent="handleClick"
+            <BaseButton
+              blackBtn
+              type="submit"
+              @click.prevent="handleClick"
+              :isLoading="isSending"
               >Send Message</BaseButton
             >
           </div>
@@ -85,6 +89,7 @@ export default {
       subject: '',
       message: '',
       isTouch: false,
+      isSending: false,
       contacts: [
         {
           iconName: 'mobile-alt',
@@ -109,7 +114,31 @@ export default {
       this.isTouch = true
       if (!this.name || !this.email || !this.subject || !this.message) {
         this.$errorSwal('Please fill out the form ')
+        return
       }
+      this.isSending = true
+      this.$api
+        .post('/send-email', {
+          from: this.email,
+          question: this.subject,
+          content: this.message,
+          name: this.name,
+        })
+        .then((res) => {
+          this.$successSwal('Your email has been sent')
+          this.name = ''
+          this.email = ''
+          this.subject = ''
+          this.message = ''
+          this.isTouch = false
+        })
+        .catch((err) => {
+          console.log(err)
+          this.$errorSwal('Sent mail failed')
+        })
+        .finally(() => {
+          this.isSending = false
+        })
     },
     handleInput(e) {
       const { name, value } = e
