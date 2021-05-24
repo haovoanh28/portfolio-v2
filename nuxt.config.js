@@ -72,7 +72,12 @@ export default {
     '@nuxtjs/axios',
     'vue-scrollto/nuxt',
     '@nuxtjs/svg',
+    '@nuxtjs/sitemap',
   ],
+  sitemap: {
+    hostname: 'https://haov.cf',
+    exclude: ['/admin', '/admin/**'],
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
