@@ -41,7 +41,7 @@ export default {
           'insertdatetime media table paste code help wordcount emoticons',
         ],
         toolbar:
-          'undo redo | formatselect | bold italic backcolor emoticons | \
+          'undo redo | formatselect | bold italic backcolor emoticons image imagetools | \
            alignleft aligncenter alignright alignjustify | \
            bullist numlist outdent indent | removeformat | preview code help',
         content_style:

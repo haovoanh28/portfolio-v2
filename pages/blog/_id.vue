@@ -81,6 +81,10 @@ export default {
     margin-top: 3rem;
   }
 
+  @include extra_large_device {
+    font-size: 2rem;
+  }
+
   @include medium_device {
     width: 90%;
   }
@@ -94,6 +98,13 @@ export default {
   ul,
   ol {
     margin: 0 50px !important;
+  }
+
+  img {
+    max-width: 90rem;
+    max-height: 50rem;
+    display: block;
+    margin: 0 auto;
   }
 }
 
