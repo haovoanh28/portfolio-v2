@@ -39,7 +39,7 @@ export default {
     if (process.browser) {
       this.$toast.fire({
         position: 'top-left',
-        title: '<h3>&#9996; Welcome to my website &#9996; </h3>',
+        title: '<p>&#9996; Welcome to my website &#9996; </p>',
       })
 
       const sections = document.querySelectorAll('.section')

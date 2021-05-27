@@ -1,8 +1,8 @@
 <template>
   <div class="education bg-light">
-    <p class="education-title fw-700 text-title text-center">
+    <h1 class="education-title fw-700 text-title text-center">
       Education & Experience
-    </p>
+    </h1>
     <div class="home-decor">
       <span> <v-icon name="asterisk"></v-icon> </span>
     </div>

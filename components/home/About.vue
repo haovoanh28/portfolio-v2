@@ -1,10 +1,12 @@
 <template>
   <div class="about flex-center">
     <div class="about-myself text-center">
-      <p>
-        <span class="fw-700 text-title">About</span>
-        Me
-      </p>
+      <div class="myself-title">
+        <p>
+          <span class="fw-700 text-title">About</span>
+          Me
+        </p>
+      </div>
       <div class="home-decor">
         <span> <v-icon name="asterisk"></v-icon> </span>
       </div>
@@ -20,7 +22,7 @@
     <div class="about-info">
       <p class="info-name text-center">
         <span>Hello! </span>
-        <span class="fw-700">I'm Anh Hao.</span>
+        <span class="fw-700 text-title">I'm Anh Hao.</span>
       </p>
       <div class="info-jobs">
         <ul>
@@ -40,7 +42,7 @@
       </div>
     </div>
     <div class="about-skills">
-      <p class="text-title fw-700 text-center skills-title">What I know</p>
+      <h2 class="text-title fw-700 text-center skills-title">What I know</h2>
       <div class="skills-container">
         <SkillCard
           v-for="(skill, index) in skills"
@@ -138,12 +140,8 @@ export default {
 }
 
 .about-myself {
-  font-size: var(--title-font-size);
-  p {
-    font-size: inherit;
-  }
-  span {
-    font-size: inherit;
+  .myself-title p {
+    font-size: var(--title-font-size);
   }
 }
 
@@ -158,10 +156,6 @@ export default {
 .about-info {
   .info-name {
     font-size: var(--title-font-size);
-
-    span {
-      font-size: inherit;
-    }
   }
 
   .info-jobs {
