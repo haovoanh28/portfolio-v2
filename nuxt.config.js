@@ -70,6 +70,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
     'vue-scrollto/nuxt',
     '@nuxtjs/svg',
     '@nuxtjs/sitemap',
@@ -81,6 +82,18 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
+  auth: {
+    // Options
+    strategies: {
+      
+      local: {
+        /* ... */
+      },
+      github: {
+        /* ... */
+      },
+    },
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

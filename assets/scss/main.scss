@@ -53,7 +53,6 @@ body {
   padding: 0;
 
   font-family: inherit;
-  font-weight: inherit;
 
   @include medium_device {
     -webkit-tap-highlight-color: transparent;
@@ -64,6 +63,7 @@ span,
 a,
 li {
   font-size: inherit;
+  font-weight: inherit;
 }
 
 p {

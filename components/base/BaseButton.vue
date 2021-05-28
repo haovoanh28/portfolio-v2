@@ -110,6 +110,7 @@ export default {
   &:hover {
     background-color: #fff !important;
     color: black;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   }
 }
 
