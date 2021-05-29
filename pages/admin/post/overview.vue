@@ -2,27 +2,27 @@
   <BaseSpinner fullScreen v-if="$fetchState.pending" />
   <div class="post-overview" v-else>
     <div class="overview-title">
-      <h2 class="text-center text-title fw-700">POSTS OVERVIEW</h2>
+      <h3 class="text-center text-title fw-700">POSTS OVERVIEW</h3>
     </div>
     <div class="overview-count">
-      <h2>Total Posts: {{ postsCount }}</h2>
+      <h4>Total Posts: {{ postsCount }}</h4>
     </div>
     <div class="overview-posts">
-      <transition-group name="list" tag="div">
-        <div
-          class="overview-post"
-          v-for="post in posts"
-          :key="`admin-overview-post-${post._id}`"
-        >
-          <BaseOverviewPost
-            :post="post"
-            isAdmin
-            :isDeleting="isDeleting && post._id === id"
-            @delete-post="handleDeletePost"
-            @edit-post="handleEditPost"
-          />
-        </div>
-      </transition-group>
+      <!-- <transition-group name="list" tag="div"> -->
+      <div
+        class="overview-post"
+        v-for="post in posts"
+        :key="`admin-overview-post-${post._id}`"
+      >
+        <BaseOverviewPost
+          :post="post"
+          isAdmin
+          :isDeleting="isDeleting && post._id === id"
+          @delete-post="handleDeletePost"
+          @edit-post="handleEditPost"
+        />
+      </div>
+      <!-- </transition-group> -->
     </div>
   </div>
 </template>

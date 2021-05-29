@@ -42,6 +42,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/persistedState.client.js' },
     { src: '~/plugins/vue-particles' },
     { src: '~/plugins/vue-awesome' },
     { src: '~/plugins/vue-content-placeholders' },
@@ -70,7 +71,6 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/auth-next',
     'vue-scrollto/nuxt',
     '@nuxtjs/svg',
     '@nuxtjs/sitemap',
@@ -82,18 +82,6 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
-  auth: {
-    // Options
-    strategies: {
-      
-      local: {
-        /* ... */
-      },
-      github: {
-        /* ... */
-      },
-    },
-  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

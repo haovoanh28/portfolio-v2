@@ -3,6 +3,7 @@
     <label class="text-title fw-700" :for="label">{{ label }}</label>
     <input
       v-bind="$attrs"
+      v-on="$listeners"
       :value="value"
       v-if="!textarea"
       @input="handleInput"

@@ -15,6 +15,7 @@
           @clear="handleClearPost"
           formTitle="Edit Post"
           action="edit"
+          :isLoading="isEditing"
         />
       </client-only>
     </template>
@@ -41,6 +42,7 @@ export default {
   },
   computed: {
     ...mapState('post/get', ['isLoading']),
+    ...mapState('post/edit', ['isEditing']),
   },
   methods: {
     ...mapActions('post/edit', ['editPostAsync']),

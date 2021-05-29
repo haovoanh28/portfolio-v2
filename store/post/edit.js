@@ -1,6 +1,6 @@
 export const state = () => {
   return {
-    isAdding: false,
+    isEditing: false,
   }
 }
 
@@ -8,10 +8,10 @@ export const getters = {}
 
 export const mutations = {
   SET_LOADING(state) {
-    state.isAdding = true
+    state.isEditing = true
   },
   SET_LOADED(state) {
-    state.isAdding = false
+    state.isEditing = false
   },
 }
 

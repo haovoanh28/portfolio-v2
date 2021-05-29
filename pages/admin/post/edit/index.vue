@@ -1,8 +1,8 @@
 <template>
-  <h1>
+  <h2>
     choose a post to edit :
     <NuxtLink to="/admin/post/overview">here</NuxtLink>
-  </h1>
+  </h2>
 </template>
 
 <script>

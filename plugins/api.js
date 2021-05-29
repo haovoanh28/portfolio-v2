@@ -20,8 +20,10 @@ export default function ({ $axios, store }, inject) {
   const api = $axios.create({ baseURL: baseURL })
   api.interceptors.request.use(
     (config) => {
-      // const token = store.state.auth.accessToken ?? ''
-      // if (token) config.headers.Authorization = `Bearer ${token}`
+      console.log('api call')
+      const token = store.state.user.login.accessToken ?? ''
+      console.log(token)
+      if (token) config.headers.Authorization = `Bearer ${token}`
 
       return config
     },

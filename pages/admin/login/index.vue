@@ -3,10 +3,25 @@
     <div class="admin-form flex-center">
       <div class="form flex-center">
         <h1 class="left-title text-center">Login to HaoV</h1>
-        <BaseInput label="Username" type="text" />
-        <BaseInput label="Password" type="password" />
+        <BaseInput
+          label="Username"
+          type="text"
+          name="userName"
+          :value="userName"
+          @input="handleInput"
+        />
+        <BaseInput
+          label="Password"
+          type="password"
+          name="password"
+          :value="password"
+          @input="handleInput"
+          @keypress.enter="handleLogin"
+        />
         <div class="form-button">
-          <BaseButton noBorder @click="handleLogin"> Login</BaseButton>
+          <BaseButton noBorder @click="handleLogin" :isLoading="isLoading">
+            Login</BaseButton
+          >
         </div>
       </div>
     </div>
@@ -14,6 +29,8 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+
 export default {
   layout: 'empty',
   data() {
@@ -22,9 +39,20 @@ export default {
       password: '',
     }
   },
+  computed: {
+    ...mapState('user/login', ['isLoading']),
+  },
   methods: {
+    ...mapActions('user/login', ['loginAsync']),
+    handleInput(e) {
+      this[e.name] = e.value
+    },
     handleLogin(e) {
-      this.$router.push({ path: '/admin' })
+      this.loginAsync({
+        userName: this.userName,
+        password: this.password,
+      })
+      // this.$router.push({ path: '/admin' })
     },
   },
 }
@@ -35,7 +63,7 @@ export default {
   min-height: 100vh;
   overflow: hidden;
   /* background-color: orchid; */
-  background-image: url('https://images.unsplash.com/photo-1499088513455-78ed88b7a5b4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=671&q=80');
+  background-image: url('@/assets/images/admin-background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
