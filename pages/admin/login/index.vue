@@ -40,10 +40,10 @@ export default {
     }
   },
   computed: {
-    ...mapState('user/login', ['isLoading']),
+    ...mapState('user/auth', ['isLoading']),
   },
   methods: {
-    ...mapActions('user/login', ['loginAsync']),
+    ...mapActions('user/auth', ['loginAsync']),
     handleInput(e) {
       this[e.name] = e.value
     },

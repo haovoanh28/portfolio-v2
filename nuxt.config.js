@@ -42,7 +42,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/persistedState.client.js' },
+    { src: '~/plugins/persisted-state.js' },
     { src: '~/plugins/vue-particles' },
     { src: '~/plugins/vue-awesome' },
     { src: '~/plugins/vue-content-placeholders' },

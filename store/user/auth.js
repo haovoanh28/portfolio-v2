@@ -1,3 +1,5 @@
+import delay from '@/assets/js/delay'
+
 const state = () => {
   return {
     isLoading: false,
@@ -37,6 +39,22 @@ const actions = {
       const { accessToken, user } = response.data.data
       commit('SET_USER', user)
       commit('SET_ACCESS_TOKEN', accessToken)
+    } catch (err) {
+      console.log(err)
+      this.$errorSwal('Login failed')
+    } finally {
+      commit('SET_LOADED')
+    }
+  },
+
+  async logoutAsync({ commit }) {
+    try {
+      commit('SET_LOADING')
+
+      await delay(3000)
+
+      commit('SET_USER', {})
+      commit('SET_ACCESS_TOKEN', '')
     } catch (err) {
       console.log(err)
       this.$errorSwal('Login failed')
