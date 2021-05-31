@@ -4,7 +4,9 @@
 
 <script>
 // Use for pages that don't need layout
-export default {}
+export default {
+  middleware: ['auth']
+}
 </script>
 
 <style lang="scss">

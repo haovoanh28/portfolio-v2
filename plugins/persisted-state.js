@@ -9,16 +9,15 @@ export default ({ store, req }) => {
     storage: {
       getItem: (key) => {
         // See https://nuxtjs.org/guide/plugins/#using-process-flags
-        console.log('get cookie')
         if (process.server) {
           const parsedCookies = cookie.parse(req.headers.cookie ?? '')
+          // console.log(parsedCookies)
           return parsedCookies[key]
         } else {
           return Cookies.get(key)
         }
       },
       setItem: (key, value) => {
-        console.log('set item call', key, value)
         return Cookies.set(key, value, { expires: 365, secure: false })
       },
       removeItem: (key) => Cookies.remove(key),

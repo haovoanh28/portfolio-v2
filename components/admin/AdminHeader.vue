@@ -16,32 +16,29 @@
         </p>
       </div>
       <div class="header-main">
-        <div class="header-post">
-          <p class="header-tag">post</p>
-          <div class="post-menu">
+        <div
+          class="header-item"
+          v-for="menuItem in menus"
+          :key="`menuItem-${menuItem.tag}`"
+        >
+          <p class="header-tag">{{ menuItem.tag }}</p>
+          <div class="menu">
             <p
               class="menu-item"
-              v-for="item in postMenu"
+              v-for="item in menuItem.item"
               :key="item.text"
-              @click.capture="handleMenuItemClick"
+              @click.capture="
+                handleMenuItemClick($event)
+                item.action ? item.action() : null
+              "
             >
               <NuxtLink class="link" :to="item.link" v-ripple>
                 {{ item.text }}
               </NuxtLink>
             </p>
-            <p class="menu-item">
-              <NuxtLink
-                class="link"
-                :to="{
-                  path: '/admin/post/edit',
-                }"
-                v-ripple
-              >
-                Edit
-              </NuxtLink>
-            </p>
           </div>
         </div>
+        <div class="header-user"></div>
       </div>
     </div>
   </div>
@@ -57,14 +54,33 @@ export default {
   },
   data() {
     return {
-      postMenu: [
+      menus: [
         {
-          text: 'overview',
-          link: '/admin/post/overview',
+          tag: 'post',
+          item: [
+            {
+              text: 'overview',
+              link: '/admin/post/overview',
+            },
+            {
+              text: 'create',
+              link: '/admin/post/create',
+            },
+            {
+              text: 'edit',
+              link: '/admin/post/edit',
+            },
+          ],
         },
         {
-          text: 'create',
-          link: '/admin/post/create',
+          tag: 'user',
+          item: [
+            {
+              text: 'logout',
+              link: '/admin/login',
+              action: 'handleLogout',
+            },
+          ],
         },
       ],
       brand: 'HAOV',
@@ -101,6 +117,7 @@ export default {
 
       this.toggleHeader()
     },
+    handleLougout() {},
   },
 }
 </script>
@@ -151,6 +168,12 @@ export default {
     font-size: 1.1rem;
     padding: 0.6rem 0;
     opacity: 0.6;
+  }
+}
+
+.header-item {
+  &:not(:first-of-type) {
+    margin-top: 1.6rem;
   }
 }
 
