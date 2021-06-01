@@ -27,10 +27,7 @@
               class="menu-item"
               v-for="item in menuItem.item"
               :key="item.text"
-              @click.capture="
-                handleMenuItemClick($event)
-                item.action ? item.action() : null
-              "
+              @click.capture="item.action"
             >
               <NuxtLink class="link" :to="item.link" v-ripple>
                 {{ item.text }}
@@ -61,14 +58,17 @@ export default {
             {
               text: 'overview',
               link: '/admin/post/overview',
+              action: this.handleMenuItemClick,
             },
             {
               text: 'create',
               link: '/admin/post/create',
+              action: this.handleMenuItemClick,
             },
             {
               text: 'edit',
               link: '/admin/post/edit',
+              action: this.handleMenuItemClick,
             },
           ],
         },
@@ -77,8 +77,8 @@ export default {
           item: [
             {
               text: 'logout',
-              link: '/admin/login',
-              action: 'handleLogout',
+              link: '/admin/logout',
+              action: this.handleMenuItemClick,
             },
           ],
         },
@@ -117,7 +117,6 @@ export default {
 
       this.toggleHeader()
     },
-    handleLougout() {},
   },
 }
 </script>

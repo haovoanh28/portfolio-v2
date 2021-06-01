@@ -35,6 +35,7 @@ export default {
 }
 
 .admin-main {
+  min-height: 100vh;
   grid-column: 1 / -1;
   margin-left: var(--menu-width);
   padding: 2rem;

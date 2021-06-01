@@ -39,6 +39,7 @@ const actions = {
       const { accessToken, user } = response.data.data
       commit('SET_USER', user)
       commit('SET_ACCESS_TOKEN', accessToken)
+      this.$router.push({ path: '/admin/post/overview' })
     } catch (err) {
       console.log(err)
       this.$errorSwal('Login failed')
@@ -55,9 +56,10 @@ const actions = {
 
       commit('SET_USER', {})
       commit('SET_ACCESS_TOKEN', '')
+      this.$router.go({ path: '/admin/login' })
     } catch (err) {
       console.log(err)
-      this.$errorSwal('Login failed')
+      this.$errorSwal('Logout failed')
     } finally {
       commit('SET_LOADED')
     }
