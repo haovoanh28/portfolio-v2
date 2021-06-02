@@ -4,7 +4,7 @@
       <div class="content-placeholder" v-if="isLoading || pending">
         <content-placeholders
           :rounded="true"
-          v-for="index in 6"
+          v-for="index in 3"
           :key="`placeholder-${index}`"
         >
           <content-placeholders-img />
