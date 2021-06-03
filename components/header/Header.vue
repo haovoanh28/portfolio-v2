@@ -83,8 +83,11 @@ export default {
       }
     },
   },
+  computed: {
+    isMobile() {},
+  },
   mounted() {
-    if (process.browser) {
+    if (process.browser && window.innerWidth > 600) {
       const header = document.querySelector('.header')
       window.addEventListener('scroll', (e) => {
         if (window.scrollY > 50) {
