@@ -69,7 +69,7 @@ export default {
 
 <style lang="scss">
 .post-main {
-  font-size: 1.8rem;
+  font-size: 2rem;
   width: 80%;
   margin: 4.5rem auto;
 
@@ -82,7 +82,7 @@ export default {
   }
 
   @include extra_large_device {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   @include medium_device {
@@ -101,7 +101,8 @@ export default {
   }
 
   img {
-    max-width: 90rem;
+    width: 100%;
+    max-width: 100%;
     max-height: 50rem;
     display: block;
     margin: 0 auto;

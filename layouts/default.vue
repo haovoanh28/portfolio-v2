@@ -17,4 +17,8 @@ export default {}
 <style lang="scss">
 /* @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap'); */
 @import '@/assets/scss/main';
+
+:root {
+  --nav-height-mobile: 55px;
+}
 </style>

@@ -15,7 +15,7 @@
     </div>
     <div class="content-placeholder" v-if="isLoading || pending">
       <content-placeholders
-        v-for="index in 6"
+        v-for="index in 3"
         :key="`sidebar-placeholder-${index}`"
       >
         <content-placeholders-heading :img="true" />

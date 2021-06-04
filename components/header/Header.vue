@@ -129,7 +129,7 @@ export default {
   border-bottom: 1px solid var(--color-gray);
 
   .nav {
-    min-height: 55px;
+    min-height: var(--nav-height-mobile);
 
     /* .nav-item .nuxt-link-active, */
     .nav-item .nuxt-link-exact-active {
@@ -169,7 +169,7 @@ export default {
 
   @include extra_small_device {
     grid-template-columns: 40% 55.5%;
-    min-height: 55px;
+    min-height: var(--nav-height-mobile);
     background-color: #fff;
     .nav-responsive_logo {
       div {
@@ -202,7 +202,6 @@ export default {
     height: 1px;
     position: relative;
     border-radius: 1.8rem;
-    transition: all 0.1s linear;
     align-self: flex-end;
   }
 
@@ -212,7 +211,7 @@ export default {
     height: 1px;
     display: block;
     transform: translateY(-6px);
-    transition: all 0.1s linear;
+    transition: all 0.3s linear;
   }
 
   div:nth-of-type(3) {
@@ -221,7 +220,7 @@ export default {
     height: 1px;
     display: block;
     transform: translateY(6px);
-    transition: all 0.1s linear;
+    transition: all 0.3s linear;
   }
 
   &:hover {
@@ -286,7 +285,7 @@ export default {
     display: flex;
     flex-direction: column;
     padding-left: calc(var(--nav-margin) + 2.4px);
-    transition: all 0.2s linear;
+    transition: all 0.35s cubic-bezier(0.075, 0.82, 0.165, 1);
     box-shadow: 5px 2.5px 1px rgba(0, 0, 0, 0.2);
 
     li {

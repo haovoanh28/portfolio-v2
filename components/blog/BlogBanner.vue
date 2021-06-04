@@ -57,7 +57,7 @@ export default {
         'background-color': this.lighter ? 'rgba(0, 0, 0, 0.6) !important' : '',
       }
     },
-  }
+  },
 }
 </script>
 
@@ -70,10 +70,6 @@ export default {
   background-size: cover;
   display: grid;
   place-items: center;
-
-  @include extra_small_device {
-    margin-top: 55px;
-  }
 }
 
 .blog-banner__wrapper {

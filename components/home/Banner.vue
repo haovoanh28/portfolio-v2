@@ -109,6 +109,7 @@ export default {
 
   @include extra_small_device {
     background-image: url('~/assets/images/banner-background-650w.jpg');
+    min-height: calc(100vh - var(--nav-height-mobile));
   }
 }
 

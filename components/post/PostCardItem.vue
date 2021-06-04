@@ -148,6 +148,12 @@ export default {
   font-size: 2rem;
 }
 
+.card-brief {
+  @include extra_small_device {
+    font-size: 1.8rem;
+  }
+}
+
 .card-more {
   display: flex;
   justify-content: flex-end;
