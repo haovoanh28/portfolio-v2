@@ -104,6 +104,12 @@ export default {
 <style lang="scss">
 .header {
   position: fixed;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-perspective: 1000;
+  perspective: 1000;
   top: 0;
   background-color: transparent;
   transition: background-color 0.5s ease-in-out;
@@ -113,6 +119,7 @@ export default {
   border-bottom: 1px solid transparent;
 
   @include extra_small_device {
+    position: -webkit-sticky;
     position: sticky;
   }
 }
