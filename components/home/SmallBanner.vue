@@ -25,9 +25,13 @@ export default {
   },
   computed: {
     backgroundImage() {
-      return {
-        backgroundImage: `url(${this.imgSrc})`,
+      if (process.browser) {
+        return {
+          backgroundImage: `url(${this.imgSrc})`,
+        }
       }
+
+      return {}
     },
   },
 }

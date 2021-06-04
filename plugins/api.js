@@ -21,7 +21,6 @@ export default function ({ $axios, store }, inject) {
   api.interceptors.request.use(
     (config) => {
       const token = store.state.user.auth.accessToken ?? ''
-      console.log('token: ', token)
       if (token) config.headers.Authorization = `Bearer ${token}`
 
       return config
