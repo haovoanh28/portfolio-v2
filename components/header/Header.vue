@@ -111,6 +111,10 @@ export default {
   width: 100vw;
   z-index: 999;
   border-bottom: 1px solid transparent;
+
+  @include extra_small_device {
+    position: sticky;
+  }
 }
 
 .header--scroll {
