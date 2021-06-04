@@ -203,6 +203,7 @@ export default {
     position: relative;
     border-radius: 1.8rem;
     align-self: flex-end;
+    transition: all 0.1s linear;
   }
 
   div:nth-of-type(1) {
@@ -211,7 +212,7 @@ export default {
     height: 1px;
     display: block;
     transform: translateY(-6px);
-    transition: all 0.3s linear;
+    transition: all 0.1s linear;
   }
 
   div:nth-of-type(3) {
@@ -220,7 +221,7 @@ export default {
     height: 1px;
     display: block;
     transform: translateY(6px);
-    transition: all 0.3s linear;
+    transition: all 0.1s linear;
   }
 
   &:hover {
@@ -285,7 +286,7 @@ export default {
     display: flex;
     flex-direction: column;
     padding-left: calc(var(--nav-margin) + 2.4px);
-    transition: all 0.35s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: all 0.2s linear;
     box-shadow: 5px 2.5px 1px rgba(0, 0, 0, 0.2);
 
     li {
