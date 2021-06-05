@@ -8,36 +8,47 @@
         <v-icon name="bars" @click="toggleHeader"></v-icon>
       </div>
     </div>
-    <div class="responsive-bg" ref="responsive-bg" @click="toggleHeader"></div>
-    <div class="admin-header" :style="styleObj" ref="admin-header">
-      <div class="header-head">
-        <p class="fw-700 text-center">
-          <a class="link" href="/">{{ brand }}</a>
-        </p>
-      </div>
-      <div class="header-main">
-        <div
-          class="header-item"
-          v-for="menuItem in menus"
-          :key="`menuItem-${menuItem.tag}`"
-        >
-          <p class="header-tag">{{ menuItem.tag }}</p>
-          <div class="menu">
-            <p
-              class="menu-item"
-              v-for="item in menuItem.item"
-              :key="item.text"
-              @click.capture="item.action"
-            >
-              <NuxtLink class="link" :to="item.link" v-ripple>
-                {{ item.text }}
-              </NuxtLink>
-            </p>
+    <div
+      class="responsive-bg"
+      ref="responsive-bg"
+      @click="toggleHeader"
+      v-if="needBg"
+    ></div>
+    <transition name="fade-left">
+      <div
+        class="admin-header"
+        :style="styleObj"
+        :class="{ 'admin-header--active-response': needMenu }"
+        v-if="needMenu"
+      >
+        <div class="header-head">
+          <p class="fw-700 text-center">
+            <a class="link" href="/">{{ brand }}</a>
+          </p>
+        </div>
+        <div class="header-main">
+          <div
+            class="header-item"
+            v-for="menuItem in menus"
+            :key="`menuItem-${menuItem.tag}`"
+          >
+            <p class="header-tag">{{ menuItem.tag }}</p>
+            <div class="menu">
+              <p
+                class="menu-item"
+                v-for="item in menuItem.item"
+                :key="item.text"
+                @click.capture="item.action"
+              >
+                <NuxtLink class="link" :to="item.link" v-ripple>
+                  {{ item.text }}
+                </NuxtLink>
+              </p>
+            </div>
           </div>
         </div>
-        <div class="header-user"></div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -84,6 +95,8 @@ export default {
         },
       ],
       brand: 'HAOV',
+      needBg: false,
+      needMenu: true,
     }
   },
   computed: {
@@ -96,15 +109,8 @@ export default {
   methods: {
     toggleHeader() {
       if (process.browser) {
-        const adminHeader = this.$refs['admin-header']
-        const responsiveBg = this.$refs['responsive-bg']
-        adminHeader.classList.toggle('admin-header--active-response')
-        const getResponsiveBgStyles = window.getComputedStyle(responsiveBg)
-        if (getResponsiveBgStyles.display == 'none') {
-          responsiveBg.style.display = 'block'
-        } else {
-          responsiveBg.style.display = 'none'
-        }
+        this.needMenu = !this.needMenu
+        this.needBg = !this.needBg
       }
     },
     handleMenuItemClick() {
@@ -117,6 +123,23 @@ export default {
 
       this.toggleHeader()
     },
+    onResize(e) {
+      if (window.innerWidth >= 768) {
+        this.needMenu = true
+      } else {
+        this.needMenu = false
+      }
+    },
+  },
+  mounted() {
+    if (process.browser) {
+      this.needMenu = window.innerWidth > 768 ? true : false
+
+      window.addEventListener('resize', this.onResize)
+    }
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
   },
 }
 </script>
@@ -139,7 +162,6 @@ export default {
   top: 0;
   left: 0;
   z-index: 1600;
-  transition: transform 0.3s ease-in;
 
   & > * {
     color: #fff;
@@ -231,7 +253,6 @@ export default {
 }
 
 .responsive-bg {
-  display: none;
   width: 150vw;
   height: 100vh;
   position: fixed;
@@ -245,5 +266,15 @@ export default {
   left: 0;
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 1500;
+}
+
+.fade-left-enter-active,
+.fade-left-leave-active {
+  transition: transform 0.3s ease-in;
+}
+
+.fade-left-enter,
+.fade-left-leave-to {
+  transform: translateX(calc(var(--menu-width) * -1));
 }
 </style>

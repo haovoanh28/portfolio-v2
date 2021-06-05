@@ -83,9 +83,6 @@ export default {
       }
     },
   },
-  computed: {
-    isMobile() {},
-  },
   mounted() {
     if (process.browser && window.innerWidth > 600) {
       const header = document.querySelector('.header')
