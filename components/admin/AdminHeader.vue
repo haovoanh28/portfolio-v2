@@ -99,12 +99,12 @@ export default {
         const adminHeader = this.$refs['admin-header']
         const responsiveBg = this.$refs['responsive-bg']
         adminHeader.classList.toggle('admin-header--active-response')
-        const getResponsiveBgStyles = window.getComputedStyle(responsiveBg)
-        if (getResponsiveBgStyles.display == 'none') {
-          responsiveBg.style.display = 'block'
-        } else {
-          responsiveBg.style.display = 'none'
-        }
+        // const getResponsiveBgStyles = window.getComputedStyle(responsiveBg)
+        // if (getResponsiveBgStyles.display == 'none') {
+        //   responsiveBg.style.display = 'block'
+        // } else {
+        //   responsiveBg.style.display = 'none'
+        // }
       }
     },
     handleMenuItemClick() {
