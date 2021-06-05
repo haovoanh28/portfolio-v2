@@ -5,7 +5,7 @@
 <script>
 // Use for pages that don't need layout
 export default {
-  middleware: ['auth']
+  middleware: ['no-auth'],
 }
 </script>
 

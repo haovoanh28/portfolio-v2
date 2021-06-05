@@ -130,6 +130,12 @@ export default {
   height: 100vh;
   width: var(--menu-width);
   position: fixed;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-perspective: 1000;
+  perspective: 1000;
   top: 0;
   left: 0;
   z-index: 1600;
@@ -229,6 +235,12 @@ export default {
   width: 150vw;
   height: 100vh;
   position: fixed;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-perspective: 1000;
+  perspective: 1000;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.4);

@@ -1,7 +1,7 @@
-import * as Cookies from 'js-cookie'
-import cookie from 'cookie'
+// import * as Cookies from 'js-cookie'
+// import cookie from 'cookie'
 
-export default function ({ req, store, redirect }) {
+export default function ({ store, redirect }) {
   if (!store.state.user.auth.accessToken) {
     return redirect('/admin/login')
   }
