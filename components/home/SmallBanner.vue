@@ -46,14 +46,14 @@ export default {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  display: grid;
-  place-items: center;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 
   div:nth-of-type(2) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+    z-index: 2;
     height: 55%;
   }
 
@@ -65,22 +65,13 @@ export default {
   }
 
   button {
+    margin-top: 3rem;
     z-index: 2;
-  }
-
-  @include medium_device {
-    button {
-      margin-top: 3rem;
-    }
   }
 
   @include extra_small_device {
     div:nth-of-type(2) {
       height: 70%;
-    }
-
-    button {
-      margin-top: 0;
     }
   }
 }
