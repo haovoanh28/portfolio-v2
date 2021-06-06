@@ -10,7 +10,7 @@
       </p>
     </div>
     <div class="form-group create-title">
-      <!-- <BaseInput
+      <BaseInput
         label="Title"
         placeholder="Type in post's title"
         name="title"
@@ -35,7 +35,7 @@
         name="brief"
         :value="brief"
         @input="handleInput"
-      /> -->
+      />
     </div>
     <div class="form-group create-select">
       <BaseSelect
