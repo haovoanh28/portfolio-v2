@@ -75,12 +75,6 @@ export default {
   [class^='overview-']:not(:first-of-type) {
     margin: 2rem 0 2.5rem 0;
   }
-
-  @include medium_device {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-overflow-scrolling: touch;
-  }
 }
 
 .overview-posts {

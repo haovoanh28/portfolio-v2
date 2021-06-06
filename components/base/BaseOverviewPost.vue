@@ -84,9 +84,6 @@ export default {
     width: 100%;
     max-width: 25rem;
     height: 15rem;
-    overflow: hidden;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     border-radius: 1rem;
     justify-self: center;
