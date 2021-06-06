@@ -97,6 +97,7 @@ export default {
       brand: 'HAOV',
       needBg: false,
       needMenu: true,
+      lastWidth: 0,
     }
   },
   computed: {
@@ -124,33 +125,31 @@ export default {
       this.toggleHeader()
     },
     onResize(e) {
-      // console.log('resizing')
-
-      if (window.innerWidth >= 768) {
-        this.needMenu = true
-      } else {
-        this.needMenu = false
+      if (this.lastWidth !== e.target.innerWidth) {
+        if (e.target.innerWidth >= 768) {
+          this.needMenu = true
+          this.needBg = false
+        } else {
+          this.needMenu = false
+          this.needBg = false
+        }
       }
     },
   },
   mounted() {
     if (process.browser) {
       this.needMenu = window.innerWidth > 768 ? true : false
-
-      // window.addEventListener('resize', this.onResize)
+      window.addEventListener('resize', this.onResize)
+      this.lastWidth = window.innerWidth
     }
   },
   beforeDestroy() {
-    // window.removeEventListener('resize', this.onResize)
+    window.removeEventListener('resize', this.onResize)
   },
 }
 </script>
 
 <style lang="scss" scoped>
-// --- RESET CLASSES ---
-
-// ---------------------
-
 .admin-header {
   height: 100vh;
   width: var(--menu-width);
