@@ -54,7 +54,6 @@ export default {
 
   div:nth-of-type(2) {
     z-index: 2;
-    height: 55%;
   }
 
   p {
@@ -67,12 +66,6 @@ export default {
   button {
     margin-top: 3rem;
     z-index: 2;
-  }
-
-  @include extra_small_device {
-    div:nth-of-type(2) {
-      height: 70%;
-    }
   }
 }
 </style>

@@ -6,7 +6,10 @@
       boxShadow: `0 0 .5px ${color}`,
     }"
   >
-    <p class="text-center fw-700 level text-center" :style="{ backgroundColor: color }">
+    <p
+      class="text-center fw-700 level text-center"
+      :style="{ backgroundColor: color }"
+    >
       {{ skillLevel }}
     </p>
     <div class="src flex-center">
@@ -63,7 +66,6 @@ export default {
   border-radius: 5px;
   svg {
     width: 100%;
-    height: 80%;
     margin: 0 auto;
   }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header header--scroll">
     <nav class="nav">
       <nuxt-link
         to="/#home"
@@ -111,7 +111,7 @@ export default {
   background-color: transparent;
   transition: background-color 0.5s ease-in-out;
   transition-property: background-color;
-  width: 100vw;
+  width: 100%;
   z-index: 999;
   border-bottom: 1px solid transparent;
 
