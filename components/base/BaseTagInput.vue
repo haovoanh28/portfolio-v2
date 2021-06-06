@@ -80,9 +80,6 @@ export default {
 }
 
 .tag {
-  &:not(:first-of-type) {
-  }
-
   span {
     display: inline-block;
 
