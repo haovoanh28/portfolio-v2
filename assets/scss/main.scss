@@ -35,8 +35,6 @@ html {
   box-sizing: border-box;
 
   @include extra_small_device {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
     font-size: 8.5px;
   }
 }
