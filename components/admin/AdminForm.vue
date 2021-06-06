@@ -10,7 +10,7 @@
       </p>
     </div>
     <div class="form-group create-title">
-      <BaseInput
+      <!-- <BaseInput
         label="Title"
         placeholder="Type in post's title"
         name="title"
@@ -35,7 +35,7 @@
         name="brief"
         :value="brief"
         @input="handleInput"
-      />
+      /> -->
     </div>
     <div class="form-group create-select">
       <BaseSelect
@@ -184,9 +184,6 @@ export default {
   text-transform: uppercase;
   margin-bottom: 2.4rem;
   font-size: 2rem;
-}
-
-.post-create {
 }
 
 .form-group:not(:last-of-type) {
