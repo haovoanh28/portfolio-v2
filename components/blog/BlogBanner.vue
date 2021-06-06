@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-banner" :style="bannerStyleObj">
+  <div class="blog-banner flex-center" :style="bannerStyleObj">
     <div class="bg-overlay" :style="overlayStyleObj"></div>
     <div class="blog-banner__wrapper text-center">
       <p class="fw-700 text-capitalize banner-title">{{ title }}</p>
@@ -68,8 +68,6 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  display: grid;
-  place-items: center;
 }
 
 .blog-banner__wrapper {
