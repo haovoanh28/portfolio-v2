@@ -124,6 +124,8 @@ export default {
       this.toggleHeader()
     },
     onResize(e) {
+      // console.log('resizing')
+
       if (window.innerWidth >= 768) {
         this.needMenu = true
       } else {
@@ -135,11 +137,11 @@ export default {
     if (process.browser) {
       this.needMenu = window.innerWidth > 768 ? true : false
 
-      window.addEventListener('resize', this.onResize)
+      // window.addEventListener('resize', this.onResize)
     }
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.onResize)
+    // window.removeEventListener('resize', this.onResize)
   },
 }
 </script>
