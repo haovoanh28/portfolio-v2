@@ -1,6 +1,6 @@
 <template>
   <div class="admin">
-    <AdminHeader />
+    <!-- <AdminHeader /> -->
     <div class="admin-main">
       <Nuxt />
     </div>
