@@ -1,5 +1,5 @@
 <template>
-  <div class="header header--scroll">
+  <div class="header">
     <nav class="nav">
       <nuxt-link
         to="/#home"
