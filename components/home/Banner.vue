@@ -16,6 +16,7 @@
         hoverMode="grab"
         :clickEffect="false"
         clickMode="bubble"
+        v-if="!$device.isMobile"
       >
       </vue-particles>
     </div>

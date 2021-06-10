@@ -83,6 +83,10 @@ export default {
 <style lang="scss">
 #home {
   min-height: 100vh;
+
+  @include extra_small_device {
+    min-height: 91vh;
+  }
 }
 
 #about {

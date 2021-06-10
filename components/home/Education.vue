@@ -61,12 +61,10 @@ export default {
   },
   computed: {
     formattedSrc() {
-      if (process.browser && window) {
-        if (window.outerWidth < 600) {
-          return '/images/hired-bg-500w.jpg'
-        } else {
-          return '/images/hired-bg-1000w.jpg'
-        }
+      if (this.$device.isMobile) {
+        return '/images/hired-bg-500w.jpg'
+      } else {
+        return '/images/hired-bg-1000w.jpg'
       }
     },
   },

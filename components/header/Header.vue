@@ -84,7 +84,7 @@ export default {
     },
   },
   mounted() {
-    if (process.browser && window.innerWidth > 600) {
+    if (process.browser && !this.$device.isMobile) {
       const header = document.querySelector('.header')
       window.addEventListener('scroll', (e) => {
         if (window.scrollY > 50) {
