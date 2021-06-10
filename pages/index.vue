@@ -53,9 +53,11 @@ export default {
           const sectionId = entry.target.getAttribute('id')
           if (entry.isIntersecting) {
             const hashSectionId = `#${sectionId}`
-            if (window.location.hash !== hashSectionId) {
+            if (
+              window.location.hash !== hashSectionId &&
+              !this.$device.isMobile
+            ) {
               window.history.pushState({}, {}, `/${hashSectionId}`)
-              // parent.location.hash = sectionId`#${sectionId}`
             }
             navLinks.forEach((navLink) => {
               navLink.classList.remove('nuxt-link-exact-active')
