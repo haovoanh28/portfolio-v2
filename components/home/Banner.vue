@@ -3,7 +3,7 @@
     <div class="bg-overlay">
       <vue-particles
         color="#fff"
-        :particlesNumber="$device.isMobile ? 50 : 150"
+        :particlesNumber="$device.isMobile ? 75 : 150"
         shapeType="circle"
         :particleSize="5"
         linesColor="#fff"
