@@ -3,7 +3,7 @@
     <div class="bg-overlay">
       <vue-particles
         color="#fff"
-        :particlesNumber="150"
+        :particlesNumber="$device.isMobile ? 50 : 150"
         shapeType="circle"
         :particleSize="5"
         linesColor="#fff"
@@ -16,7 +16,6 @@
         hoverMode="grab"
         :clickEffect="false"
         clickMode="bubble"
-        v-if="!$device.isMobile"
       >
       </vue-particles>
     </div>
