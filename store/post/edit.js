@@ -21,11 +21,11 @@ export const actions = {
       commit('SET_LOADING')
       const response = await this.$api.put(`/posts/${post._id}`, { ...post })
       console.log(response)
+      this.$successSwal('Post has been edited')
     } catch (err) {
       console.log(err)
       this.$errorSwal('Failed to edit post, please try again !')
     } finally {
-      this.$successSwal('Post has been edited')
       commit('SET_LOADED')
     }
   },

@@ -20,11 +20,11 @@ export const actions = {
     try {
       commit('SET_LOADING')
       const response = await this.$api.post('/posts', { ...post })
+      this.$successSwal('Post has been created')
     } catch (err) {
       console.log(err)
       this.$errorSwal('Failed to create new post, please try again !')
     } finally {
-      this.$successSwal('Post has been created')
       commit('SET_LOADED')
     }
   },
