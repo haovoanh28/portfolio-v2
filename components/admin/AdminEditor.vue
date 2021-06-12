@@ -45,7 +45,7 @@ export default {
            alignleft aligncenter alignright alignjustify | \
            bullist numlist outdent indent | removeformat | preview code help',
         content_style:
-          'html { font-size: 17px; word-spacing: 1px; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; box-sizing: border-box; scroll-behavior: smooth; } body { font-family: Nunito, san-serif !important; font-size: inherit; margin: 1rem } *, *::before, *::after { box-sizing: inherit; margin: 0; padding: 0; font-family: inherit; font-weight: inherit } *::selection { background: rgba(166, 175, 189, 0.3);}  ul,ol {margin:0 50px}',
+          "@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap'); html { font-size: 17px; word-spacing: 1px; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; box-sizing: border-box; scroll-behavior: smooth; } body { font-family: Nunito, san-serif !important; font-size: inherit; margin: 1rem } *, *::before, *::after { box-sizing: inherit; margin: 0; padding: 0; } *::selection { background: rgba(166, 175, 189, 0.3);}  ul,ol {margin:0 50px}",
         mobile: {
           toolbar_drawer: 'floating',
         },
