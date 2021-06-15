@@ -8,21 +8,22 @@
       <h4>Total Posts: {{ postsCount }}</h4>
     </div>
     <div class="overview-posts">
-      <!-- <transition-group name="list" tag="div"> -->
-      <div
-        class="overview-post"
-        v-for="post in posts"
-        :key="`admin-overview-post-${post._id}`"
-      >
-        <BaseOverviewPost
-          :post="post"
-          isAdmin
-          :isDeleting="isDeleting && post._id === id"
-          @delete-post="handleDeletePost"
-          @edit-post="handleEditPost"
-        />
-      </div>
-      <!-- </transition-group> -->
+      <transition-group name="list" tag="div">
+        <div
+          class="overview-post"
+          v-for="post in posts"
+          :key="`admin-overview-post-${post._id}`"
+        >
+          <BaseOverviewPost
+            :post="post"
+            isAdmin
+            :isDeleting="ids.includes(post._id)"
+            @delete-post="handleDeletePost"
+            @edit-post="handleEditPost"
+            :key="`admin-overview-post-${post._id}`"
+          />
+        </div>
+      </transition-group>
     </div>
   </div>
 </template>
@@ -34,7 +35,7 @@ export default {
   layout: 'admin',
   data() {
     return {
-      id: '',
+      ids: [],
     }
   },
   computed: {
@@ -55,8 +56,10 @@ export default {
       })
 
       if (choice.isConfirmed) {
-        this.id = id
+        this.ids.push(id)
         await this.deletePostAsync(id)
+        const idxOfId = this.ids.indexOf(id);
+        this.ids.splice(idxOfId, 1);
       }
     },
     handleEditPost({ id }) {

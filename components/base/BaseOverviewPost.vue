@@ -20,7 +20,7 @@
         small
         noBorder
         isIcon
-        :disabled="isDeleting"
+        :isDisabled="isDeleting"
         @click="handleEditPost"
       >
         <v-icon name="regular/edit" />
@@ -31,7 +31,7 @@
         noBorder
         isIcon
         :isLoading="isDeleting"
-        :disabled="isDeleting"
+        :isDisabled="isDeleting"
         @click="handleDeletePost"
       >
         <v-icon name="regular/trash-alt" />
@@ -59,6 +59,10 @@ export default {
     isDeleting: {
       type: Boolean,
       default: () => false,
+    },
+    id: {
+      type: String,
+      default: () => '',
     },
   },
   methods: {

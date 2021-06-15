@@ -4,7 +4,7 @@
     :class="classObj"
     v-bind="$attrs"
     v-on="$listeners"
-    :disabled="isLoading"
+    :disabled="isLoading || isDisabled"
     v-ripple
   >
     <template v-if="isLoading">
@@ -67,6 +67,10 @@ export default {
       default: () => false,
     },
     isIcon: {
+      type: Boolean,
+      default: () => false,
+    },
+    isDisabled: {
       type: Boolean,
       default: () => false,
     },

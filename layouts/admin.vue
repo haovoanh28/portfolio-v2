@@ -9,11 +9,22 @@
 
 <script>
 import AdminHeader from '@/components/admin/AdminHeader'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   middleware: 'auth',
   components: {
     AdminHeader,
+  },
+  computed: {
+    ...mapState('user/auth', ['user']),
+  },
+  methods: {
+    ...mapActions('user/get', ['getUserInfoAsync']),
+  },
+  mounted() {
+    console.log(this.user)
+    this.getUserInfoAsync(this.user._id)
   },
 }
 </script>

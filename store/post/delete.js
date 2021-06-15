@@ -1,3 +1,5 @@
+import delay from '../../assets/js/delay'
+
 export const state = () => {
   return {
     isDeleting: false,
@@ -19,6 +21,7 @@ export const actions = {
   async deletePostAsync({ commit }, postId) {
     try {
       commit('SET_LOADING')
+      await delay(10000)
       const response = await this.$api.delete(`/posts/${postId}`)
       commit('post/get/DELETE_POST', postId, { root: true })
       await this.$swal.fire({
@@ -27,9 +30,6 @@ export const actions = {
       })
     } catch (err) {
       console.log(err)
-      // this.$errorSwal.fire({
-      //   title: `<span style="color: #fff !important">Something went wrong</span>`,
-      // })
       this.$errorSwal('Failed to delete post, please try again !')
     } finally {
       commit('SET_LOADED')
