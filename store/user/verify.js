@@ -1,6 +1,6 @@
 export const state = () => {
   return {
-    isGetting: false,
+    isVerifying: true,
   }
 }
 
@@ -8,15 +8,15 @@ export const getters = {}
 
 export const mutations = {
   SET_LOADING(state) {
-    state.isGetting = true
+    state.isVerifying = true
   },
   SET_LOADED(state) {
-    state.isGetting = false
+    state.isVerifying = false
   },
 }
 
 export const actions = {
-  async getUserInfoAsync({ commit, dispatch }, userId) {
+  async verifyUserAsync({ commit, dispatch }, userId) {
     try {
       commit('SET_LOADING')
       await this.$api.get(`/users/${userId}`)

@@ -3,8 +3,9 @@
     <template v-if="localLoading">
       <BaseSpinner fullScreen />
     </template>
-    <template v-show="!localLoading">
+    <template>
       <AdminForm
+        v-show="!localLoading"
         v-bind="post"
         @ed-loaded="handleEdLoaded"
         @post-data-change="handlePostDataChange"
@@ -39,8 +40,7 @@ export default {
 
     onMounted(() => {
       context.$toast.fire({
-        html:
-          '<p>Keep it up!</p><br /><p>Happy writing &#128178; &#128178; &#128178; </p>',
+        html: '<p>Keep it up!</p><br /><p>Happy writing &#128178; &#128178; &#128178; </p>',
         timerProgressBar: false,
       })
     })

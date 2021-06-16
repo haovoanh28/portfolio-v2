@@ -2,7 +2,10 @@
   <div class="admin">
     <AdminHeader />
     <div class="admin-main">
-      <Nuxt />
+      <div class="admin-verify flex-center" v-if="isVerifying">
+        <BaseSpinner fullScreen title="Verifying before continue ..." />
+      </div>
+      <Nuxt v-else />
     </div>
   </div>
 </template>
@@ -16,15 +19,20 @@ export default {
   components: {
     AdminHeader,
   },
+  data() {
+    return {
+      isLoading: true,
+    }
+  },
   computed: {
     ...mapState('user/auth', ['user']),
+    ...mapState('user/verify', ['isVerifying']),
   },
   methods: {
-    ...mapActions('user/get', ['getUserInfoAsync']),
+    ...mapActions('user/verify', ['verifyUserAsync']),
   },
   fetch() {
-    console.log(this.user)
-    this.getUserInfoAsync(this.user._id)
+    this.verifyUserAsync(this.user._id)
   },
 }
 </script>
@@ -40,9 +48,11 @@ export default {
 .admin {
   display: grid;
   grid-template-columns: 1fr;
+}
 
-  @include medium_device {
-  }
+.admin-verify {
+  flex-direction: column;
+  height: 100vh;
 }
 
 .admin-main {

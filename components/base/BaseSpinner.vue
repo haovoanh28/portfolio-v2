@@ -1,6 +1,11 @@
 <template>
-  <div class="spinner" :class="classObj">
-    <AtomSpinner color="#f0050d" />
+  <div class="spinner-container" :class="classObj">
+    <div class="spinner">
+      <AtomSpinner color="#f0050d" />
+    </div>
+    <h2 class="spinner-title" v-if="title">
+      {{ title }}
+    </h2>
   </div>
 </template>
 
@@ -15,6 +20,10 @@ export default {
       type: Boolean,
       default: () => false,
     },
+    title: {
+      type: String,
+      default: () => '',
+    },
   },
   computed: {
     classObj() {
@@ -27,6 +36,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.spinner-container {
+  position: relative;
+}
+
+.spinner {
+  position: absolute;
+}
+
+.spinner-title {
+  margin-bottom: 13.85rem;
+}
+
 .full-screen {
   position: sticky;
   width: 100%;
