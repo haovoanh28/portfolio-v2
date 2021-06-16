@@ -22,7 +22,7 @@ export default {
   methods: {
     ...mapActions('user/get', ['getUserInfoAsync']),
   },
-  mounted() {
+  fetch() {
     console.log(this.user)
     this.getUserInfoAsync(this.user._id)
   },
