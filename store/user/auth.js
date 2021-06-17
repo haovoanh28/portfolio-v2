@@ -52,7 +52,7 @@ const actions = {
     try {
       commit('SET_LOADING')
 
-      await delay(3000)
+      await delay(500)
 
       commit('SET_USER', {})
       commit('SET_ACCESS_TOKEN', '')

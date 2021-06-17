@@ -19,7 +19,7 @@ export const actions = {
   async verifyUserAsync({ commit, dispatch }, userId) {
     try {
       commit('SET_LOADING')
-      await this.$api.get(`/users/${userId}`)
+      const response = await this.$api.get(`/users/${userId}`)
     } catch (err) {
       console.log(err)
       dispatch('user/auth/logoutAsync', {}, { root: true })
