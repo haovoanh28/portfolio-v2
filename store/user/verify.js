@@ -1,6 +1,6 @@
 export const state = () => {
   return {
-    isVerifying: true,
+    isVerifying: false,
   }
 }
 
@@ -23,7 +23,7 @@ export const actions = {
     } catch (err) {
       console.log(err)
       dispatch('user/auth/logoutAsync', {}, { root: true })
-      this.$errorSwal('Failed to get information')
+      this.$errorSwal('Your session has expired')
     } finally {
       commit('SET_LOADED')
     }
