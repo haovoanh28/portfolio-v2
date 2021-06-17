@@ -19,11 +19,6 @@ export default {
   components: {
     AdminHeader,
   },
-  data() {
-    return {
-      isLoading: true,
-    }
-  },
   computed: {
     ...mapState('user/auth', ['user']),
     ...mapState('user/verify', ['isVerifying']),
@@ -31,8 +26,8 @@ export default {
   methods: {
     ...mapActions('user/verify', ['verifyUserAsync']),
   },
-  fetch() {
-    this.verifyUserAsync(this.user._id)
+  async fetch() {
+    await this.verifyUserAsync(this.user._id)
   },
 }
 </script>
