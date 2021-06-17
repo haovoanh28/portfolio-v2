@@ -1,6 +1,6 @@
 export const state = () => {
   return {
-    isVerifying: false,
+    isVerifying: true,
   }
 }
 

@@ -26,11 +26,10 @@ export default {
   methods: {
     ...mapActions('user/verify', ['verifyUserAsync']),
   },
-  async fetch() {
+  async mounted() {
     console.log('verifyingggg')
     await this.verifyUserAsync(this.user._id)
   },
-  fetchOnServer: false,
 }
 </script>
 
