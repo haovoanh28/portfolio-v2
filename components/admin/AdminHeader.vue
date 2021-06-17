@@ -96,7 +96,7 @@ export default {
       ],
       brand: 'HAOV',
       needBg: false,
-      needMenu: true,
+      needMenu: !this.$device.isMobileOrTablet,
       lastWidth: 0,
     }
   },
