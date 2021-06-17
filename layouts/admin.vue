@@ -27,8 +27,10 @@ export default {
     ...mapActions('user/verify', ['verifyUserAsync']),
   },
   async fetch() {
+    console.log('verifyingggg')
     await this.verifyUserAsync(this.user._id)
   },
+  fetchOnServer: false,
 }
 </script>
 

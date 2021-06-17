@@ -20,6 +20,9 @@ export const actions = {
     try {
       commit('SET_LOADING')
       const response = await this.$api.get(`/users/${userId}`)
+      if (response.data.statusCode == '403') {
+        dispatch('user/auth/logoutAsync', {}, { root: true })
+      }
       console.log('response', response.data)
     } catch (err) {
       console.log(err)
