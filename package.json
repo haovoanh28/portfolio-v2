@@ -22,7 +22,6 @@
     "nuxt": "^2.15.3",
     "sweetalert2": "^10.16.7",
     "vue-awesome": "^4.1.0",
-    "vue-content-loader": "^0.2.3",
     "vue-content-placeholders": "^0.2.1",
     "vue-lazy-hydration": "^2.0.0-beta.4",
     "vue-ripple-directive": "^2.0.1",

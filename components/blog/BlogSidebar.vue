@@ -17,6 +17,7 @@
       <content-placeholders
         v-for="index in 3"
         :key="`sidebar-placeholder-${index}`"
+        :animated="!$device.isMobile"
       >
         <content-placeholders-heading :img="true" />
         <content-placeholders-text :lines="3" />
