@@ -1,6 +1,6 @@
 import delay from './delay.js'
 
-const words = ['Anh Hao.', 'A Developer.', 'A Writer.']
+const words = ['Anh Hao.', 'A Developer.', 'A Blogger.']
 let i = 0
 let timer
 

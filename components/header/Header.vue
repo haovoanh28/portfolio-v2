@@ -107,6 +107,7 @@ export default {
   transform: translate3d(0, 0, 0);
   -webkit-perspective: 1000;
   perspective: 1000;
+  will-change: transform;
   top: 0;
   background-color: transparent;
   transition: background-color 0.5s ease-in-out;
@@ -157,7 +158,7 @@ export default {
   display: grid;
   grid-template-columns: 40% 58%;
   align-items: center;
-  transition: all 0.35s linear;
+  transition: all 0.35s ease-in-out;
 
   a {
     text-transform: capitalize;
@@ -191,7 +192,6 @@ export default {
   height: 4rem;
   justify-self: flex-end;
   display: none;
-  z-index: 10;
   z-index: 2000;
 
   div:nth-of-type(2) {
@@ -200,7 +200,7 @@ export default {
     position: relative;
     border-radius: 1.8rem;
     align-self: flex-end;
-    transition: all 0.1s linear;
+    transition: all 0.1s ease-in-out;
   }
 
   div:nth-of-type(1) {
@@ -209,7 +209,7 @@ export default {
     height: 1px;
     display: block;
     transform: translateY(-6px);
-    transition: all 0.1s linear;
+    transition: all 0.1s ease-in-out;
   }
 
   div:nth-of-type(3) {
@@ -218,7 +218,7 @@ export default {
     height: 1px;
     display: block;
     transform: translateY(6px);
-    transition: all 0.1s linear;
+    transition: all 0.1s ease-in-out;
   }
 
   &:hover {
@@ -278,12 +278,13 @@ export default {
     position: absolute;
     transform: translateX(-120%) translateY(5.5rem);
     z-index: 1000;
+    will-change: transform;
     background-color: #fff;
     width: 100%;
     display: flex;
     flex-direction: column;
     padding-left: calc(var(--nav-margin) + 2.4px);
-    transition: all 0.2s linear;
+    transition: all 0.2s ease-in-out;
     box-shadow: 5px 2.5px 1px rgba(0, 0, 0, 0.2);
 
     li {
@@ -317,7 +318,7 @@ export default {
       left: 50%;
       transform: translate(-50%, 50%) scale(0.5, 0.5);
       opacity: 0;
-      transition: all 0.3s;
+      transition: all 0.3s ease-in-out;
     }
   }
 

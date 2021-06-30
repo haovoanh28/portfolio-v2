@@ -146,7 +146,7 @@ export default {
   }
 
   @include extra_small_device {
-    font-size: 5rem;
+    font-size: 4.5rem;
     margin-top: 2rem;
   }
 }

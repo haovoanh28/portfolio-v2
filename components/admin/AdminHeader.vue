@@ -160,6 +160,7 @@ export default {
   transform: translate3d(0, 0, 0);
   -webkit-perspective: 1000;
   perspective: 1000;
+  will-change: transform;
   top: 0;
   left: 0;
   z-index: 1600;
@@ -263,6 +264,7 @@ export default {
   transform: translate3d(0, 0, 0);
   -webkit-perspective: 1000;
   perspective: 1000;
+  will-change: transform;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.4);
